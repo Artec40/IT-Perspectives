@@ -1,0 +1,7 @@
+.app-wrapper {
+    display: grid;
+    grid-template-areas: "h" "b" "f";
+    grid-template-columns: 1fr;
+    grid-template-rows: 4vh 82vh 14vh;
+}
+

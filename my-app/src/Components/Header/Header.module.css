@@ -1,0 +1,21 @@
+.Header {
+    grid-area: h;
+    background-color: #00B49B;
+    height: 4vh;
+    display: grid;
+    grid-template-areas: "im it";
+    grid-template-columns: 5fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.item a {
+    grid-area: it;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: left;
+}
+
+.item img {
+    grid-area: im;
+    width: 50px;
+}
