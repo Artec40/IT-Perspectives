@@ -1,7 +1,8 @@
 .app-wrapper {
     display: grid;
-    grid-template-areas: "h" "b" "f";
+    background-color: #ECECE9;
+    grid-template-areas: "h" "i" "f";
     grid-template-columns: 1fr;
-    grid-template-rows: 4vh 82vh 14vh;
+    grid-template-rows: 50px 732px 186px;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './Header.module.css'
-import icon from './icon_arnold.png'
+import icon from './favicon.ico'
 
 const Header = () => {
     return (

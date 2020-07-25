@@ -2,13 +2,13 @@ import React from 'react'
 import './App.css'
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
-import Body from './Components/Body/Body'
+import Index from './Components/Index/Index'
 
 function App() {
     return (
         <div className="app-wrapper">
             <Header/>
-            <Body/>
+            <Index/>
             <Footer/>
         </div>
     )
