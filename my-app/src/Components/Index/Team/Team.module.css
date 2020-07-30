@@ -1,3 +1,20 @@
 .Team {
-grid-area: tm;
+    grid-area: tm;
+    display: grid;
+    grid-template-areas: 't t t' 'emp emp emp' 'art art art';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 120px 300px 300px;
+    background: #FFFFFF;
+    text-align: center;
+    padding-left: 193px;
+    padding-right: 209px;
+}
+
+.title {
+    grid-area: t;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 89px;
+    color: #00B49B;
 }

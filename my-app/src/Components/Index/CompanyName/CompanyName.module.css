@@ -1,5 +1,6 @@
 .CompanyName {
     grid-area: cn;
+    z-index:3;
     align-items: center;
     text-align: left;
     display: grid;

@@ -3,7 +3,7 @@
     background-color: #ECECE9;
     grid-row: 2/4;
     display: grid;
-    grid-template-areas: 'cn' 'desc' 'pr' 'tm';
+    grid-template-areas: 'cn' 'desc' 'lpr' 'tm';
     grid-template-columns: 1fr;
     grid-template-rows: 480px 480px 1020px 720px 240px;
 }

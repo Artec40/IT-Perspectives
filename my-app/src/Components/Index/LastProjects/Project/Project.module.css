@@ -1,0 +1,14 @@
+.Project a {
+    grid-area: pr;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 89px;
+    color: #00B49B;
+}
+
+.Project img {
+    border: 10px solid #FFFFFF;
+    border-radius: 225px;
+    width: 345px;
+}

@@ -1,0 +1,52 @@
+.Article {
+    background: #ECECE9;
+    box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.07);
+    margin: 80px 25px 50px;
+}
+
+.Article a {
+    grid-area: art;
+    display: grid;
+    grid-template-areas: 't t' 'img d' 'img n' 'img l';
+    grid-template-columns: 65px 1fr;
+    grid-template-rows: 110px 17px 17px 17px;
+    text-align:left;
+    padding-left: 10px;
+
+}
+
+.Article img {
+    grid-area: img;
+    width: 48px;
+    border-radius: 75px;
+}
+
+.time .name .text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    color: #000000;
+}
+
+.time {
+    grid-area: d;
+}
+
+.name {
+    grid-area: n;
+}
+
+.text {
+    grid-area: t;
+}
+
+.link {
+    grid-area: l;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
+    color: #00B49B;
+    text-decoration-line: underline;
+}
