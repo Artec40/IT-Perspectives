@@ -2,9 +2,9 @@ import React from 'react'
 import s from './Team.module.css'
 import Article from './Article/Article'
 import Employee from './Employee/Employee'
-import img1 from './Employee/Worker.jpg'
-import img2 from './Employee/Worker2.jpg'
-import img3 from './Employee/Worker3.jpg'
+import img1 from './Worker.jpg'
+import img2 from './Worker2.jpg'
+import img3 from './Worker3.jpg'
 
 const Team = () => {
     return <div className={s.Team}>

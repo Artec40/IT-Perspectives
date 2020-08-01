@@ -1,10 +1,10 @@
 import React from 'react'
 import s from './LastProjects.module.css'
 import Project from './Project/Project'
-import img1 from './Project/WorksInfo.jpg'
-import img2 from './Project/WorksInfo2.jpg'
-import img3 from './Project/WorksInfo3.jpg'
-
+import img1 from './WorksInfo.jpg'
+import img2 from './WorksInfo2.jpg'
+import img3 from './WorksInfo3.jpg'
+//todo убрать лишние дивы, которые были созданы для верстки.
 const LastProjects = () => {
     return <div className={s.LastProjects}>
         <div className={s.title}>ПОСЛЕДНИЕ РАБОТЫ</div>

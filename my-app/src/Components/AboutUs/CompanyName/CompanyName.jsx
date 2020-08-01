@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './CompanyName.module.css'
-import icon from '../../Header/favicon.ico'
+import icon from './favicon.ico'
 
 const CompanyName = () => {
     return (<div className={s.CompanyName}>

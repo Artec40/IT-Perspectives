@@ -8,7 +8,6 @@ import instagram from './icon_instagram.png'
 
 const Footer = () => {
     return (
-        /*Пустой див с img - это партак для выравнивания в css - смотри грид сетку. PS: нужно подправить( */
         <div className={s.Footer}>
             <div className={s.text}>Узнать больше</div>
             <div className={s.item}><img /></div>

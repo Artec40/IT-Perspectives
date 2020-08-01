@@ -1,7 +1,7 @@
 .LastProjects {
     z-index: 1;
     grid-area: lpr;
-    background-image: url('BackgroundWorkInfo.jpg');
+    background-image: url('/public/BackgroundWorkInfo.jpg');
     background-size: 1500px 1500px;
     text-align: center;
     display: grid;
