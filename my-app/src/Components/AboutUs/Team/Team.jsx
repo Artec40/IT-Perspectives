@@ -2,22 +2,18 @@ import React from 'react'
 import s from './Team.module.css'
 import Article from './Article/Article'
 import Employee from './Employee/Employee'
-import img1 from './Worker.jpg'
-import img2 from './Worker2.jpg'
-import img3 from './Worker3.jpg'
 
-const Team = () => {
+const Team = (props) => {
+
+    let employeesElements = props.state.map((e) => <Employee image={e.image} title={e.name}/>)
+    let articlesElements = props.state.map((e) => <Article text={e.text} day={e.day} name={e.name} image={e.image}
+                                                           link={e.link}/>)
+
     return <div className={s.Team}>
         <div className={s.title}>НАША КОМАНДА</div>
-        <Employee image={img1} title={'Вася'}/>
-        <Employee image={img2} title={'Петя'}/>
-        <Employee image={img3} title={'Ихтиандр'}/>
-        <Article text={'Yeah buddy Light Weight baby'} time={'1 ноября 2018г.'} name={'Вася'} image={img1}
-                 link={'@ArnieLightWeight'}/>
-        <Article text={'Yeah buddy Light Weight baby'} time={'1 ноября 2017г.'} name={'Петя'} image={img2}
-                 link={'@RonnyLightWeight'}/>
-        <Article text={'Yeah buddy Light Weight baby'} time={'1 ноября 2016г.'} name={'Вася'} image={img3}
-                 link={'@GudokLightWeight'}/>
+        {employeesElements}
+        {articlesElements}
+
     </div>
 }
 

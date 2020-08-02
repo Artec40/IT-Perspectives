@@ -1,11 +1,10 @@
 import React from 'react'
 import s from './CompanyName.module.css'
-import icon from './favicon.ico'
 
-const CompanyName = () => {
+const CompanyName = (props) => {
     return (<div className={s.CompanyName}>
-            <div><img src={icon}/></div>
-            <div>ИТ Перспективы</div>
+            <div><img src={props.logo}/></div>
+            <div>{props.name}</div>
         </div>
     )
 }

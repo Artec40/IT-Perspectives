@@ -1,14 +1,10 @@
 import React from 'react'
 import s from './Description.module.css'
 
-const Description = () => {
+const Description = (props) => {
     return (<div className={s.Description}>
-            <div className={`${s.Description} ${s.title}`}> МЫ СОЗДАЕМ БЛА БЛА БЛА</div>
-            <div> Все наблюдения привели к тому, что стало понятно – вся музыка уйдет в цифровой формат. Позже стало
-                ясно, что доминирующим форматом станет mp3, и пользователь не оценит качества других форматов. С точки
-                зрения потребительских свойств ему [пользователю] mp3 вполне достаточно. Но mp3 лишен эмоциональной
-                составляющей, к которой я привык, как меломан. Для поколения постарше выход альбома любимого артиста
-                всегда был событием. Событием культурным.
+            <div className={`${s.Description} ${s.title}`}> {props.title}</div>
+            <div> {props.text}
             </div>
         </div>
     )
