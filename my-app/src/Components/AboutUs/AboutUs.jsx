@@ -6,6 +6,7 @@ import LastProjects from './LastProjects/LastProjects'
 import Team from './Team/Team'
 
 const AboutUs = (props) => {
+    debugger
     return <div className={s.AboutUs}>
         <CompanyName name={props.state.companyName.name} logo={props.state.companyName.logo}/>
         <Description title={props.state.description.title} text={props.state.description.text}/>

@@ -8,7 +8,6 @@ import { Route } from 'react-router-dom'
 import SupportPrice from './components/SupportPrice/SupportPrice'
 import Contacts from './components/Contacts/Contacts'
 
-//todo Картинки нужно перенести в public, но мешает ошибка - выход за пределы  src.
 //todo Нужно обновить верстку, DRY!!!111 И хэдер съезжает в зависимости от колёсика прокрутки.
 function App(props) {
     return (
