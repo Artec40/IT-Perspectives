@@ -3,7 +3,7 @@
     background-color: #ECECE9;
     grid-template-areas: "h" "i" "f";
     grid-template-columns: 1fr;
-    grid-template-rows: 50px auto 186px;
+    grid-template-rows: 50px minmax(733px,auto) 186px;
 }
 
 .app-wrapper-content{
