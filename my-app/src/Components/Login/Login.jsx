@@ -1,12 +1,12 @@
 import React from 'react'
 import s from './Login.module.css'
 import Title from './Title/Title'
-import LoginWindow from './LoginWindow/LoginWindow'
+import LoginWindowContainer from './LoginWindow/LoginWindowContainer'
 
-const Login = () => {
+const Login = (props) => {
     return <div className={s.Login}>
         <Title title={'Вход'}/>
-        <LoginWindow/>
+        <LoginWindowContainer store={props.store}/>
     </div>
 }
 

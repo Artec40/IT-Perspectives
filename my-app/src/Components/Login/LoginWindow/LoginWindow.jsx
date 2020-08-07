@@ -2,15 +2,33 @@ import React from 'react'
 import s from './LoginWindow.module.css'
 import { NavLink } from 'react-router-dom'
 
-//todo страница forgottenPassword не разработана
-const LoginWindow = () => {
+//todo страница forgottenPassword не разработана, вертска не соответствует макету.
+const LoginWindow = (props) => {
+
+    let onChangeName = (e) => {
+        let name = e.target.value
+        props.updateLoginText(name)
+    }
+
+    let onChangePassword = (e) => {
+        let password = e.target.value
+        props.updatePasswordText(password)
+    }
+
+    let onClick = () => {
+        debugger
+        props.loginEnter()
+    }
+
     return <div className={s.LoginWindow}>
         <div>Имя пользователя</div>
-        <textarea placeholder={'Имя пользователя'}> </textarea>
+        <textarea onChange={onChangeName} value={props.textNameValue} placeholder={'Имя пользователя'}> </textarea>
         <div>Пароль</div>
         <div><NavLink to={'./forgottenPassword'}>Забыли пароль?</NavLink></div>
-        <textarea placeholder={'Пароль'}> </textarea>
-        <div><button> Войти</button></div>
+        <textarea onChange={onChangePassword} value={props.textPasswordValue} placeholder={'Пароль'}> </textarea>
+        <div>
+            <button onClick={onClick}>Войти</button>
+        </div>
     </div>
 }
 

@@ -13,15 +13,15 @@ import Login from './components/Login/Login'
 function App(props) {
     return (
         <div className="app-wrapper">
-            <Header state={props.state.header}/>
+            <Header state={props.store.getState().header}/>
             <div className={'app-wrapper-content'}>
-                <Route path={'/aboutUs'} render={() => <AboutUs state={props.state.mainPage}/>}/>
+                <Route path={'/aboutUs'} render={() => <AboutUs state={props.store.getState().mainPage}/>}/>
                 <Route path={'/services'} render={() => <Services/>}/>
                 <Route path={'/supportPrice'} render={() => <SupportPrice/>}/>
                 <Route path={'/contacts'} render={() => <Contacts/>}/>
-                <Route path={'/login'} render={() => <Login/>}/>
+                <Route path={'/login'} render={() => <Login store={props.store}/>}/>
             </div>
-            <Footer state={props.state.footer}/>
+            <Footer state={props.store.getState().footer}/>
         </div>
     )
 }

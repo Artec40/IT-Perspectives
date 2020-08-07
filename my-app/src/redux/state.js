@@ -1,3 +1,5 @@
+import loginReducer from '.././login-reducer'
+
 let store = {
     _state: {
         header: {
@@ -54,6 +56,15 @@ let store = {
                 }
             ]
 
+        },
+        login: {
+            users: [
+                {id: 1, name: 'user1', password: 'user1', status: false},
+                {id: 2, name: 'user2', password: 'user2', status: false},
+                {id: 3, name: 'user3', password: 'user3', status: false}
+            ],
+            textName: '',
+            textPassword: ''
         }
     },
 
@@ -61,16 +72,17 @@ let store = {
         return this._state
     },
 
-    _callSubscriber (){
+    _callSubscriber() {
 
     },
 
-    subscribe(observer){
-      this._callSubscriber = observer
+    subscribe(observer) {
+        this._callSubscriber = observer
     },
 
-    dispatch(action){
-
+    dispatch(action) {
+        this._state.login = loginReducer(this._state.login, action)
+        this._callSubscriber()
     }
 }
 
