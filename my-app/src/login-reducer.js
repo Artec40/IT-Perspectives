@@ -1,6 +1,6 @@
-const LOG_IN = 'LOG IN'
-const TEXTNAME_CHANGE = 'TEXTNAME CHANGE'
-const TEXTPASSWORD_CHANGE = 'TEXTPASSWORD CHANGE'
+const LOG_IN = 'LOG_IN'
+const TEXTNAME_CHANGE = 'TEXTNAME_CHANGE'
+const TEXTPASSWORD_CHANGE = 'TEXTPASSWORD_CHANGE'
 
 let initialState = {
     users: [
@@ -15,23 +15,28 @@ let initialState = {
 const loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOG_IN: {
-            state.users.forEach((user) => {
-                if (state.textName === user.name && state.textPassword === user.password) {
-                    user.status = true
-                    alert (user.name + user.password + user.status)
-                }
-            })
-            state.textName = ''
-            state.textPassword = ''
-            return state
+//Вроде работает, в дебаггере шагает адекватно, но лишний раз надо подумать правильно ли написал
+            return {
+                ...state,
+                users: [...state.users.map((user) => {
+                    if (state.textName === user.name && state.textPassword === user.password) {
+                        user.status = true
+                        alert(user.name + user.password + user.status)
+                    }
+                })]
+            }
         }
         case TEXTNAME_CHANGE: {
-            state.textName = action.text
-            return state
+            return {
+                ...state,
+                textName: action.text
+            }
         }
         case TEXTPASSWORD_CHANGE: {
-            state.textPassword = action.text
-            return state
+            return {
+                ...state,
+                textPassword: action.text
+            }
         }
         default:
             return state

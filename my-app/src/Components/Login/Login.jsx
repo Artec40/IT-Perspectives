@@ -3,10 +3,10 @@ import s from './Login.module.css'
 import Title from './Title/Title'
 import LoginWindowContainer from './LoginWindow/LoginWindowContainer'
 
-const Login = (props) => {
+const Login = () => {
     return <div className={s.Login}>
         <Title title={'Вход'}/>
-        <LoginWindowContainer store={props.store}/>
+        <LoginWindowContainer/>
     </div>
 }
 

@@ -16,7 +16,6 @@ const LoginWindow = (props) => {
     }
 
     let onClick = () => {
-        debugger
         props.loginEnter()
     }
 

@@ -5,28 +5,27 @@ import {
     onTextNameChangeActionCreator,
     onTextPasswordChangeActionCreator
 } from '../../../login-reducer'
+import { connect } from 'react-redux'
 
-
-const LoginWindowContainer = (props) => {
-    let store = props.store
-
-    let enter = () => {
-        store.dispatch(loginActionCreator())
+const mapStateToProps = (state) => {
+    return {
+        textNameValue: state.loginPage.textName,
+        textPasswordValue: state.loginPage.textPassword
     }
-
-    let onTextNameChange = (text) => {
-        store.dispatch(onTextNameChangeActionCreator(text))
-    }
-
-    let onTextPasswordChange = (text) => {
-        store.dispatch(onTextPasswordChangeActionCreator(text))
-    }
-    return <LoginWindow textNameValue={store._state.login.textName}
-                        textPasswordValue={store._state.login.textPassword}
-                        loginEnter={enter}
-                        updateLoginText={onTextNameChange}
-                        updatePasswordText={onTextPasswordChange}/>
-
 }
 
-export default LoginWindowContainer
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loginEnter: () => {
+            dispatch(loginActionCreator())
+        },
+        updateLoginText: (text) => {
+            dispatch(onTextNameChangeActionCreator(text))
+        },
+        updatePasswordText: (text) => {
+            dispatch(onTextPasswordChangeActionCreator(text))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginWindow)

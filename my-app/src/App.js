@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
+import HeaderContainer from './components/Header/HeaderContainer'
+import FooterContainer from './components/Footer/FooterContainer'
 import AboutUs from './components/AboutUs/AboutUs'
 import Services from './components/Services/Services'
 import { Route } from 'react-router-dom'
@@ -13,15 +13,15 @@ import Login from './components/Login/Login'
 function App(props) {
     return (
         <div className="app-wrapper">
-            <Header state={props.store.getState().header}/>
+            <HeaderContainer/>
             <div className={'app-wrapper-content'}>
-                <Route path={'/aboutUs'} render={() => <AboutUs state={props.store.getState().mainPage}/>}/>
+                <Route path={'/aboutUs'} render={() => <AboutUs/>}/>
                 <Route path={'/services'} render={() => <Services/>}/>
                 <Route path={'/supportPrice'} render={() => <SupportPrice/>}/>
                 <Route path={'/contacts'} render={() => <Contacts/>}/>
-                <Route path={'/login'} render={() => <Login store={props.store}/>}/>
+                <Route path={'/login'} render={() => <Login/>}/>
             </div>
-            <Footer state={props.store.getState().footer}/>
+            <FooterContainer/>
         </div>
     )
 }

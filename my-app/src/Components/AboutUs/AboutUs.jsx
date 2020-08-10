@@ -1,17 +1,16 @@
 import React from 'react'
 import s from './AboutUs.module.css'
-import CompanyName from './CompanyName/CompanyName'
-import Description from './Description/Description'
-import LastProjects from './LastProjects/LastProjects'
-import Team from './Team/Team'
+import CompanyNameContainer from './CompanyName/CompanyNameContainer'
+import DescriptionContainer from './Description/DescriptionContainer'
+import LastProjectsContainer from './LastProjects/LastProjectsContainer'
+import TeamContainer from './Team/TeamContainer'
 
-const AboutUs = (props) => {
-    debugger
+const AboutUs = () => {
     return <div className={s.AboutUs}>
-        <CompanyName name={props.state.companyName.name} logo={props.state.companyName.logo}/>
-        <Description title={props.state.description.title} text={props.state.description.text}/>
-        <LastProjects state={props.state.projects}/>
-        <Team state={props.state.employees}/>
+        <CompanyNameContainer/>
+        <DescriptionContainer/>
+        <LastProjectsContainer/>
+        <TeamContainer/>
     </div>
 }
 
