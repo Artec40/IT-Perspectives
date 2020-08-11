@@ -5,15 +5,19 @@ import Employee from './Employee/Employee'
 
 const Team = (props) => {
 
-    let employeesElements = props.employeesElements.map((e) => <Employee image={e.image} title={e.name}/>)
-    let articlesElements = props.employeesElements.map((e) => <Article text={e.text} day={e.day}
-                                                                      name={e.name} image={e.image}
-                                                                      link={e.link}/>)
+    let renderEmployees = (employeesElements) => {
+        return employeesElements.map((e) => <Employee image={e.image} title={e.name}/>)
+    }
+    let renderArticles = (articlesElements) => {
+        return articlesElements.map((e) => <Article text={e.text} day={e.day}
+                                                           name={e.name} image={e.image}
+                                                           link={e.link}/>)
+    }
 
     return <div className={s.Team}>
         <div className={s.title}>НАША КОМАНДА</div>
-        {employeesElements}
-        {articlesElements}
+        {renderEmployees(props.employeesElements)}
+        {renderArticles(props.employeesElements)}
 
     </div>
 }
