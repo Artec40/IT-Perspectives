@@ -19,9 +19,10 @@ namespace my_api
         public DateTime Date { get; set; }
         [Column("teammate_id")]
         public int TeammateId { get; set; }
+
         public Teammate Teammate { get; set; }
 
-        public static void onModelCreating(ModelBuilder modelBuilder)
+        public static void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Article>().HasKey(x => x.Id);
             modelBuilder.Entity<Article>().Property(x => x.ImageLink).IsRequired();

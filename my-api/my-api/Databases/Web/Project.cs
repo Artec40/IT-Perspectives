@@ -22,7 +22,7 @@ namespace my_api
         public int TeammateId { get; set; }
         public Teammate Teammate { get; set; }
 
-        public static void onModelCreating(ModelBuilder modelBuilder)
+        public static void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Project>().HasKey(x => x.Id);
             modelBuilder.Entity<Project>().Property(x => x.Photo).IsRequired();

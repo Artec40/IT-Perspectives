@@ -23,7 +23,7 @@ namespace my_api
         public IEnumerable<Project> Projects { get; set; }
         public IEnumerable<Article> Articles { get; set; }
 
-        public static void onModelCreating(ModelBuilder modelBuilder)
+        public static void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Teammate>().HasKey(x => x.Id);
             modelBuilder.Entity<Teammate>().Property(x => x.Photo).IsRequired();

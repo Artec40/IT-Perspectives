@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29123.88
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "my-api", "my-api\my-api.csproj", "{AD966EB4-68C7-49CC-98EC-3894ADA0AAF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "my-api", "my-api\my-api.csproj", "{C25A8E0F-760C-4466-9646-2540BE31056A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AD966EB4-68C7-49CC-98EC-3894ADA0AAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD966EB4-68C7-49CC-98EC-3894ADA0AAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD966EB4-68C7-49CC-98EC-3894ADA0AAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD966EB4-68C7-49CC-98EC-3894ADA0AAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25A8E0F-760C-4466-9646-2540BE31056A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25A8E0F-760C-4466-9646-2540BE31056A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25A8E0F-760C-4466-9646-2540BE31056A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25A8E0F-760C-4466-9646-2540BE31056A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {336AC587-F902-4B8D-BC05-3B7B117B71E9}
+		SolutionGuid = {C6CD7333-DA5E-4079-8E5E-A2E37E675224}
 	EndGlobalSection
 EndGlobal

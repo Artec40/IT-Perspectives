@@ -12,13 +12,13 @@ namespace my_api
         [Column("name")]
         public string Name { get; set; }
         [Column("short_description")]
-        public string ShortDescription { get; }
+        public string ShortDescription { get; set; }
         [Column("full_description")]
-        public string FullDescription { get; }
+        public string FullDescription { get; set; }
         [Column("price")]
-        public int Price { get; }
+        public int Price { get; set; }
 
-        public static void onModelCreating(ModelBuilder modelBuilder)
+        public static void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tariff>().HasKey(x => x.Id);
             modelBuilder.Entity<Tariff>().Property(x => x.Name).IsRequired();

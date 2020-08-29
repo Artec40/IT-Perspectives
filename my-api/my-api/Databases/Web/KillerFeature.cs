@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace my_api
@@ -18,7 +19,7 @@ namespace my_api
         [Column("id_project")]
         public int ProjectId { get; set; }
 
-        public static void onModelCreating(ModelBuilder modelBuilder)
+        public static void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<KillerFeature>().HasKey(x => x.Id);
             modelBuilder.Entity<KillerFeature>().Property(x => x.Name).IsRequired();
@@ -31,5 +32,7 @@ namespace my_api
             modelBuilder.Entity<KillerFeature>().HasOne(x => x.Project).WithMany(b => b.KillerFeatures)
                         .HasForeignKey(p => p.ProjectId);
         }
+
+
     }
 }
