@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -9,6 +10,7 @@ using my_api.Databases;
 namespace my_api.Controllers
 {
     [ApiController]
+    [EnableCors("AnotherPolicy")]
     [Route("[controller]")]
     public class ProjectsController : ControllerBase
     {
@@ -24,7 +26,8 @@ namespace my_api.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             var projectsQuery = from project in Context.Projects
-                                select new {
+                                select new
+                                {
                                     projectId = project.Id,
                                     projectPhoto = project.Photo,
                                     projectName = project.Name,

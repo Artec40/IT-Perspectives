@@ -1,3 +1,9 @@
+import { aboutUsAPI } from '../api'
+
+const SET_PROJECTS = 'SET_PROJECTS'
+const SET_EMPLOYEES = 'SET_EMPLOYEES'
+const SET_ARTICLES = 'SET_ARTICLES'
+
 let initialState = {
     companyName: {logo: './favicon.ico', name: 'ИТ Перспективы'},
     description: {
@@ -8,44 +14,49 @@ let initialState = {
         '                составляющей, к которой я привык, как меломан. Для поколения постарше выход альбома любимого артиста\n' +
         '                всегда был событием. Событием культурным.'
     },
-    projects: [
-        {id: '1', image: './WorksInfo.jpg', title: 'Шины и диски'},
-        {id: '2', image: './WorksInfo2.jpg', title: 'Диски и шины'},
-        {id: '3', image: './WorksInfo3.jpg', title: 'Колёса резина'},
-    ],
-    employees: [
-        {
-            id: '1',
-            text: 'Yeah buddy Light Weight baby',
-            day: '1 ноября 2018г.',
-            name: 'Вася',
-            image: './Worker.jpg',
-            link: '@ArnieLightWeight'
-        },
-        {
-            id: '2',
-            text: 'Yeah buddy Light Weight baby',
-            day: '1 ноября 2017г.',
-            name: 'Петя',
-            image: './Worker2.jpg',
-            link: '@RonnieLightWeight'
-        },
-        {
-            id: '3',
-            text: 'Yeah buddy Light Weight baby',
-            day: '1 ноября 2016г.',
-            name: 'Ихтиандр',
-            image: './Worker3.jpg',
-            link: '@GudokLightWeight'
-        }
-    ]
+    projects: [],
+    employees: [],
+    articles: []
 }
 
 const aboutUsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_PROJECTS: {
+            return {
+                ...state, projects: action.projects
+            }
+        }
+        case SET_EMPLOYEES: {
+            return {
+                ...state, employees: action.employees
+            }
+        }
+        case SET_ARTICLES: {
+            return {
+                ...state, articles: action.articles
+            }
+        }
         default:
             return state
     }
 }
+
+export const setProjects = (projects) => ({type: SET_PROJECTS, projects})
+export const setEmployees = (employees) => ({type: SET_EMPLOYEES, employees})
+export const setArticles = (articles) => ({type: SET_ARTICLES, articles})
+
+export const getProjects = () => async (dispatch) => {
+    const response = await aboutUsAPI.getProjects()
+    dispatch(setProjects(response.data))
+}
+export const getEmployees = () => async (dispatch) => {
+    const response = await aboutUsAPI.getEmployees()
+    dispatch(setEmployees(response.data))
+}
+export const getArticles = () => async (dispatch) => {
+    const response = await aboutUsAPI.getArticles()
+    dispatch(setArticles(response.data))
+}
+
 
 export default aboutUsReducer

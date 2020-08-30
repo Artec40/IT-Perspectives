@@ -3,21 +3,21 @@ import s from './Team.module.css'
 import Article from './Article/Article'
 import Employee from './Employee/Employee'
 
-const Team = (props) => {
+const Team = ({employees, articles}) => {
 
-    let renderEmployees = (employeesElements) => {
-        return employeesElements.map((e) => <Employee image={e.image} title={e.name}/>)
+    let renderEmployees = (employees) => {
+        return employees.map((e, i) => <Employee key={i} image={e.teammatePhoto} title={e.teammateShortName}/>)
     }
-    let renderArticles = (articlesElements) => {
-        return articlesElements.map((e) => <Article text={e.text} day={e.day}
-                                                           name={e.name} image={e.image}
-                                                           link={e.link}/>)
+    let renderArticles = (articles) => {
+        return articles.map((e,i) => <Article key={i} text={e.articleDescription} day={e.articleDate}
+                                                           name={e.authorName} image={e.authorPhoto}
+                                                           link={e.articleTitle}/>)
     }
 
     return <div className={s.Team}>
         <div className={s.title}>НАША КОМАНДА</div>
-        {renderEmployees(props.employeesElements)}
-        {renderArticles(props.employeesElements)}
+        {renderEmployees(employees)}
+        {renderArticles(articles)}
 
     </div>
 }
