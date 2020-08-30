@@ -4,7 +4,7 @@ import {
     loginActionCreator,
     onTextNameChangeActionCreator,
     onTextPasswordChangeActionCreator
-} from '../../../login-reducer'
+} from '../../../redux/login-reducer'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
