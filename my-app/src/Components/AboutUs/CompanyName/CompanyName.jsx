@@ -1,10 +1,10 @@
 import React from 'react'
 import s from './CompanyName.module.css'
 
-const CompanyName = (props) => {
+const CompanyName = ({logo, name}) => {
     return (<div className={s.CompanyName}>
-            <div><img src={props.logo}/></div>
-            <div>{props.name}</div>
+            <div><img src={logo}/></div>
+            <div>{name}</div>
         </div>
     )
 }

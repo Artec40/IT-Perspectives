@@ -1,10 +1,10 @@
 import React from 'react'
 import s from './Description.module.css'
 
-const Description = (props) => {
+const Description = ({title, description}) => {
     return (<div className={s.Description}>
-            <div className={`${s.Description} ${s.title}`}> {props.title}</div>
-            <div> {props.text}
+            <div className={`${s.Description} ${s.title}`}> {title}</div>
+            <div> {description}
             </div>
         </div>
     )
