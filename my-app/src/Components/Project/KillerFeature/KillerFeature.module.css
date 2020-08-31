@@ -10,6 +10,7 @@
 .img img{
     grid-area: img;
     width: 500px;
+    max-height:350px;
     padding-right: 210px;
 }
 

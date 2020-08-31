@@ -35,6 +35,22 @@ namespace my_api.Controllers
                                       };
             var killerFeatures = killerFeaturesQuery.ToArray();
             return Ok(killerFeatures);
+        }        
+        [HttpGet("{projectId}")]
+        [EnableCors("AnotherPolicy")]
+        public ActionResult<string> Get(int projectId)
+        {
+            var killerFeatureQuery = from killerFeature in Context.KillerFeatures
+                                     where killerFeature.ProjectId == projectId
+                                     select new
+                                      {
+                                          killerFeatureId = killerFeature.Id,
+                                          killerFeatureName = killerFeature.Name,
+                                          killerFeatureDescription = killerFeature.Description,
+                                          killerFeatureImage = killerFeature.ImageLink
+                                      };
+            var response = killerFeatureQuery.Single();
+            return Ok(response);
         }
     }
 }

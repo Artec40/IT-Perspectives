@@ -29,6 +29,9 @@ export const getArticlesElements = (state) => {
 export const getCurrentProject = (state) => {
     return state.aboutUs.currentProject
 }
+export const getCurrentKillerFeature = (state) => {
+    return state.aboutUs.currentKillerFeature
+}
 
 
 

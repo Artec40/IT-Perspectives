@@ -4,6 +4,7 @@ const SET_PROJECTS = 'SET_PROJECTS'
 const SET_EMPLOYEES = 'SET_EMPLOYEES'
 const SET_ARTICLES = 'SET_ARTICLES'
 const SET_KILLER_FEATURES = 'SET_KILLER_FEATURES'
+const SET_KILLER_FEATURE = 'SET_KILLER_FEATURE'
 const SET_PROJECT = 'SET_PROJECT'
 
 let initialState = {
@@ -20,7 +21,8 @@ let initialState = {
     employees: [],
     articles: [],
     killerFeatures: [],
-    currentProject: null
+    currentProject: null,
+    currentKillerFeature: null
 }
 
 const aboutUsReducer = (state = initialState, action) => {
@@ -45,6 +47,12 @@ const aboutUsReducer = (state = initialState, action) => {
                 ...state, killerFeatures: action.killerFeatures
             }
         }
+        case SET_KILLER_FEATURE: {
+            return {
+                ...state,
+                currentKillerFeature: action.killerFeature
+            }
+        }
         case SET_PROJECT: {
             return {
                 ...state,
@@ -59,7 +67,7 @@ const aboutUsReducer = (state = initialState, action) => {
 export const setProjects = (projects) => ({type: SET_PROJECTS, projects})
 export const setEmployees = (employees) => ({type: SET_EMPLOYEES, employees})
 export const setArticles = (articles) => ({type: SET_ARTICLES, articles})
-export const setKillerFeatures = (killerFeatures) => ({type: SET_KILLER_FEATURES, killerFeatures})
+export const setKillerFeature = (killerFeature) => ({type: SET_KILLER_FEATURE, killerFeature})
 export const setProject = (project) => ({type: SET_PROJECT, project})
 
 export const getProjects = () => async (dispatch) => {
@@ -74,13 +82,13 @@ export const getArticles = () => async (dispatch) => {
     const response = await aboutUsAPI.getArticles()
     dispatch(setArticles(response.data))
 }
-export const getKillerFeatures = () => async (dispatch) => {
-    const response = await aboutUsAPI.getKillerFeatures()
-    dispatch(setKillerFeatures(response.data))
-}
 export const getProject = (id) => async (dispatch) => {
     const response = await aboutUsAPI.getProject(id)
     dispatch(setProject(response.data))
+}
+export const getKillerFeature = (projectId) => async (dispatch) => {
+    const response = await aboutUsAPI.getKillerFeature(projectId)
+    dispatch(setKillerFeature(response.data))
 }
 
 export default aboutUsReducer

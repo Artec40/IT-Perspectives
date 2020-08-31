@@ -20,8 +20,14 @@ class AboutUsContainer extends React.Component {
                         logo={this.props.logo}
                         title={this.props.title}
                         description={this.props.description}
-                        projects={this.props.projects.map(p => ({id: p.projectId, photo: p.projectPhoto, name: p.projectName}))}
-                        employees={this.props.employees.map(e => ({image: e.teammatePhoto, name: e.teammateShortName}))}
+                        projects={this.props.projects.map(p => ({
+                            id: p.projectId,
+                            photo: p.projectPhoto,
+                            name: p.projectName
+                        }))}
+                        employees={this.props.employees.map(e => ({
+                            image: e.teammatePhoto,
+                            name: e.teammateShortName}))}
                         articles={this.props.articles.map(a => ({
                             text: a.articleDescription,
                             day: a.articleDate.split('T')[0],

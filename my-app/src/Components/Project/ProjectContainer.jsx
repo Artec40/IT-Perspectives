@@ -1,22 +1,37 @@
 import React from 'react'
 import Project from './Project'
 import { connect } from 'react-redux'
-import { getCurrentProject } from '../../redux/aboutUs-selector'
-import { getKillerFeatures, getProject } from '../../redux/aboutUs-reducer'
+import { getCurrentProject, getCurrentKillerFeature } from '../../redux/aboutUs-selector'
+import { getKillerFeature, getProject } from '../../redux/aboutUs-reducer'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
 
 class ProjectContainer extends React.Component {
-    componentDidMount() {
-        debugger
-        this.props.getKillerFeatures()
+
+    //todo при обращении к url напрямую сайт не всегда успевает подгрузиться.
+    refreshProject() {
         let projectId = this.props.match.params.projectId
-        this.props.getProject(projectId)
+        if (!projectId)
+        {
+            this.props.getProject(projectId)
+            this.props.getKillerFeature(projectId)
+        }
+    }
+
+    componentDidMount() {
+        this.refreshProject()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.match.params.projectId != prevProps.match.params.projectId) {
+            this.refreshProject()
+        }
     }
 
     render() {
         return <div>
-            <Project project={this.props.project}/>
+            <Project project={this.props.project}
+                     killerFeature={this.props.killerFeature}/>
         </div>
     }
 }
@@ -24,10 +39,10 @@ class ProjectContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         project: getCurrentProject(state),
-        killerFeatures: getKillerFeatures(state),
+        killerFeature: getCurrentKillerFeature(state),
     }
 }
 
-export default compose(connect(mapStateToProps, {getKillerFeatures, getProject}),
+export default compose(connect(mapStateToProps, {getKillerFeature, getProject}),
     withRouter)
 (ProjectContainer)
