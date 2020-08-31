@@ -1,0 +1,25 @@
+.JustTryButton {
+    background-color: white;
+    box-sizing: border-box;
+    padding-top: 50px;
+    text-align: center;
+    height: 300px;
+}
+
+.JustTryButton button{
+    margin-top: 15px;
+    background-color: #37B34A;
+    color: white;
+    height: 35px;
+    width: 250px;
+}
+
+.Title {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 89px;
+    align-items: center;
+    text-align: center;
+    color: #00B49B;
+    box-shadow: none;
+}
