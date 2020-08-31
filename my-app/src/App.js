@@ -23,7 +23,7 @@ function App(props) {
                 <Route path={'/supportPrice'} render={() => <SupportPrice/>}/>
                 <Route path={'/contacts'} render={() => <Contacts/>}/>
                 <Route path={'/login'} render={() => <Login/>}/>
-                <Route path={'/project'} render={() => <ProjectContainer/>}/>
+                <Route path={'/project/:projectId?'} render={() => <ProjectContainer/>}/>
             </div>
             <FooterContainer/>
         </div>

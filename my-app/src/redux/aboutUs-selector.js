@@ -26,6 +26,9 @@ export const getEmployeesElements = (state) => {
 export const getArticlesElements = (state) => {
     return state.aboutUs.articles
 }
+export const getCurrentProject = (state) => {
+    return state.aboutUs.currentProject
+}
 
 
 

@@ -1,33 +1,33 @@
 import React from 'react'
 import Project from './Project'
 import { connect } from 'react-redux'
-import { getProjectsElements } from '../../redux/aboutUs-selector'
-import { getKillerFeatures } from '../../redux/aboutUs-reducer'
+import { getCurrentProject } from '../../redux/aboutUs-selector'
+import { getKillerFeatures, getProject } from '../../redux/aboutUs-reducer'
+import { compose } from 'redux'
+import { withRouter } from 'react-router-dom'
 
 class ProjectContainer extends React.Component {
     componentDidMount() {
+        debugger
         this.props.getKillerFeatures()
+        let projectId = this.props.match.params.projectId
+        this.props.getProject(projectId)
     }
 
     render() {
         return <div>
-            <Project name={this.props.projects.projectName}
-                     projectsDescription={this.props.projects.projectDescription}
-                     technologies={this.props.projects.projectTechnologyImage}
-                     title={this.props.killerFeatures.killerFeatureName}
-                     killerFeatureDescription={this.props.killerFeatures.killerFeatureDescription}
-                     image={this.props.killerFeatures.killerFeatureImage}
-            />
+            <Project project={this.props.project}/>
         </div>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        projects: getProjectsElements(state),
+        project: getCurrentProject(state),
         killerFeatures: getKillerFeatures(state),
-        id: getProjectsElements(state).projectsId
     }
 }
 
-export default connect(mapStateToProps, {getKillerFeatures})(ProjectContainer)
+export default compose(connect(mapStateToProps, {getKillerFeatures, getProject}),
+    withRouter)
+(ProjectContainer)

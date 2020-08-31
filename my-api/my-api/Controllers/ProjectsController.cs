@@ -37,5 +37,22 @@ namespace my_api.Controllers
             var projects = projectsQuery.ToArray();
             return Ok(projects);
         }
+
+        [HttpGet("{projectId}")]
+        public ActionResult<string> Get(int projectId)
+        {
+            var projectQuery = from project in Context.Projects
+                               where project.Id == projectId
+                                select new
+                                {
+                                    projectId = project.Id,
+                                    projectPhoto = project.Photo,
+                                    projectName = project.Name,
+                                    projectDescription = project.Description,
+                                    projectTechnologyImage = project.TechnologyImage
+                                };
+            var response = projectQuery.Single();
+            return Ok(response);
+        }
     }
 }

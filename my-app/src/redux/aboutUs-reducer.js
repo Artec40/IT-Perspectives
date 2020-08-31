@@ -4,6 +4,7 @@ const SET_PROJECTS = 'SET_PROJECTS'
 const SET_EMPLOYEES = 'SET_EMPLOYEES'
 const SET_ARTICLES = 'SET_ARTICLES'
 const SET_KILLER_FEATURES = 'SET_KILLER_FEATURES'
+const SET_PROJECT = 'SET_PROJECT'
 
 let initialState = {
     companyName: {logo: './favicon.ico', name: 'ИТ Перспективы'},
@@ -18,7 +19,8 @@ let initialState = {
     projects: [],
     employees: [],
     articles: [],
-    killerFeatures: []
+    killerFeatures: [],
+    currentProject: null
 }
 
 const aboutUsReducer = (state = initialState, action) => {
@@ -43,6 +45,12 @@ const aboutUsReducer = (state = initialState, action) => {
                 ...state, killerFeatures: action.killerFeatures
             }
         }
+        case SET_PROJECT: {
+            return {
+                ...state,
+                currentProject: action.project
+            }
+        }
         default:
             return state
     }
@@ -52,6 +60,7 @@ export const setProjects = (projects) => ({type: SET_PROJECTS, projects})
 export const setEmployees = (employees) => ({type: SET_EMPLOYEES, employees})
 export const setArticles = (articles) => ({type: SET_ARTICLES, articles})
 export const setKillerFeatures = (killerFeatures) => ({type: SET_KILLER_FEATURES, killerFeatures})
+export const setProject = (project) => ({type: SET_PROJECT, project})
 
 export const getProjects = () => async (dispatch) => {
     const response = await aboutUsAPI.getProjects()
@@ -69,6 +78,9 @@ export const getKillerFeatures = () => async (dispatch) => {
     const response = await aboutUsAPI.getKillerFeatures()
     dispatch(setKillerFeatures(response.data))
 }
-
+export const getProject = (id) => async (dispatch) => {
+    const response = await aboutUsAPI.getProject(id)
+    dispatch(setProject(response.data))
+}
 
 export default aboutUsReducer

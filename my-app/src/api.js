@@ -1,7 +1,6 @@
 import * as axios from 'axios/index'
 
 const instance = axios.create({
-  //  withCredentials: true,
     baseURL: 'http://localhost:5000',
     headers: {
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
@@ -14,6 +13,9 @@ const instance = axios.create({
 export const aboutUsAPI = {
     getProjects() {
         return instance.get('projects/')
+    },
+    getProject(id) {
+        return instance.get(`projects/${id}`)
     },
     getEmployees() {
         return instance.get(`teammates/`)
