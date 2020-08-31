@@ -6,12 +6,12 @@ import Employee from './Employee/Employee'
 const Team = ({employees, articles}) => {
 
     let renderEmployees = (employees) => {
-        return employees.map((e, i) => <Employee key={i} image={e.teammatePhoto} title={e.teammateShortName}/>)
+        return employees.map((e, i) => <Employee key={i} image={e.image} name={e.name}/>)
     }
     let renderArticles = (articles) => {
-        return articles.map((e,i) => <Article key={i} text={e.articleDescription} day={e.articleDate}
-                                                           name={e.authorName} image={e.authorPhoto}
-                                                           link={e.articleTitle}/>)
+        return articles.map((e, i) => <Article key={i} text={e.text} day={e.day}
+                                               name={e.name} image={e.image}
+                                               link={e.link}/>)
     }
 
     return <div className={s.Team}>

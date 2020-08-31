@@ -6,7 +6,7 @@ import LastProjects from './LastProjects/LastProjects'
 import Team from './Team/Team'
 
 const AboutUs = ({name, logo, title, description, projects, employees, articles}) => {
-    console.log('aboutUsRender',projects, employees)
+    console.log('aboutUsRender', projects, employees)
     return <div className={s.AboutUs}>
         <CompanyName name={name} logo={logo}/>
         <Description title={title} description={description}/>

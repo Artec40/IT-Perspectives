@@ -20,5 +20,8 @@ export const aboutUsAPI = {
     },
     getArticles() {
         return instance.get(`articles/`)
+    },
+    getKillerFeatures() {
+        return instance.get(`killerfeatures/`)
     }
 }
