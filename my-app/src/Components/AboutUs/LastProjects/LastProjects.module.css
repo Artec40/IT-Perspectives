@@ -5,9 +5,10 @@
     background-size: 1500px 1500px;
     text-align: center;
     display: grid;
-    grid-template-areas: 't t t t t' 'pr pr pr pr pr' 'oc oc oc oc oc';
-    grid-template-columns: 275px 1fr 1fr 1fr 291px;
+    grid-template-areas: 't t t' 'pr pr pr' 'oc oc oc';
+    grid-template-columns:  1fr 1fr 1fr;
     grid-template-rows: 250px 545px 150px ;
+
 }
 
 .title {

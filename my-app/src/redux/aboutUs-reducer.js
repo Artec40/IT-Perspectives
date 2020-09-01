@@ -1,11 +1,7 @@
 import { aboutUsAPI } from '../api'
 
-const SET_PROJECTS = 'SET_PROJECTS'
-const SET_EMPLOYEES = 'SET_EMPLOYEES'
-const SET_ARTICLES = 'SET_ARTICLES'
-const SET_KILLER_FEATURES = 'SET_KILLER_FEATURES'
-const SET_KILLER_FEATURE = 'SET_KILLER_FEATURE'
-const SET_PROJECT = 'SET_PROJECT'
+const SET_ABOUT_US_ELEMENTS = 'SET_ABOUT_US_ELEMENTS'
+const SET_PROJECT_PAGE = 'SET_PROJECT_PAGE'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
@@ -29,36 +25,19 @@ let initialState = {
 
 const aboutUsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PROJECTS: {
-            return {
-                ...state, projects: action.projects
-            }
-        }
-        case SET_EMPLOYEES: {
-            return {
-                ...state, employees: action.employees
-            }
-        }
-        case SET_ARTICLES: {
-            return {
-                ...state, articles: action.articles
-            }
-        }
-        case SET_KILLER_FEATURES: {
-            return {
-                ...state, killerFeatures: action.killerFeatures
-            }
-        }
-        case SET_KILLER_FEATURE: {
+        case SET_ABOUT_US_ELEMENTS: {
             return {
                 ...state,
-                currentKillerFeature: action.killerFeature
+                projects: action.aboutUsElements.projects,
+                employees: action.aboutUsElements.employees,
+                articles: action.aboutUsElements.articles
             }
         }
-        case SET_PROJECT: {
+        case SET_PROJECT_PAGE: {
             return {
                 ...state,
-                currentProject: action.project
+                currentProject: action.projectPage.project,
+                currentKillerFeature: action.projectPage.killerFeature
             }
         }
         case TOGGLE_IS_FETCHING: {
@@ -72,33 +51,25 @@ const aboutUsReducer = (state = initialState, action) => {
     }
 }
 
-export const setProjects = (projects) => ({type: SET_PROJECTS, projects})
-export const setEmployees = (employees) => ({type: SET_EMPLOYEES, employees})
-export const setArticles = (articles) => ({type: SET_ARTICLES, articles})
-export const setKillerFeature = (killerFeature) => ({type: SET_KILLER_FEATURE, killerFeature})
-export const setProject = (project) => ({type: SET_PROJECT, project})
+export const setAboutUsElements = (projects, employees, articles) => ({
+    type: SET_ABOUT_US_ELEMENTS, aboutUsElements: {projects, employees, articles}})
+export const setProjectPage = (project, killerFeature) => ({
+    type: SET_PROJECT_PAGE, projectPage: {project, killerFeature}})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
-export const getProjects = () => async (dispatch) => {
-    const response = await aboutUsAPI.getProjects()
-    dispatch(setProjects(response.data))
+export const getAboutUsElements = () => async (dispatch) => {
+    const responseProjects = await aboutUsAPI.getProjects()
+    const responseEmployees = await aboutUsAPI.getEmployees()
+    const responseArticles = await aboutUsAPI.getArticles()
+    dispatch(setAboutUsElements(responseProjects.data, responseEmployees.data, responseArticles.data))
 }
-export const getEmployees = () => async (dispatch) => {
-    const response = await aboutUsAPI.getEmployees()
-    dispatch(setEmployees(response.data))
-}
-export const getArticles = () => async (dispatch) => {
-    const response = await aboutUsAPI.getArticles()
-    dispatch(setArticles(response.data))
-}
-export const getProjectWithKillerFeature = (id) => async (dispatch) => {
+
+export const getProjectPage = (id) => async (dispatch) => {
     dispatch(toggleIsFetching(true))
     const responseProject = await aboutUsAPI.getProject(id)
     const responseKillerFeature = await aboutUsAPI.getKillerFeature(id)
-    dispatch(setProject(responseProject.data))
-    dispatch(setKillerFeature(responseKillerFeature.data))
+    dispatch(setProjectPage(responseProject.data, responseKillerFeature.data))
     dispatch(toggleIsFetching(false))
 }
-
 
 export default aboutUsReducer

@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutUs from './AboutUs'
 import { connect } from 'react-redux'
-import { getProjects, getEmployees, getArticles } from '../../redux/aboutUs-reducer'
+import { getAboutUsElements } from '../../redux/aboutUs-reducer'
 import {
     getCompanyName, getCompanyLogo, getTitle, getArticlesElements,
     getDescription, getProjectsElements, getEmployeesElements
@@ -10,9 +10,7 @@ import {
 
 class AboutUsContainer extends React.Component {
     componentDidMount() {
-        this.props.getProjects()
-        this.props.getEmployees()
-        this.props.getArticles()
+        this.props.getAboutUsElements()
     }
 
     render() {
@@ -50,4 +48,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getProjects, getEmployees, getArticles})(AboutUsContainer)
+export default connect(mapStateToProps, {getAboutUsElements})(AboutUsContainer)

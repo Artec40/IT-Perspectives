@@ -18,7 +18,6 @@ const Team = ({employees, articles}) => {
         <div className={s.title}>НАША КОМАНДА</div>
         {renderEmployees(employees)}
         {renderArticles(articles)}
-
     </div>
 }
 

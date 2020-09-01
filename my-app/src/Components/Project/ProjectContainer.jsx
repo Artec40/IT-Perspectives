@@ -2,7 +2,7 @@ import React from 'react'
 import Project from './Project'
 import { connect } from 'react-redux'
 import { getCurrentProject, getCurrentKillerFeature, getIsFetching } from '../../redux/aboutUs-selector'
-import { getProjectWithKillerFeature } from '../../redux/aboutUs-reducer'
+import { getProjectPage } from '../../redux/aboutUs-reducer'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
 import Preloader from '../common/Preloader'
@@ -11,7 +11,7 @@ class ProjectContainer extends React.Component {
 
     refreshProject() {
         let projectId = this.props.match.params.projectId
-        this.props.getProjectWithKillerFeature(projectId)
+        this.props.getProjectPage(projectId)
     }
 
     componentDidMount() {
@@ -42,6 +42,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default compose(connect(mapStateToProps, {getProjectWithKillerFeature}),
+export default compose(connect(mapStateToProps, {getProjectPage}),
     withRouter)
 (ProjectContainer)

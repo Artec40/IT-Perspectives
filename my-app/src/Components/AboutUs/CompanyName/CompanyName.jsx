@@ -3,7 +3,7 @@ import s from './CompanyName.module.css'
 
 const CompanyName = ({logo, name}) => {
     return (<div className={s.CompanyName}>
-            <div><img src={logo}/></div>
+            <img src={logo}/>
             <div>{name}</div>
         </div>
     )

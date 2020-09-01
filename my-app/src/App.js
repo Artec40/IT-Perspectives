@@ -11,8 +11,9 @@ import Login from './components/Login/Login'
 import { Provider } from 'react-redux'
 import store from './redux/redux-store'
 import ProjectContainer from './components/Project/ProjectContainer'
+
 //todo Нужно обновить верстку, DRY!!!111 И хэдер съезжает в зависимости от колёсика прокрутки.
-function App(props) {
+function App() {
     return (
         <div className="app-wrapper">
             <HeaderContainer/>
@@ -22,14 +23,14 @@ function App(props) {
                 <Route path={'/supportPrice'} render={() => <SupportPrice/>}/>
                 <Route path={'/contacts'} render={() => <Contacts/>}/>
                 <Route path={'/login'} render={() => <Login/>}/>
-                <Route path={'/project/:projectId?'} render={()=><ProjectContainer/>}/>
+                <Route path={'/project/:projectId?'} render={() => <ProjectContainer/>}/>
             </div>
             <FooterContainer/>
         </div>
     )
 }
 
-const MyApp = (props) => {
+const MyApp = () => {
     return <BrowserRouter>
         <Provider store={store}>
             <App/>

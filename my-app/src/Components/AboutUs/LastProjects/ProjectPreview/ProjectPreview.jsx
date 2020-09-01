@@ -4,12 +4,10 @@ import { NavLink } from 'react-router-dom'
 
 //todo подправить верстку.
 const ProjectPreview = (props) => {
-    return <div className={s.Project}><a>
-        <NavLink to={'/project/' + props.id} style={{textDecoration: 'none'}}>
-            <div><img src={props.image}/></div>
-            <div>{props.title}</div>
+    return <NavLink to={'/project/' + props.id}  style = {{textDecoration: 'none'}} className={s.Project}>
+            <img src={props.image}/>
+            <div className={s.Title}>{props.title}</div>
         </NavLink>
-    </a></div>
 }
 
 export default ProjectPreview

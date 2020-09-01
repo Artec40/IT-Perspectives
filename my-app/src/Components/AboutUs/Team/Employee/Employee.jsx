@@ -2,10 +2,10 @@ import React from 'react'
 import s from './Employee.module.css'
 
 const Employee = (props) => {
-    return <div className={s.Employee}><a>
-        <div><img src={props.image}/></div>
+    return <div className={s.Employee}>
+        <img src={props.image}/>
         <div className={s.title}>{props.name}</div>
-    </a></div>
+    </div>
 }
 
 export default Employee

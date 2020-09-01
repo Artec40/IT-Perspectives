@@ -1,10 +1,5 @@
 .Employee a{
     grid-area: emp;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 89px;
-    color: #00B49B;
     display:grid;
     grid-template-areas: 'img' 't';
     grid-template-columns: 1fr;
@@ -18,4 +13,9 @@
 
 .title{
     grid-area: t;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 89px;
+    color: #00B49B;
  }
