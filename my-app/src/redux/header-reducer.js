@@ -1,5 +1,5 @@
 let initialState = {
-    companyLogo: {logo: './favicon.ico'}
+    companyLogo: {logo: '/favicon.ico'}
 }
 
 const headerReducer = (state = initialState, action) => {

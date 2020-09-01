@@ -9,7 +9,7 @@ const SET_PROJECT = 'SET_PROJECT'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
-    companyName: {logo: './favicon.ico', name: 'ИТ Перспективы'},
+    companyName: {logo: '/favicon.ico', name: 'ИТ Перспективы'},
     description: {
         title: 'МЫ СОЗДАЕМ БЛА БЛА БЛА',
         text: 'Все наблюдения привели к тому, что стало понятно – вся музыка уйдет в цифровой формат. Позже стало\n' +
