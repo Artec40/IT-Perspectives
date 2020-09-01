@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './KillerFeature.module.css'
-
+//todo Придумать что-то с импортом изображений.
 const KillerFeature = ({killerFeature}) => {
     return <div className={s.KillerFeature}>
         <div className={s.Title}>{killerFeature.killerFeatureName}</div>

@@ -23,14 +23,21 @@ export const getProjectsElements = (state) => {
 export const getEmployeesElements = (state) => {
     return state.aboutUs.employees
 }
+
 export const getArticlesElements = (state) => {
     return state.aboutUs.articles
 }
+
 export const getCurrentProject = (state) => {
     return state.aboutUs.currentProject
 }
+
 export const getCurrentKillerFeature = (state) => {
     return state.aboutUs.currentKillerFeature
+}
+
+export const getIsFetching = (state) => {
+    return state.aboutUs.isFetching
 }
 
 

@@ -6,6 +6,7 @@ const SET_ARTICLES = 'SET_ARTICLES'
 const SET_KILLER_FEATURES = 'SET_KILLER_FEATURES'
 const SET_KILLER_FEATURE = 'SET_KILLER_FEATURE'
 const SET_PROJECT = 'SET_PROJECT'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
     companyName: {logo: './favicon.ico', name: 'ИТ Перспективы'},
@@ -22,7 +23,8 @@ let initialState = {
     articles: [],
     killerFeatures: [],
     currentProject: null,
-    currentKillerFeature: null
+    currentKillerFeature: null,
+    isFetching: false
 }
 
 const aboutUsReducer = (state = initialState, action) => {
@@ -59,6 +61,12 @@ const aboutUsReducer = (state = initialState, action) => {
                 currentProject: action.project
             }
         }
+        case TOGGLE_IS_FETCHING: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
         default:
             return state
     }
@@ -69,6 +77,7 @@ export const setEmployees = (employees) => ({type: SET_EMPLOYEES, employees})
 export const setArticles = (articles) => ({type: SET_ARTICLES, articles})
 export const setKillerFeature = (killerFeature) => ({type: SET_KILLER_FEATURE, killerFeature})
 export const setProject = (project) => ({type: SET_PROJECT, project})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const getProjects = () => async (dispatch) => {
     const response = await aboutUsAPI.getProjects()
@@ -82,13 +91,14 @@ export const getArticles = () => async (dispatch) => {
     const response = await aboutUsAPI.getArticles()
     dispatch(setArticles(response.data))
 }
-export const getProject = (id) => async (dispatch) => {
-    const response = await aboutUsAPI.getProject(id)
-    dispatch(setProject(response.data))
+export const getProjectWithKillerFeature = (id) => async (dispatch) => {
+    dispatch(toggleIsFetching(true))
+    const responseProject = await aboutUsAPI.getProject(id)
+    const responseKillerFeature = await aboutUsAPI.getKillerFeature(id)
+    dispatch(setProject(responseProject.data))
+    dispatch(setKillerFeature(responseKillerFeature.data))
+    dispatch(toggleIsFetching(false))
 }
-export const getKillerFeature = (projectId) => async (dispatch) => {
-    const response = await aboutUsAPI.getKillerFeature(projectId)
-    dispatch(setKillerFeature(response.data))
-}
+
 
 export default aboutUsReducer

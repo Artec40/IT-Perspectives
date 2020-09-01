@@ -1,21 +1,17 @@
 import React from 'react'
 import Project from './Project'
 import { connect } from 'react-redux'
-import { getCurrentProject, getCurrentKillerFeature } from '../../redux/aboutUs-selector'
-import { getKillerFeature, getProject } from '../../redux/aboutUs-reducer'
+import { getCurrentProject, getCurrentKillerFeature, getIsFetching } from '../../redux/aboutUs-selector'
+import { getProjectWithKillerFeature } from '../../redux/aboutUs-reducer'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
+import Preloader from '../common/Preloader'
 
 class ProjectContainer extends React.Component {
 
-    //todo при обращении к url напрямую сайт не всегда успевает подгрузиться.
     refreshProject() {
         let projectId = this.props.match.params.projectId
-        if (!projectId)
-        {
-            this.props.getProject(projectId)
-            this.props.getKillerFeature(projectId)
-        }
+        this.props.getProjectWithKillerFeature(projectId)
     }
 
     componentDidMount() {
@@ -30,8 +26,10 @@ class ProjectContainer extends React.Component {
 
     render() {
         return <div>
-            <Project project={this.props.project}
-                     killerFeature={this.props.killerFeature}/>
+            {this.props.isFetching ? <Preloader/> :
+                <Project project={this.props.project}
+                         killerFeature={this.props.killerFeature}/>}
+
         </div>
     }
 }
@@ -40,9 +38,10 @@ const mapStateToProps = (state) => {
     return {
         project: getCurrentProject(state),
         killerFeature: getCurrentKillerFeature(state),
+        isFetching: getIsFetching(state)
     }
 }
 
-export default compose(connect(mapStateToProps, {getKillerFeature, getProject}),
+export default compose(connect(mapStateToProps, {getProjectWithKillerFeature}),
     withRouter)
 (ProjectContainer)

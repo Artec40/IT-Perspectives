@@ -1,9 +1,10 @@
 import React from 'react'
 import s from './Services.module.css'
+import Preloader from '../common/Preloader'
 
 const Services = () => {
     return <div className={s.Services}>
-        Services
+        <Preloader/>
     </div>
 }
 
