@@ -1,3 +1,4 @@
+$color_dark: #000000;
 $color_grey: #ECECE9;
 $color_white: #FFFFFF;
 $color_turquoise: #00B49B;
@@ -14,11 +15,6 @@ $color_shadow: rgba(0, 0, 0, 0.25);
   background-image: url('/public/BackgroundWorkInfo.jpg');
   background-size: 1500px 1500px;
   text-align: center;
-}
-
-%orange_crap {
-  grid-area: oc;
-  background-color: $color_orange;
 }
 
 @mixin h($font_size, $text_align, $font-weight, $line_height, $color, $text_shadow) {
@@ -71,56 +67,24 @@ h4 {
   text-align: center;
 }
 
+@mixin text($font_style,$font_weight,$font_size,$line_height,$text_align,$color,$text_derocation_line) {
+  font-style: $font_style;
+  font-weight: $font_weight;
+  font-size: $font_size;
+  line-height: $line_height;
+  text-align: $text_align;
+  color: $color;
+  text-decoration-line: $text_derocation_line;
+}
+
 %main_text {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 30px;
-  text-align: justify;
+  @include text(normal,normal,16px,30px,justify,$color_dark,none);
 }
 
 %secondary_text {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 26px;
+  @include text(normal,normal,14px,26px,justify,$color_dark,none);
 }
 
-%title_icon {
-  img {
-    padding-left: 15vw;
-    float: right;
-    width: 285px;
-    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  }
-}
-
-%project {
-  img {
-    border: 10px solid #FFFFFF;
-    border-radius: 225px;
-    width: 345px;
-  }
-  text-decoration: none;
-}
-
-%article {
-  background: $color_grey;
-  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.07);
-  margin: 80px 25px 50px;
-  text-align: left;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  img {
-    width: 48px;
-    border-radius: 75px;
-  }
-}
-
-%employee {
-  img {
-    height: 220px;
-    border-radius: 105px;
-  }
+%link_text {
+  @include text(normal,normal,14px,26px,justify,$color_turquoise,underline);
 }
