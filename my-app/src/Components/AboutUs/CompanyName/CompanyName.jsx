@@ -1,10 +1,10 @@
 import React from 'react'
-import s from './CompanyName.module.css'
+import s from './CompanyName.module.scss'
 
 const CompanyName = ({logo, name}) => {
     return (<div className={s.CompanyName}>
             <img src={logo}/>
-            <div>{name}</div>
+            <h1>{name}</h1>
         </div>
     )
 }

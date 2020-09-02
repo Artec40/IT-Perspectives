@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import './App.scss'
 import HeaderContainer from './components/Header/HeaderContainer'
 import FooterContainer from './components/Footer/FooterContainer'
 import AboutUsContainer from './components/AboutUs/AboutUsContainer'

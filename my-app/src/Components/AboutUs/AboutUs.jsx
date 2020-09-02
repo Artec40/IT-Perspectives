@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './AboutUs.module.css'
+import s from './AboutUs.module.scss'
 import CompanyName from './CompanyName/CompanyName'
 import Description from './Description/Description'
 import LastProjects from './LastProjects/LastProjects'

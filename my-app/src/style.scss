@@ -1,0 +1,36 @@
+$color_grey: #ECECE9;
+$color_white: #FFFFFF;
+$color_turquoise: #00B49B;
+$color_orange: #FAA61A;
+$color_success: #37B34A;
+$color_shadow: rgba(0, 0, 0, 0.25);
+
+h1 {
+  font-style: normal;
+  font-size: 95px;
+  text-align: left;
+  font-weight: bold;
+  line-height: 176px;
+  color: $color_white;
+  text-shadow: 0 4px 4px $color_shadow;
+}
+
+%background_color {
+  background-color: $color_grey;
+}
+
+%div_body_gray_with_shadow {
+  box-shadow: 0 4px 4px $color_shadow;
+  background-color: $color_grey;
+  align-items: center;
+}
+
+%title_icon {
+  img {
+    padding-left: 15vw;
+    float: right;
+    width: 285px;
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+}

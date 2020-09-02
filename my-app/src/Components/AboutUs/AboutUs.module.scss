@@ -1,6 +1,7 @@
+@import "../../style.scss";
+
 .AboutUs {
     grid-area: i;
-    background-color: #ECECE9;
     grid-row: 2/4;
     display: grid;
     grid-template-areas: 'cn' 'desc' 'lpr' 'tm';
