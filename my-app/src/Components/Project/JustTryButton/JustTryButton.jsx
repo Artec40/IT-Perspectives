@@ -1,9 +1,9 @@
 import React from 'react'
-import s from './JustTryButton.module.css'
+import s from './JustTryButton.module.scss'
 
 const JustTryButton = (props) => {
     return <div className={s.JustTryButton}>
-        <div className={s.Title}>Попробовать просто</div>
+        <h5>Попробовать просто</h5>
         <div><button>НАЧАТЬ</button></div>
     </div>
 }

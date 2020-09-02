@@ -9,7 +9,8 @@
 }
 
 .orangeCrap {
-    @extend %orange_crap;
+    grid-area: oc;
+    background-color: $color_orange;
 }
 
 .title{

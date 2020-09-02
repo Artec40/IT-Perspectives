@@ -1,6 +1,9 @@
-@import "../../../../style.scss";
-
 .Project {
-    @extend %project;
+    img {
+        border: 10px solid #FFFFFF;
+        border-radius: 225px;
+        width: 345px;
+    }
+    text-decoration: none;
 }
 

@@ -1,6 +1,7 @@
-@import "../../../../style.scss";
-
 .Employee{
-  @extend %employee;
+  img {
+    height: 220px;
+    border-radius: 105px;
+  }
 }
 

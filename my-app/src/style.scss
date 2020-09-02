@@ -43,6 +43,11 @@ h4 {
   margin: 0 0;
 }
 
+h5 {
+  @include h(36px, center, bold, 89px, $color_turquoise, none);
+  margin: 0 0;
+}
+
 @mixin div_body($background_color,$align-items,$padding,$box-shadow) {
   background-color: $background_color;
   align-items: $align-items;
@@ -78,13 +83,13 @@ h4 {
 }
 
 %main_text {
-  @include text(normal,normal,16px,30px,justify,$color_dark,none);
+  @include text(normal, normal, 16px, 30px, justify, $color_dark, none);
 }
 
 %secondary_text {
-  @include text(normal,normal,14px,26px,justify,$color_dark,none);
+  @include text(normal, normal, 14px, 26px, justify, $color_dark, none);
 }
 
 %link_text {
-  @include text(normal,normal,14px,26px,justify,$color_turquoise,underline);
+  @include text(normal, normal, 14px, 26px, justify, $color_turquoise, underline);
 }
