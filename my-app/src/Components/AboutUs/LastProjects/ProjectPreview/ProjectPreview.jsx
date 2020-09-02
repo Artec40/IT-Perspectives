@@ -1,12 +1,11 @@
 import React from 'react'
-import s from './ProjectPreview.module.css'
+import s from './ProjectPreview.module.scss'
 import { NavLink } from 'react-router-dom'
 
-//todo подправить верстку.
 const ProjectPreview = (props) => {
-    return <NavLink to={'/project/' + props.id}  style = {{textDecoration: 'none'}} className={s.Project}>
+    return <NavLink to={'/project/' + props.id} className={s.Project}>
             <img src={props.image}/>
-            <div className={s.Title}>{props.title}</div>
+            <h4>{props.title}</h4>
         </NavLink>
 }
 

@@ -1,0 +1,17 @@
+@import "../../../style.scss";
+
+.LastProjects {
+    z-index: 1;
+    @extend %background_dots;
+    display: grid;
+    grid-template-areas: 't t t' 'pr pr pr' 'oc oc oc';
+    grid-template-rows: 250px 545px 150px ;
+}
+
+.orangeCrap {
+    @extend %orange_crap;
+}
+
+.title{
+    grid-area: t;
+}

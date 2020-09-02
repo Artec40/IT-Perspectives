@@ -1,0 +1,7 @@
+@import "../../../style.scss";
+
+.Description {
+  z-index: 2;
+  @extend %main_text;
+  @extend %div_body_white_with_shadow;
+}

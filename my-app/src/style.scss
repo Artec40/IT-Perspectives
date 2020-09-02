@@ -5,24 +5,85 @@ $color_orange: #FAA61A;
 $color_success: #37B34A;
 $color_shadow: rgba(0, 0, 0, 0.25);
 
-h1 {
-  font-style: normal;
-  font-size: 95px;
-  text-align: left;
-  font-weight: bold;
-  line-height: 176px;
-  color: $color_white;
-  text-shadow: 0 4px 4px $color_shadow;
-}
-
 %background_color {
   background-color: $color_grey;
 }
 
+//todo не работает бэкграунд с изображением.
+%background_dots {
+  background-image: url('/public/BackgroundWorkInfo.jpg');
+  background-size: 1500px 1500px;
+  text-align: center;
+}
+
+%orange_crap {
+  grid-area: oc;
+  background-color: $color_orange;
+}
+
+@mixin h($font_size, $text_align, $font-weight, $line_height, $color, $text_shadow) {
+  font-size: $font_size;
+  text-align: $text_align;
+  font-weight: $font-weight;
+  line-height: $line_height;
+  color: $color;
+  text-shadow: $text_shadow;
+}
+
+h1 {
+  @include h(95px, left, bold, 176px, $color_white, 0 4px 4px $color_shadow);
+}
+
+h2 {
+  @include h(48px, center, bold, 89px, $color_turquoise, none);
+}
+
+h3 {
+  @include h(48px, center, bold, 89px, $color_orange, none);
+}
+
+h4 {
+  @include h(48px, center, bold, 89px, $color_turquoise, none);
+  margin: 0 0;
+}
+
+@mixin div_body($background_color,$align-items,$padding,$box-shadow) {
+  background-color: $background_color;
+  align-items: $align-items;
+  padding: $padding;
+  box-shadow: $box-shadow;
+}
+
 %div_body_gray_with_shadow {
-  box-shadow: 0 4px 4px $color_shadow;
-  background-color: $color_grey;
-  align-items: center;
+  @include div_body($color_grey, center, 0, 0 4px 4px $color_shadow);
+}
+
+%div_body_gray {
+  @include div_body($color_grey, center, 0, none);
+}
+
+%div_body_white_with_shadow {
+  @include div_body($color_white, none, 0 210px 0 192px, 0 4px 4px $color_shadow);
+}
+
+%div_body_white {
+  @include div_body($color_white, none, 0 210px 0 192px, none);
+  text-align: center;
+}
+
+%main_text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: justify;
+}
+
+%secondary_text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 26px;
 }
 
 %title_icon {
@@ -32,5 +93,34 @@ h1 {
     width: 285px;
     -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+}
+
+%project {
+  img {
+    border: 10px solid #FFFFFF;
+    border-radius: 225px;
+    width: 345px;
+  }
+  text-decoration: none;
+}
+
+%article {
+  background: $color_grey;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.07);
+  margin: 80px 25px 50px;
+  text-align: left;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  img {
+    width: 48px;
+    border-radius: 75px;
+  }
+}
+
+%employee {
+  img {
+    height: 220px;
+    border-radius: 105px;
   }
 }

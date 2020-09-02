@@ -1,10 +1,10 @@
 import React from 'react'
-import s from './Employee.module.css'
+import s from './Employee.module.scss'
 
 const Employee = (props) => {
     return <div className={s.Employee}>
         <img src={props.image}/>
-        <div className={s.title}>{props.name}</div>
+        <h4>{props.name}</h4>
     </div>
 }
 

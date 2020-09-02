@@ -1,0 +1,34 @@
+@import "../../../../style.scss";
+
+.Article a {
+  grid-area: art;
+  display: grid;
+  grid-template-areas: 't t' 'img d' 'img n' 'img l';
+  grid-template-columns: 65px 1fr;
+  grid-template-rows: 110px 17px 17px 17px;
+  @extend %article;
+
+}
+
+.day .name .text {
+  @extend %secondary_text;
+}
+
+.day {
+  grid-area: d;
+}
+
+.name {
+  grid-area: n;
+}
+
+.text {
+  grid-area: t;
+}
+
+.link {
+  grid-area: l;
+  @extend %secondary_text;
+  color: #00B49B;
+  text-decoration-line: underline;
+}

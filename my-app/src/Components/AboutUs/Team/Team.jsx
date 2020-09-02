@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './Team.module.css'
+import s from './Team.module.scss'
 import Article from './Article/Article'
 import Employee from './Employee/Employee'
 
@@ -15,7 +15,7 @@ const Team = ({employees, articles}) => {
     }
 
     return <div className={s.Team}>
-        <div className={s.title}>НАША КОМАНДА</div>
+        <h4 className={s.title}>НАША КОМАНДА</h4>
         {renderEmployees(employees)}
         {renderArticles(articles)}
     </div>
