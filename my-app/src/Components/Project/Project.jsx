@@ -3,11 +3,16 @@ import ProjectDescription from './ProjectDescription/ProjectDescription'
 import KillerFeature from './KillerFeature/KillerFeature'
 import JustTryButton from './JustTryButton/JustTryButton'
 
-const Project = ({project, killerFeature}) => {
-    if (!project) return <></>
+const Project = ({project, killerFeatures}) => {
+
+    let projectKillerFeatures = killerFeatures.map((k) => <KillerFeature title={k.title}
+                                                                         description={k.description}
+                                                                         image={k.image}
+    />)
+
     return <div>
-        <ProjectDescription project={project}/>
-        <KillerFeature killerFeature={killerFeature}/>
+        <ProjectDescription name={project.name} description={project.description} image={project.image}/>
+        {projectKillerFeatures}
         <JustTryButton/>
     </div>
 }

@@ -1,15 +1,15 @@
 import React from 'react'
 import s from './ProjectDescription.module.scss'
 
-const ProjectDescription = ({project}) => {
+const ProjectDescription = ({name, description, image}) => {
     return <div className={s.ProjectDescription}>
-        <h4>{project.projectName}</h4>
-        <div>{project.projectDescription}</div>
+        <h4>{name}</h4>
+        <div>{description}</div>
         <div>
-            <img src={project.projectTechnologyImage}/>
-            <img src={project.projectTechnologyImage}/>
-            <img src={project.projectTechnologyImage}/>
-            <img src={project.projectTechnologyImage}/>
+            <img src={image}/>
+            <img src={image}/>
+            <img src={image}/>
+            <img src={image}/>
         </div>
     </div>
 }

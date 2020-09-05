@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
 import Preloader from '../common/Preloader/Preloader'
-import { getCurrentEmployee, getIsFetching } from '../../redux/aboutUs-selector'
+import { getCurrentEmployee, getIsFetching, getEmployeeProjects } from '../../redux/aboutUs-selector'
 import { getEmployeePage } from '../../redux/aboutUs-reducer'
 
 class EmployeePageContainer extends React.Component {
@@ -32,11 +32,10 @@ class EmployeePageContainer extends React.Component {
             {
                 !this.props.isFetching &&
                 this.props.employee &&
+                this.props.projects &&
                 <EmployeePage
-                    employee={{
-                        image: this.props.employee.teammatePhoto,
-                        name: this.props.employee.teammateShortName
-                    }}
+                    employee={this.props.employee}
+                    projects={this.props.projects}
                 />}
         </div>
     }
@@ -45,6 +44,7 @@ class EmployeePageContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         employee: getCurrentEmployee(state),
+        projects: getEmployeeProjects(state),
         isFetching: getIsFetching(state)
     }
 }

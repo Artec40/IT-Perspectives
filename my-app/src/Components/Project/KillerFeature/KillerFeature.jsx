@@ -1,11 +1,11 @@
 import React from 'react'
 import s from './KillerFeature.module.scss'
 
-const KillerFeature = ({killerFeature}) => {
+const KillerFeature = ({title, description, image}) => {
     return <div className={s.KillerFeature}>
-        <h2 className={s.Title}>{killerFeature.killerFeatureName}</h2>
-        <div className={s.Description}>{killerFeature.killerFeatureDescription}</div>
-        <img src={killerFeature.killerFeatureImage}/>
+        <h2 className={s.Title}>{title}</h2>
+        <div className={s.Description}>{description}</div>
+        <img src={image}/>
         <div className={s.OrangeCrap}></div>
     </div>
 }

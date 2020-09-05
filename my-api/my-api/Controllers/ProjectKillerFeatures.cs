@@ -11,30 +11,31 @@ namespace my_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KillerFeaturesController : ControllerBase
+    public class ProjectKillerFeaturesController : ControllerBase
     {
         protected readonly ITPerspectivesContext Context;
 
-        public KillerFeaturesController(ITPerspectivesContext context)
+        public ProjectKillerFeaturesController(ITPerspectivesContext context)
         {
             Context = context;
             Context.Database.EnsureCreated();
         }
-
-        [HttpGet]
+     
+        [HttpGet("{projectId}")]
         [EnableCors("AnotherPolicy")]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<string> Get(int projectId)
         {
             var killerFeaturesQuery = from killerFeature in Context.KillerFeatures
-                                      select new
+                                     where killerFeature.ProjectId == projectId
+                                     select new
                                       {
                                           killerFeatureId = killerFeature.Id,
                                           killerFeatureName = killerFeature.Name,
                                           killerFeatureDescription = killerFeature.Description,
                                           killerFeatureImage = killerFeature.ImageLink
                                       };
-            var killerFeatures = killerFeaturesQuery.ToArray();
-            return Ok(killerFeatures);
+            var response = killerFeaturesQuery.ToArray();
+            return Ok(response);
         }
     }
 }

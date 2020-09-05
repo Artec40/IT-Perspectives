@@ -51,7 +51,11 @@ namespace my_api.Controllers
                                      teammateShortName = teammate.ShortName,
                                      teammateFullName = teammate.FullName,
                                      teammateCompany = teammate.Company,
+                                     teammateLocation = teammate.Location,
+                                     teammateWebsite = teammate.Website,
+                                     teammatePhone = teammate.Phone,
                                      teammateArticlesCount = teammate.ArticlesCount,
+                                     teammatePersonalInfo = teammate.PersonalInfo,
                                  };
             var response = teammateQuery.Single();
             return Ok(response);

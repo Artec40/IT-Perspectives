@@ -18,10 +18,10 @@ let initialState = {
     projects: [],
     employees: [],
     articles: [],
-    killerFeatures: [],
     currentProject: null,
     currentEmployee: null,
-    currentKillerFeature: null,
+    currentEmployeeProjects: [],
+    currentKillerFeatures: [],
     isFetching: false
 }
 
@@ -39,13 +39,14 @@ const aboutUsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentProject: action.projectPage.project,
-                currentKillerFeature: action.projectPage.killerFeature
+                currentKillerFeatures: action.projectPage.killerFeatures
             }
         }
         case SET_EMPLOYEE_PAGE: {
             return {
                 ...state,
-                currentEmployee: action.employeePage.employee
+                currentEmployee: action.employeePage.employee,
+                currentEmployeeProjects: action.employeePage.projects
             }
         }
         case TOGGLE_IS_FETCHING: {
@@ -62,31 +63,32 @@ const aboutUsReducer = (state = initialState, action) => {
 export const setAboutUsPage = (projects, employees, articles) => ({
     type: SET_ABOUT_US_PAGE, aboutUsPage: {projects, employees, articles}
 })
-export const setProjectPage = (project, killerFeature) => ({
-    type: SET_PROJECT_PAGE, projectPage: {project, killerFeature}
+export const setProjectPage = (project, killerFeatures) => ({
+    type: SET_PROJECT_PAGE, projectPage: {project, killerFeatures}
 })
-export const setEmployeePage = (employee) => ({type: SET_EMPLOYEE_PAGE, employeePage:{employee}})
+export const setEmployeePage = (employee, projects) => ({type: SET_EMPLOYEE_PAGE, employeePage:{employee, projects}})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const getAboutUsElements = () => async (dispatch) => {
-    const responseProjects = await aboutUsAPI.getProjects()
-    const responseEmployees = await aboutUsAPI.getEmployees()
-    const responseArticles = await aboutUsAPI.getArticles()
-    dispatch(setAboutUsPage(responseProjects.data, responseEmployees.data, responseArticles.data))
+    const projects = await aboutUsAPI.getProjects()
+    const employees = await aboutUsAPI.getEmployees()
+    const articles = await aboutUsAPI.getArticles()
+    dispatch(setAboutUsPage(projects.data, employees.data, articles.data))
 }
 
 export const getEmployeePage = (id) => async (dispatch) => {
     dispatch(toggleIsFetching(true))
-    const responseEmployee = await aboutUsAPI.getEmployee(id)
-    dispatch(setEmployeePage(responseEmployee.data))
+    const employee = await aboutUsAPI.getEmployee(id)
+    const employeeProjects = await aboutUsAPI.getEmployeeProjects(id)
+    dispatch(setEmployeePage(employee.data, employeeProjects.data))
     dispatch(toggleIsFetching(false))
 }
 
 export const getProjectPage = (id) => async (dispatch) => {
     dispatch(toggleIsFetching(true))
-    const responseProject = await aboutUsAPI.getProject(id)
-    const responseKillerFeature = await aboutUsAPI.getKillerFeature(id)
-    dispatch(setProjectPage(responseProject.data, responseKillerFeature.data))
+    const project = await aboutUsAPI.getProject(id)
+    const killerFeatures = await aboutUsAPI.getKillerFeatures(id)
+    dispatch(setProjectPage(project.data, killerFeatures.data))
     dispatch(toggleIsFetching(false))
 }
 

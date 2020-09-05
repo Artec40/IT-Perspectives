@@ -1,7 +1,7 @@
 import React from 'react'
 import Project from './Project'
 import { connect } from 'react-redux'
-import { getCurrentProject, getCurrentKillerFeature, getIsFetching } from '../../redux/aboutUs-selector'
+import { getCurrentProject, getCurrentKillerFeatures, getIsFetching } from '../../redux/aboutUs-selector'
 import { getProjectPage } from '../../redux/aboutUs-reducer'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
@@ -25,11 +25,15 @@ class ProjectContainer extends React.Component {
     }
 
     render() {
-        debugger
         return <div>
-            {this.props.isFetching ? <Preloader/> :
-                <Project project={this.props.project}
-                         killerFeature={this.props.killerFeature}/>}
+            {this.props.isFetching &&
+            <Preloader/>}
+            {!this.props.isFetching &&
+            this.props.project &&
+            this.props.killerFeatures &&
+            <Project project={this.props.project}
+                     killerFeatures={this.props.killerFeatures}/>}
+            }
         </div>
     }
 }
@@ -37,7 +41,7 @@ class ProjectContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         project: getCurrentProject(state),
-        killerFeature: getCurrentKillerFeature(state),
+        killerFeatures: getCurrentKillerFeatures(state),
         isFetching: getIsFetching(state)
     }
 }

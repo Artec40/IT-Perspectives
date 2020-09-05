@@ -17,9 +17,17 @@ namespace my_api
         [Column("full_name")]
         public string FullName { get; set; }
         [Column("company")]
-        public string Company { get; set; }
+        public string Company { get; set; }        
+        [Column("location")]
+        public string Location { get; set; }        
+        [Column("website")]
+        public string Website { get; set; }        
+        [Column("phone")]
+        public string Phone { get; set; }
         [Column("articles_count")]
         public int ArticlesCount { get; set; }
+        [Column("personal_info")]
+        public string PersonalInfo { get; set; }
         public IEnumerable<Project> Projects { get; set; }
         public IEnumerable<Article> Articles { get; set; }
 
@@ -30,7 +38,11 @@ namespace my_api
             modelBuilder.Entity<Teammate>().Property(x => x.ShortName).IsRequired();
             modelBuilder.Entity<Teammate>().Property(x => x.FullName).IsRequired();
             modelBuilder.Entity<Teammate>().Property(x => x.Company).IsRequired();
+            modelBuilder.Entity<Teammate>().Property(x => x.Location).IsRequired();
+            modelBuilder.Entity<Teammate>().Property(x => x.Website).IsRequired();
+            modelBuilder.Entity<Teammate>().Property(x => x.Phone).IsRequired();
             modelBuilder.Entity<Teammate>().Property(x => x.ArticlesCount).IsRequired();
+            modelBuilder.Entity<Teammate>().Property(x => x.PersonalInfo).IsRequired();
 
             modelBuilder.Entity<Teammate>().HasIndex(x => x.FullName).IsUnique();
         }

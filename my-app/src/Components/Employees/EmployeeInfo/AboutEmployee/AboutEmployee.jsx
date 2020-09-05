@@ -1,15 +1,15 @@
 import React from 'react'
 
-const AboutEmployee = () => {
+const AboutEmployee = ({fullname, company, location, website, phone, articlesCount, personalInfo}) => {
     return <div>
-        <h3>О себе</h3>
-        <div>Имя</div>
-        <div>Компания</div>
-        <div>Расположение</div>
-        <div>Вебсайт</div>
-        <div>Телефон</div>
-        <div>Количество публикаций</div>
-        <div>Краткая характеристика</div>
+        <h4>О себе</h4>
+        <div>Полное имя: {fullname}</div>
+        <div>Компания: {company}</div>
+        <div>Местоположение: {location}</div>
+        <div>Вебсайт: {website}</div>
+        <div>Телефон: {phone}</div>
+        <div>Количество публикаций: {articlesCount}</div>
+        <div>Краткая характеристика: {personalInfo}</div>
     </div>
 }
 

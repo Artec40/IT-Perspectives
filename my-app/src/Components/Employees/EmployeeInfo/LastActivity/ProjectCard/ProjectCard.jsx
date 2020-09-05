@@ -1,10 +1,10 @@
 import React from 'react'
 
-const ProjectCard = () => {
+const ProjectCard = ({image, description, title}) => {
     return <div>
-        <img src={'/projects/anti-alco-car.jpg'}/>
-        <span>Проект</span>
-        <span><div>текст</div><a>Читать далее</a></span>
+        <img src={image}/>
+        <span>{title}</span>
+        <span><div>{description}</div><a>Читать далее</a></span>
     </div>
 }
 
