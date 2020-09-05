@@ -1,14 +1,20 @@
 @import "../../../style.scss";
 
-.Team {
+.Team{
     grid-area: tm;
     display: grid;
     grid-template-areas: 't t t' 'emp emp emp' 'art art art';
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 120px 300px 300px;
     @extend %div_body_white;
+    text-decoration: none;
 }
 
 .title {
     grid-area: t;
 }
+
+.NavLink{
+    text-decoration: none;
+}
+

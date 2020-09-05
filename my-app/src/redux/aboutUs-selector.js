@@ -32,6 +32,10 @@ export const getCurrentProject = (state) => {
     return state.aboutUs.currentProject
 }
 
+export const getCurrentEmployee = (state) => {
+    return state.aboutUs.currentEmployee
+}
+
 export const getCurrentKillerFeature = (state) => {
     return state.aboutUs.currentKillerFeature
 }

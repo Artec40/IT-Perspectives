@@ -11,8 +11,9 @@ import Login from './components/Login/Login'
 import { Provider } from 'react-redux'
 import store from './redux/redux-store'
 import ProjectContainer from './components/Project/ProjectContainer'
+import EmployeePageContainer from './components/Employees/EmployeePageContainer'
 
-//todo Нужно обновить верстку, DRY!!!111 И хэдер съезжает в зависимости от колёсика прокрутки.
+//todo Хэдер съезжает в зависимости от колёсика прокрутки.
 function App() {
     return (
         <div className="app-wrapper">
@@ -24,6 +25,7 @@ function App() {
                 <Route path={'/contacts'} render={() => <Contacts/>}/>
                 <Route path={'/login'} render={() => <Login/>}/>
                 <Route path={'/project/:projectId?'} render={() => <ProjectContainer/>}/>
+                <Route path={'/employee/:employeeId?'} render={() => <EmployeePageContainer/>}/>
             </div>
             <FooterContainer/>
         </div>

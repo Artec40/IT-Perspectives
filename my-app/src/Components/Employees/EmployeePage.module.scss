@@ -1,0 +1,6 @@
+@import '../../style';
+
+.title{
+  @extend %div_body_gray_with_shadow;
+  text-align: center;
+}

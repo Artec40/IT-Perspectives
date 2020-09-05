@@ -5,7 +5,7 @@ import { getCurrentProject, getCurrentKillerFeature, getIsFetching } from '../..
 import { getProjectPage } from '../../redux/aboutUs-reducer'
 import { compose } from 'redux'
 import { withRouter } from 'react-router-dom'
-import Preloader from '../common/Preloader'
+import Preloader from '../common/Preloader/Preloader'
 
 class ProjectContainer extends React.Component {
 
@@ -25,11 +25,11 @@ class ProjectContainer extends React.Component {
     }
 
     render() {
+        debugger
         return <div>
             {this.props.isFetching ? <Preloader/> :
                 <Project project={this.props.project}
                          killerFeature={this.props.killerFeature}/>}
-
         </div>
     }
 }

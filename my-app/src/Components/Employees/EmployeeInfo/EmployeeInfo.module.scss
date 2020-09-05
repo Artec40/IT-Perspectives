@@ -1,0 +1,5 @@
+@import '../../../style';
+
+.employeeInfo{
+  @extend %div_body_white_with_shadow;
+}

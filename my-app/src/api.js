@@ -20,6 +20,9 @@ export const aboutUsAPI = {
     getEmployees() {
         return instance.get(`teammates/`)
     },
+    getEmployee(id){
+        return instance.get(`teammates/${id}`)
+    },
     getArticles() {
         return instance.get(`articles/`)
     },

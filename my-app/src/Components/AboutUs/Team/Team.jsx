@@ -1,12 +1,16 @@
 import React from 'react'
 import s from './Team.module.scss'
 import Article from './Article/Article'
-import Employee from './Employee/Employee'
+import Employee from '../../common/Employee/Employee'
+import { NavLink } from 'react-router-dom'
 
 const Team = ({employees, articles}) => {
 
     let renderEmployees = (employees) => {
-        return employees.map((e, i) => <Employee key={i} image={e.image} name={e.name}/>)
+        return employees.map((e) =>
+            <NavLink className={s.NavLink} to={'/employee/' + e.id}>
+                <Employee id={e.id} image={e.image} name={e.name}/>
+            </NavLink>)
     }
     let renderArticles = (articles) => {
         return articles.map((e, i) => <Article key={i} text={e.text} day={e.day}

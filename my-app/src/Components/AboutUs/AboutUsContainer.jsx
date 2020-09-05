@@ -24,6 +24,7 @@ class AboutUsContainer extends React.Component {
                             name: p.projectName
                         }))}
                         employees={this.props.employees.map(e => ({
+                            id: e.teammateId,
                             image: e.teammatePhoto,
                             name: e.teammateShortName}))}
                         articles={this.props.articles.map(a => ({
