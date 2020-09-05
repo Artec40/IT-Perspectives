@@ -1,10 +1,11 @@
 import React from 'react'
+import s from './ProjectCard.module.scss'
 
 const ProjectCard = ({image, description, title}) => {
-    return <div>
+    return <div className={s.projectCard}>
         <img src={image}/>
-        <span>{title}</span>
-        <span><div>{description}</div><a>Читать далее</a></span>
+        <h6>{title}</h6>
+        <div className={s.description}><div>{description}</div><a>Читать далее</a></div>
     </div>
 }
 

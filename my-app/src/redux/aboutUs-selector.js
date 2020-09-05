@@ -43,17 +43,16 @@ export const getArticlesElements = (state) => {
 }
 
 export const getCurrentProject = (state) => {
-    if (state.aboutUs.  currentProject) {
+    if (state.aboutUs.currentProject)
         return {
             name: state.aboutUs.currentProject.projectName,
             description: state.aboutUs.currentProject.projectDescription,
             image: state.aboutUs.currentProject.projectTechnologyImage
         }
-    }
 }
 
 export const getCurrentEmployee = (state) => {
-    if (state.aboutUs.currentEmployee) {
+    if (state.aboutUs.currentEmployee)
         return {
             image: state.aboutUs.currentEmployee.teammatePhoto,
             name: state.aboutUs.currentEmployee.teammateShortName,
@@ -65,11 +64,15 @@ export const getCurrentEmployee = (state) => {
             articlesCount: state.aboutUs.currentEmployee.teammateArticlesCount,
             personalInfo: state.aboutUs.currentEmployee.teammatePersonalInfo
         }
-    }
 }
 
 export const getEmployeeProjects = (state) => {
-    return state.aboutUs.currentEmployeeProjects
+    if (state.aboutUs.currentEmployeeProjects)
+        return state.aboutUs.currentEmployeeProjects.map(p => ({
+            title: p.projectName,
+            image: p.projectPhoto,
+            description: p.projectDescription,
+        }))
 }
 
 export const getCurrentKillerFeatures = (state) => {

@@ -1,7 +1,8 @@
 import React from 'react'
+import s from './AboutEmployee.module.scss'
 
 const AboutEmployee = ({fullname, company, location, website, phone, articlesCount, personalInfo}) => {
-    return <div>
+    return <div className={s.aboutEmployee}>
         <h4>О себе</h4>
         <div>Полное имя: {fullname}</div>
         <div>Компания: {company}</div>
@@ -9,7 +10,7 @@ const AboutEmployee = ({fullname, company, location, website, phone, articlesCou
         <div>Вебсайт: {website}</div>
         <div>Телефон: {phone}</div>
         <div>Количество публикаций: {articlesCount}</div>
-        <div>Краткая характеристика: {personalInfo}</div>
+        <div className={s.padding_top}>Краткая характеристика: {personalInfo}</div>
     </div>
 }
 
