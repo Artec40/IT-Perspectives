@@ -62,6 +62,8 @@ h6 {
 
 %div_body_gray_with_shadow {
   @include div_body($color_grey, center, 0, 0 4px 4px $color_shadow);
+  position: relative;
+  z-index:100;
 }
 
 %div_body_gray {

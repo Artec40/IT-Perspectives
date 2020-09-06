@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './Team.module.scss'
-import Article from './Article/Article'
+import ArticlePreview from '../../common/ArticlePreview/ArticlePreview'
 import Employee from '../../common/Employee/Employee'
 import { NavLink } from 'react-router-dom'
 
@@ -13,9 +13,9 @@ const Team = ({employees, articles}) => {
             </NavLink>)
     }
     let renderArticles = (articles) => {
-        return articles.map((e, i) => <Article key={i} text={e.text} day={e.day}
-                                               name={e.name} image={e.image}
-                                               link={e.link}/>)
+        return articles.map((e, i) => <ArticlePreview key={i} text={e.text} day={e.day}
+                                                      name={e.name} image={e.image}
+                                                      link={e.link}/>)
     }
 
     return <div className={s.Team}>

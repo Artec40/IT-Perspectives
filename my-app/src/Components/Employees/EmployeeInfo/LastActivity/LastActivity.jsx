@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectCard from './ProjectCard/ProjectCard'
+import ProjectCard from '../../../common/ProjectCard/ProjectCard'
 import s from './LastActivity.module.scss'
 
 const LastActivity = ({projects}) => {
