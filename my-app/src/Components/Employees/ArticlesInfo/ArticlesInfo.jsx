@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ArticlesInfo.module.scss'
-import Article from './Articles/Article'
+import Article from '../../common/Articles/Article'
 
 const ArticlesInfo = ({articles}) => {
 
