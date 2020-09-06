@@ -21,6 +21,7 @@ let initialState = {
     currentProject: null,
     currentEmployee: null,
     currentEmployeeProjects: [],
+    currentEmployeeArticles: [],
     currentKillerFeatures: [],
     isFetching: false
 }
@@ -43,10 +44,12 @@ const aboutUsReducer = (state = initialState, action) => {
             }
         }
         case SET_EMPLOYEE_PAGE: {
+            debugger
             return {
                 ...state,
                 currentEmployee: action.employeePage.employee,
-                currentEmployeeProjects: action.employeePage.projects
+                currentEmployeeProjects: action.employeePage.projects,
+                currentEmployeeArticles: action.employeePage.articles
             }
         }
         case TOGGLE_IS_FETCHING: {
@@ -66,7 +69,10 @@ export const setAboutUsPage = (projects, employees, articles) => ({
 export const setProjectPage = (project, killerFeatures) => ({
     type: SET_PROJECT_PAGE, projectPage: {project, killerFeatures}
 })
-export const setEmployeePage = (employee, projects) => ({type: SET_EMPLOYEE_PAGE, employeePage:{employee, projects}})
+export const setEmployeePage = (employee, projects, articles) => ({
+    type: SET_EMPLOYEE_PAGE,
+    employeePage: {employee, projects, articles}
+})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const getAboutUsElements = () => async (dispatch) => {
@@ -80,7 +86,8 @@ export const getEmployeePage = (id) => async (dispatch) => {
     dispatch(toggleIsFetching(true))
     const employee = await aboutUsAPI.getEmployee(id)
     const employeeProjects = await aboutUsAPI.getEmployeeProjects(id)
-    dispatch(setEmployeePage(employee.data, employeeProjects.data))
+    const employeeArticles = await aboutUsAPI.getEmployeeArticles(id)
+    dispatch(setEmployeePage(employee.data, employeeProjects.data, employeeArticles.data))
     dispatch(toggleIsFetching(false))
 }
 

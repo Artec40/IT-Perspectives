@@ -75,6 +75,14 @@ export const getEmployeeProjects = (state) => {
             description: p.projectDescription.substr(0,60)+'...',
         }))
 }
+export const getEmployeeArticles = (state) => {
+    if (state.aboutUs.currentEmployeeArticles)
+        return state.aboutUs.currentEmployeeArticles.map(a => ({
+            title: a.articleTitle.toUpperCase(),
+            image: a.articleImageLink,
+            description: a.articleDescription,
+        }))
+}
 
 export const getCurrentKillerFeatures = (state) => {
     return state.aboutUs.currentKillerFeatures.map(k => ({

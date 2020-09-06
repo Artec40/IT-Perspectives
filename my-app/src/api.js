@@ -29,6 +29,9 @@ export const aboutUsAPI = {
     getArticles() {
         return instance.get(`articles/`)
     },
+    getEmployeeArticles(employeeId) {
+      return instance.get(`teammatearticles/${employeeId}`)
+    },
     getKillerFeatures(projectId) {
         return instance.get(`projectkillerfeatures/${projectId}`)
     }
