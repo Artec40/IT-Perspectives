@@ -1,6 +1,8 @@
 @import '../../../style';
 
 .employeeInfo{
+    z-index: 2;
+  position: relative;
   @extend %div_body_white_with_shadow;
   display: grid;
   grid-template-areas: 'emp ae la';

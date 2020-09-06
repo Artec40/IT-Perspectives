@@ -1,0 +1,7 @@
+@import '../../../../style';
+
+.article {
+  @extend %div_small_body_white_with_shadow;
+  width:660px;
+  height: 400px;
+}

@@ -1,0 +1,14 @@
+@import '../../../style';
+
+.articlesInfo {
+  display: grid;
+  grid-template-areas: 't t' 'a a';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+  padding: 0 210px 0 192px;
+  @extend %background_dots;
+}
+
+.title {
+  grid-area: t;
+}

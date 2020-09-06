@@ -1,6 +1,9 @@
 @import '../../style';
 
-.title{
+.title {
+  z-index: 3;
   @extend %div_body_gray_with_shadow;
   text-align: center;
+  padding-bottom: 0.67em;
+  margin-bottom: 0;
 }

@@ -69,9 +69,10 @@ export const getCurrentEmployee = (state) => {
 export const getEmployeeProjects = (state) => {
     if (state.aboutUs.currentEmployeeProjects)
         return state.aboutUs.currentEmployeeProjects.map(p => ({
+            id: p.projectId,
             title: p.projectName,
             image: p.projectPhoto,
-            description: p.projectDescription,
+            description: p.projectDescription.substr(0,60)+'...',
         }))
 }
 

@@ -4,7 +4,8 @@ import s from './LastActivity.module.scss'
 
 const LastActivity = ({projects}) => {
 
-    let employeeProjects = projects.map(p => <ProjectCard image={p.image}
+    let employeeProjects = projects.map(p => <ProjectCard id={p.id}
+                                                          image={p.image}
                                                           description={p.description}
                                                           title={p.title}/>)
 

@@ -71,6 +71,7 @@ h6 {
 %div_body_white_with_shadow {
   @include div_body($color_white, none, 0 210px 0 192px, 0 4px 4px $color_shadow);
 }
+
 %div_small_body_white_with_shadow {
   @include div_body($color_white, none, 0 0 0 0, 0 4px 4px $color_shadow);
 }
