@@ -53,6 +53,10 @@ h6 {
   margin: 0 0;
 }
 
+%page_message {
+  @include h(95px, center, bold, 176px, $color_turquoise, 0 4px 4px $color_shadow);
+}
+
 @mixin div_body($background_color,$align-items,$padding,$box-shadow) {
   background-color: $background_color;
   align-items: $align-items;
@@ -63,7 +67,7 @@ h6 {
 %div_body_gray_with_shadow {
   @include div_body($color_grey, center, 0, 0 4px 4px $color_shadow);
   position: relative;
-  z-index:100;
+  z-index: 100;
 }
 
 %div_body_gray {

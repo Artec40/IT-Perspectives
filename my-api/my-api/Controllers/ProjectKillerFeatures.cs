@@ -20,22 +20,24 @@ namespace my_api.Controllers
             Context = context;
             Context.Database.EnsureCreated();
         }
-     
+
         [HttpGet("{projectId}")]
         [EnableCors("AnotherPolicy")]
         public ActionResult<string> Get(int projectId)
         {
-            var killerFeaturesQuery = from killerFeature in Context.KillerFeatures
-                                     where killerFeature.ProjectId == projectId
-                                     select new
-                                      {
-                                          killerFeatureId = killerFeature.Id,
-                                          killerFeatureName = killerFeature.Name,
-                                          killerFeatureDescription = killerFeature.Description,
-                                          killerFeatureImage = killerFeature.ImageLink
-                                      };
-            var response = killerFeaturesQuery.ToArray();
-            return Ok(response);
+            var projectKillerFeaturesQuery = from killerFeature in Context.KillerFeatures
+                                             where killerFeature.ProjectId == projectId
+                                             select new
+                                             {
+                                                 killerFeatureId = killerFeature.Id,
+                                                 killerFeatureName = killerFeature.Name,
+                                                 killerFeatureDescription = killerFeature.Description,
+                                                 killerFeatureImage = killerFeature.ImageLink
+                                             };
+            var response = projectKillerFeaturesQuery.ToArray();
+            if (response.Any())
+                return Ok(response);
+            return NotFound();
         }
     }
 }

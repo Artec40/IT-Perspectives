@@ -36,7 +36,9 @@ namespace my_api.Controllers
                                             projectTechnologyImage = project.TechnologyImage
                                         };
             var response = teammateProjectsQuery.ToArray();
-            return Ok(response);
+            if (response.Any())
+                return Ok(response);
+            return NotFound();
         }
     }
 }

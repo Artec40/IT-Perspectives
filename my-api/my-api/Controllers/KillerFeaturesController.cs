@@ -34,7 +34,9 @@ namespace my_api.Controllers
                                           killerFeatureImage = killerFeature.ImageLink
                                       };
             var killerFeatures = killerFeaturesQuery.ToArray();
-            return Ok(killerFeatures);
+            if (killerFeatures.Any())
+                return Ok(killerFeatures);
+            return NotFound();
         }
     }
 }

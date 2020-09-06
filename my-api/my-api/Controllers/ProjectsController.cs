@@ -35,7 +35,9 @@ namespace my_api.Controllers
                                     projectTechnologyImage = project.TechnologyImage
                                 };
             var projects = projectsQuery.ToArray();
-            return Ok(projects);
+            if (projects.Any())
+                return Ok(projects);
+            return NotFound();
         }
 
         [HttpGet("{projectId}")]
@@ -43,16 +45,19 @@ namespace my_api.Controllers
         {
             var projectQuery = from project in Context.Projects
                                where project.Id == projectId
-                                select new
-                                {
-                                    projectId = project.Id,
-                                    projectPhoto = project.Photo,
-                                    projectName = project.Name,
-                                    projectDescription = project.Description,
-                                    projectTechnologyImage = project.TechnologyImage
-                                };
+                               select new
+                               {
+                                   projectId = project.Id,
+                                   projectPhoto = project.Photo,
+                                   projectName = project.Name,
+                                   projectDescription = project.Description,
+                                   projectTechnologyImage = project.TechnologyImage
+                               };
             var response = projectQuery.Single();
+            if (response == null)
+                return NotFound();
             return Ok(response);
+
         }
     }
 }

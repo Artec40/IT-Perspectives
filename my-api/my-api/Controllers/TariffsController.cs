@@ -35,7 +35,9 @@ namespace my_api.Controllers
                                    tariffPrice = tariff.Price
                                };
             var tariffs = tariffsQuery.ToArray();
-            return Ok(tariffs);
+            if (tariffs.Any())
+                return Ok(tariffs);
+            return NotFound();
         }
     }
 }

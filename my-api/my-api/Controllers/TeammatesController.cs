@@ -45,19 +45,21 @@ namespace my_api.Controllers
             var teammateQuery = from teammate in Context.Teammates
                                 where teammate.Id == teammateId
                                 select new
-                                 {
-                                     teammateId = teammate.Id,
-                                     teammatePhoto = teammate.Photo,
-                                     teammateShortName = teammate.ShortName,
-                                     teammateFullName = teammate.FullName,
-                                     teammateCompany = teammate.Company,
-                                     teammateLocation = teammate.Location,
-                                     teammateWebsite = teammate.Website,
-                                     teammatePhone = teammate.Phone,
-                                     teammateArticlesCount = teammate.ArticlesCount,
-                                     teammatePersonalInfo = teammate.PersonalInfo,
-                                 };
-            var response = teammateQuery.Single();
+                                {
+                                    teammateId = teammate.Id,
+                                    teammatePhoto = teammate.Photo,
+                                    teammateShortName = teammate.ShortName,
+                                    teammateFullName = teammate.FullName,
+                                    teammateCompany = teammate.Company,
+                                    teammateLocation = teammate.Location,
+                                    teammateWebsite = teammate.Website,
+                                    teammatePhone = teammate.Phone,
+                                    teammateArticlesCount = teammate.ArticlesCount,
+                                    teammatePersonalInfo = teammate.PersonalInfo,
+                                };
+            var response = teammateQuery.SingleOrDefault();
+            if (response == null)
+                return NotFound();
             return Ok(response);
         }
     }

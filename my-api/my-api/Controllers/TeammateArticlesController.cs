@@ -38,7 +38,9 @@ namespace my_api.Controllers
                                             authorPhoto = article.Teammate.Photo
                                         };
             var response = teammateArticlesQuery.ToArray();
-            return Ok(response);
+            if (response.Any())
+                return Ok(response);
+            return NotFound();
         }
     }
 }
