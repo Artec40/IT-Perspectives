@@ -11,8 +11,39 @@
   img {
     padding-left: 15vw;
     float: right;
-    width: 285px;
     -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+}
+
+@media (max-width: 1920px) {
+  .CompanyName {
+    img {
+      width: 285px;
+    }
+  }
+}
+
+@media (max-width: 1680px) {
+  .CompanyName {
+    img {
+      width: 252px;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .CompanyName {
+    img {
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .CompanyName {
+    img {
+      width: 125px;
+    }
   }
 }

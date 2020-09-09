@@ -1,8 +1,43 @@
-.Employee{
-  text-align:center;
+.Employee {
+  text-align: center;
   img {
     height: 220px;
     border-radius: 105px;
   }
 }
 
+@media (max-width: 1920px) {
+  .Employee {
+    img {
+      height: 220px;
+      border-radius: 105px;
+    }
+  }
+}
+
+@media (max-width: 1680px) {
+  .Employee {
+    img {
+      height: 195px;
+      border-radius: 92px;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .Employee {
+    img {
+      height: 167px;
+      border-radius: 77px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .Employee {
+    img {
+      height: 82px;
+      border-radius: 77px;
+    }
+  }
+}

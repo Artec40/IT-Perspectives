@@ -1,9 +1,47 @@
+@import '../../../style';
+
 .Project {
-    img {
-        border: 10px solid #FFFFFF;
-        border-radius: 225px;
-        width: 345px;
-    }
-    text-decoration: none;
+  text-decoration: none;
 }
+
+@media (max-width: 1920px) {
+  .Project {
+    img {
+      border: 10px solid $color_white;
+      border-radius: 225px;
+      width: 345px;
+    }
+  }
+}
+
+@media (max-width: 1680px) {
+  .Project {
+    img {
+      border: 8px solid $color_white;
+      border-radius: 225px;
+      width: 300px;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .Project {
+    img {
+      border: 7px solid $color_white;
+      border-radius: 225px;
+      width: 255px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .Project {
+    img {
+      border: 4px solid $color_white;
+      border-radius: 225px;
+      width: 132px;
+    }
+  }
+}
+
 
