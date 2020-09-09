@@ -1,16 +1,15 @@
 import React from 'react'
-import s from './Header.module.css'
+import s from './Header.module.scss'
 import { NavLink } from 'react-router-dom'
 
 const Header = (props) => {
     console.log(props.logo)
     return (
         <nav className={s.Header}>
-            <div className={s.item}><img src={props.logo}/></div>
-            <div className={s.item}><NavLink to={'/aboutUs'}>О НАС</NavLink></div>
-            <div className={s.item}><NavLink to={'/services'}>УСЛУГИ</NavLink></div>
-            <div className={s.item}><NavLink to={'/supportPrice'}>ЦЕНООБРАЗОВАНИЕ</NavLink></div>
-            <div className={s.item}><NavLink to={'/contacts'}>КОНТАКТЫ</NavLink></div>
+            <img src={props.logo}/>
+            <NavLink className={s.about_us && s.item} to={'/aboutUs'}>О НАС</NavLink>
+            <NavLink className={s.services_price && s.item} to={'/services'}>УСЛУГИ И ЦЕНООБРАЗОВАНИЕ</NavLink>
+            <NavLink className={s.contacts && s.item} to={'/supportPrice'}>КОНТАКТЫ</NavLink>
         </nav>
     )
 }

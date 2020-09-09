@@ -1,0 +1,39 @@
+@import '../../style';
+
+.Header {
+  grid-area: h;
+  background-color: $color_turquoise;
+  display: grid;
+  grid-template-areas: "im au sp c";
+  align-items: center;
+  grid-template-rows: 1fr;
+}
+
+@media (max-width: 1920px) {
+  .Header {
+    grid-template-columns: 1fr 8vw 18vw 8vw;
+    img {
+      grid-area: im;
+      width: 50px;
+    }
+  }
+
+  .item {
+    color: #FFFFFF;
+    font-size: 16px;
+    text-decoration: none;
+    .about_us {
+      grid-area: au;
+    }
+    .services_price {
+      grid-area: sp;
+    }
+    .contacts {
+      grid-area: c;
+    }
+  }
+
+
+
+
+}
