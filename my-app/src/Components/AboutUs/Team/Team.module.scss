@@ -5,16 +5,36 @@
     display: grid;
     grid-template-areas: 't t t' 'emp emp emp' 'art art art';
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 120px 300px 300px;
     @extend %div_body_white;
     text-decoration: none;
+    .title {
+        grid-area: t;
+    }
+    .NavLink{
+        text-decoration: none;
+    }
 }
 
-.title {
-    grid-area: t;
+@media (max-width: 1920px) {
+    .Team {
+        grid-template-rows: 120px 300px;
+    }
 }
 
-.NavLink{
-    text-decoration: none;
+@media (max-width: 1680px) {
+    .Team {
+        grid-template-rows: 90px 250px;
+    }
 }
 
+@media (max-width: 1440px) {
+    .Team {
+        grid-template-rows: 80px 180px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Team {
+        grid-template-rows: 50px 50px;
+    }
+}
