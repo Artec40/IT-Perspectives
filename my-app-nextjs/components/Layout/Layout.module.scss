@@ -1,0 +1,9 @@
+@import "../../styles.scss";
+
+.wrapper {
+  display: grid;
+  @extend %background_color;
+  grid-template-areas: "h" "i" "f";
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px minmax(733px, auto) 186px;
+}

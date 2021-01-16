@@ -1,0 +1,197 @@
+$color_dark: #000000;
+$color_grey: #ECECE9;
+$color_white: #FFFFFF;
+$color_turquoise: #00B49B;
+$color_orange: #FAA61A;
+$color_success: #37B34A;
+$color_shadow: rgba(0, 0, 0, 0.25);
+
+%background_color {
+  background-color: $color_grey;
+}
+
+//todo не работает бэкграунд с изображением.
+%background_dots {
+  background-image: url('/public/BackgroundWorkInfo.jpg');
+  background-size: 1500px 1500px;
+  text-align: center;
+}
+
+@mixin h($font_size, $text_align, $font-weight, $line_height, $color, $text_shadow) {
+  font-size: $font_size;
+  text-align: $text_align;
+  font-weight: $font-weight;
+  line-height: $line_height;
+  color: $color;
+  text-shadow: $text_shadow;
+}
+
+h1 {
+  @media (max-width: 1920px) {
+    @include h(95px, left, bold, 176px, $color_white, 0 4px 4px $color_shadow);
+  }
+  @media (max-width: 1680px) {
+    @include h(84px, left, bold, 156px, $color_white, 0 4px 4px $color_shadow);
+  }
+  @media (max-width: 1440px) {
+    @include h(84px, left, bold, 84px, $color_white, 0 4px 4px $color_shadow);
+  }
+  @media (max-width: 1024px) {
+    @include h(45px, left, bold, 84px, $color_white, 0 4px 4px $color_shadow);
+  }
+}
+
+h2 {
+  @media (max-width: 1920px) {
+    @include h(48px, center, bold, 89px, $color_turquoise, none);
+  }
+  @media (max-width: 1680px) {
+    @include h(42px, center, bold, 78px, $color_turquoise, none);
+  }
+  @media (max-width: 1440px) {
+    @include h(36px, center, bold, 67px, $color_turquoise, none);
+  }
+  @media (max-width: 1024px) {
+    @include h(20px, center, bold, 37px, $color_turquoise, none);
+  }
+}
+
+h3 {
+  @media (max-width: 1920px) {
+    @include h(48px, center, bold, 89px, $color_orange, none);
+  }
+  @media (max-width: 1680px) {
+    @include h(42px, center, bold, 78px, $color_orange, none);
+  }
+  @media (max-width: 1440px) {
+    @include h(36px, center, bold, 67px, $color_orange, none);
+  }
+  @media (max-width: 1024px) {
+    @include h(20px, center, bold, 37px, $color_orange, none);
+  }
+}
+
+h4 {
+  margin: 0 0;
+  @media (max-width: 1920px) {
+    @include h(48px, center, bold, 89px, $color_turquoise, none);
+  }
+  @media (max-width: 1680px) {
+    @include h(42px, center, bold, 78px, $color_turquoise, none);
+  }
+  @media (max-width: 1440px) {
+    @include h(36px, center, bold, 67px, $color_turquoise, none);
+  }
+  @media (max-width: 1024px) {
+    @include h(20px, center, bold, 37px, $color_turquoise, none);
+  }
+}
+
+h5 {
+  @include h(36px, center, bold, 89px, $color_turquoise, none);
+  margin: 0 0;
+}
+
+h6 {
+  @include h(36px, center, bold, 89px, $color_dark, none);
+  margin: 0 0;
+}
+
+%page_message {
+  @include h(95px, center, bold, 176px, $color_turquoise, 0 4px 4px $color_shadow);
+}
+
+@mixin div_body($background_color,$align-items,$padding,$box-shadow) {
+  background-color: $background_color;
+  align-items: $align-items;
+  padding: $padding;
+  box-shadow: $box-shadow;
+}
+
+%div_body_gray_with_shadow {
+  @include div_body($color_grey, center, 0, 0 4px 4px $color_shadow);
+  position: relative;
+  z-index: 100;
+}
+
+%div_body_gray {
+  @include div_body($color_grey, center, 0, none);
+}
+
+%div_body_white_with_shadow {
+  @media (max-width: 1920px) {
+    @include div_body($color_white, none, 0 210px 0 210px, 0 4px 4px $color_shadow);
+  }
+  @media (max-width: 1680px) {
+    @include div_body($color_white, none, 0 140px 0 140px, 0 4px 4px $color_shadow);
+  }
+  @media (max-width: 1440px) {
+    @include div_body($color_white, none, 0 128px 0 128px, 0 4px 4px $color_shadow);
+  }
+  @media (max-width: 1024px) {
+    @include div_body($color_white, none, 0 80px 0 80px, 0 4px 4px $color_shadow);
+  }
+  @media (max-width: 768px) {
+    @include div_body($color_white, none, 0 64px 0 64px, 0 4px 4px $color_shadow);
+  }
+}
+
+%div_small_body_white_with_shadow {
+  @include div_body($color_white, none, 0 0 0 0, 0 4px 4px $color_shadow);
+}
+
+%div_body_white {
+  text-align: center;
+  @media (max-width: 1920px) {
+    @include div_body($color_white, none, 0 210px 0 210px, none);
+  }
+  @media (max-width: 1680px) {
+    @include div_body($color_white, none, 0 140px 0 140px, none);
+  }
+  @media (max-width: 1440px) {
+    @include div_body($color_white, none, 0 128px 0 128px, none);
+  }
+  @media (max-width: 1024px) {
+    @include div_body($color_white, none, 0 80px 0 80px, none);
+  }
+  @media (max-width: 768px) {
+    @include div_body($color_white, none, 0 64px 0 64px, none);
+  }
+}
+
+@mixin text($font_style,$font_weight,$font_size,$line_height,$text_align,$color,$text_derocation_line) {
+  font-style: $font_style;
+  font-weight: $font_weight;
+  font-size: $font_size;
+  line-height: $line_height;
+  text-align: $text_align;
+  color: $color;
+  text-decoration-line: $text_derocation_line;
+}
+
+%main_text {
+  @media (max-width: 1920px) {
+    @include text(normal, normal, 16px, 30px, justify, $color_dark, none);
+  }
+  @media (max-width: 1024px) {
+    @include text(normal, normal, 14px, 26px, justify, $color_dark, none);
+  }
+}
+
+%secondary_text {
+  @media (max-width: 1920px) {
+    @include text(normal, normal, 14px, 26px, justify, $color_dark, none);
+  }
+  @media (max-width: 1440px) {
+    @include text(normal, normal, 12px, 22px, justify, $color_dark, none);
+  }
+}
+
+%link_text {
+  @media (max-width: 1920px) {
+    @include text(normal, normal, 14px, 26px, justify, $color_turquoise, underline);
+  }
+  @media (max-width: 1440px) {
+    @include text(normal, normal, 12px, 22px, justify, $color_turquoise, underline);
+  }
+}
