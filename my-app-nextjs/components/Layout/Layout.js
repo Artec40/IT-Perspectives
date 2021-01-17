@@ -1,13 +1,13 @@
-import Header from './Header/Header'
-import Footer from './Footer/Footer'
+import HeaderContainer from './Header/HeaderContainer'
+import FooterContainer from './Footer/FooterContainer'
 import s from './Layout.module.scss'
 
 export function Layout({children}) {
     return (
         <div className={s.wrapper}>
-            <Header/>
+            <HeaderContainer/>
             {children}
-            <Footer/>
+            <FooterContainer/>
         </div>
     )
 }

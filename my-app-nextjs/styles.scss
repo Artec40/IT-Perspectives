@@ -5,6 +5,10 @@ $color_turquoise: #00B49B;
 $color_orange: #FAA61A;
 $color_success: #37B34A;
 $color_shadow: rgba(0, 0, 0, 0.25);
+body{
+  margin: 0;
+}
+
 
 %background_color {
   background-color: $color_grey;

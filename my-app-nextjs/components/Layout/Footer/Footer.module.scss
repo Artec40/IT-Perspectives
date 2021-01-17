@@ -1,0 +1,58 @@
+@import '../../../styles';
+
+.Footer {
+  grid-area: f;
+  text-align: center;
+  background-color: $color_turquoise;
+  margin-bottom: 96px;
+  display: grid;
+  grid-template-areas: "t t t t t t t" "im im im im im im im";
+  grid-template-rows: 40px 50px;
+  img {
+    grid-area: im;
+    height: 25px;
+  }
+}
+
+.text {
+  margin-top: 5px;
+  grid-area: t;
+  color: $color_white;
+
+}
+
+@media (max-width: 1920px) {
+  .Footer {
+    grid-template-columns: 10fr 1fr 1fr 1fr 1fr 1fr 10fr;
+  }
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .Footer {
+    grid-template-columns: 8fr 1fr 1fr 1fr 1fr 1fr 8fr;
+  }
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Footer {
+    grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr 5fr;
+  }
+  .text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Footer {
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 3fr;
+  }
+  .text {
+    font-size: 14px;
+  }
+}
