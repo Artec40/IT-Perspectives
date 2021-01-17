@@ -1,3 +1,13 @@
+import Head from 'next/head'
+
 export default function Services() {
-  return <div>Services</div>
+    return (
+        <>
+            <Head>
+                <title>Услуги и цены</title>
+            </Head>
+            <div>Services</div>
+        </>
+
+    )
 }

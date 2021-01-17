@@ -1,0 +1,38 @@
+@import '../../../style';
+
+.article {
+  display:grid;
+  @extend %div_small_body_white_with_shadow;
+  width:620px;
+  height: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-areas: 'img t' 'img desc' 'img link';
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 6fr 1fr;
+  padding: 50px;
+}
+
+.image{
+  grid-area: img;
+  width: 280px;
+  height: 360px;
+  }
+
+.title{
+  grid-area: t;
+  font-weight: bold;
+  padding-left:40px;
+}
+
+.link{
+  grid-area:link;
+  text-align: right;
+  vertical-align: bottom;
+}
+
+.description{
+  padding-left:40px;
+  grid-area:desc;
+  text-align: justify;
+}

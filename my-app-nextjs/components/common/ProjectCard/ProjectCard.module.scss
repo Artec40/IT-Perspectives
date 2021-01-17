@@ -1,0 +1,20 @@
+@import '../../../styles';
+
+.projectCard{
+  display:grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: 1fr;
+  @extend %div_small_body_white_with_shadow;
+  margin-left: 50px;
+  align-items: center;
+  img{
+    width:138px;
+    border: 7px solid #ECECE9;
+    border-radius: 470px;
+margin-left: 15px;
+  }
+}
+.description{
+  padding:20px;
+  text-align: justify;
+}
