@@ -26,7 +26,7 @@ function App() {
                     <Route path={'/supportPrice'} render={() => <SupportPrice/>}/>
                     <Route path={'/contacts'} render={() => <Contacts/>}/>
                     <Route path={'/login'} render={() => <Login/>}/>
-                    <Route path={'/project/:projectId?'} render={() => <ProjectContainer/>}/>
+                    <Route path={'/projects/:projectId?'} render={() => <ProjectContainer/>}/>
                     <Route path={'/employee/:employeeId?'} render={() => <EmployeePageContainer/>}/>
                     <Route path={'*'} render={() => <PageNotFound/>}/>
                 </Switch>

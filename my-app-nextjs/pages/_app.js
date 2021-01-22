@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { useStore } from '../redux/redux-store'
 import '../styles.scss'
 
-export default function MyApp({Component, pageProps}) {
+function MyApp({Component, pageProps}) {
     const store = useStore(pageProps.initialReduxState)
 
     return (
@@ -14,3 +14,14 @@ export default function MyApp({Component, pageProps}) {
         </Provider>
     )
 }
+
+/*MyApp.getInitialProps = async ({Component, ctx}) => {
+    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+    if (Object.keys(pageProps).length > 0) {
+        return {pageProps};
+    } else {
+        return {};
+    }
+};*/
+
+export default MyApp

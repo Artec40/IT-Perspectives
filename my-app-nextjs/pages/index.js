@@ -1,21 +1,39 @@
-import AboutUsContainer from '../components/AboutUs/AboutUsContainer'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
-import { aboutUsAPI } from '../api'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+    getProjectsElements,
+    getEmployeesElements,
+    getArticlesElements,
+    getCompanyLogo,
+    getCompanyName,
+    getDescription,
+    getTitle
+} from '../redux/aboutUs-selector'
+import { getAboutUsElements } from '../redux/aboutUs-reducer'
+import { getAboutUsStaticProps } from '../api/staticProps'
+import AboutUs from '../components/AboutUs/AboutUs'
 
 export default function Index({props: serverData}) {
 
+    const name = useSelector(state => getCompanyName(state))
+    const logo = useSelector(state => getCompanyLogo(state))
+    const title = useSelector(state => getTitle(state))
+    const description = useSelector(state => getDescription(state))
+    const projects = useSelector(state => getProjectsElements(state))
+    const employees = useSelector(state => getEmployeesElements(state))
+    const articles = useSelector(state => getArticlesElements(state))
+
+    const dispatch = useDispatch()
     const [data, setData] = useState(serverData)
 
     useEffect(() => {
         async function load() {
-            const projects = await aboutUsAPI.getProjects()
-            const employees = await aboutUsAPI.getEmployees()
-            const articles = await aboutUsAPI.getArticles()
+            dispatch(getAboutUsElements())
             const data = {
-                projects: projects.data,
-                employees: employees.data,
-                articles: articles.data
+                projects: projects,
+                employees: employees,
+                articles: articles
             }
             setData(data)
         }
@@ -23,7 +41,7 @@ export default function Index({props: serverData}) {
         if (!serverData) {
             load()
         }
-    }, [])
+    }, [dispatch])
 
     if (!data) {
         return (
@@ -35,24 +53,23 @@ export default function Index({props: serverData}) {
         <>
             <Head>
                 <title>ИТ Перспективы</title>
+                <link rel="icon" href="/favicon.ico" />
                 <meta name={'keywords'}
                       content={'ИТ перспективы, разработка, сайт, под заказ, javascript, react, next'}/>
                 <meta charSet="utf-8"/>
             </Head>
-            <AboutUsContainer/>
+{/*            {console.log(serverData.projects)}*/}
+            <AboutUs name={name}
+                     logo={logo}
+                     title={title}
+                     description={description}
+                     projects={projects}
+                     employees={employees}
+                     articles={articles}/>
         </>
     )
 }
 
-export async function getStaticProps() {
-    const projects = await aboutUsAPI.getProjects()
-    const employees = await aboutUsAPI.getEmployees()
-    const articles = await aboutUsAPI.getArticles()
-    return {
-        props: {
-                projects: projects.data,
-                employees: employees.data,
-                articles: articles.data
-        }
-    }
+export function getStaticProps() {
+    return getAboutUsStaticProps()
 }

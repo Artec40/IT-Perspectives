@@ -9,10 +9,11 @@ const Team = ({
               }) => {
 
     let renderEmployees = (employees) => {
-        return employees.map((e) =>
-            <div className={s.NavLink}>
-                <Employee id={e.id} image={e.image} name={e.name}/>
-            </div>)
+        return employees.map((e) => <Employee className={s.NavLink}
+                                              key={e.id}
+                                              id={e.id}
+                                              image={e.image}
+                                              name={e.name}/>)
     }
     let renderArticles = (articles) => {
         return articles.map((e, i) => <ArticlePreview key={i} text={e.text} day={e.day}

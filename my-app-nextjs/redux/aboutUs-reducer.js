@@ -1,4 +1,4 @@
-import { aboutUsAPI } from '../api'
+import { aboutUsAPI } from '../api/api'
 
 const SET_ABOUT_US_PAGE = 'SET_ABOUT_US_PAGE'
 const SET_PROJECT_PAGE = 'SET_PROJECT_PAGE'

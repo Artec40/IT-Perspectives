@@ -8,7 +8,8 @@ const Project = ({
                      killerFeatures
                  }) => {
 
-    let projectKillerFeatures = killerFeatures.map((k) => <KillerFeature title={k.title}
+    let projectKillerFeatures = killerFeatures.map((k, i) => <KillerFeature key={i}
+                                                                         title={k.title}
                                                                          description={k.description}
                                                                          image={k.image}
     />)
