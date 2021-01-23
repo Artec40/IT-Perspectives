@@ -10,3 +10,12 @@ export default function Contacts() {
         </>
     )
 }
+
+export async function getStaticProps() {
+    return {
+        props: {
+            initialReduxState: {
+            }
+        }
+    }
+}

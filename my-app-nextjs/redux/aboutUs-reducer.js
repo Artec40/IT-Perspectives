@@ -44,7 +44,6 @@ const aboutUsReducer = (state = initialState, action) => {
             }
         }
         case SET_EMPLOYEE_PAGE: {
-            debugger
             return {
                 ...state,
                 currentEmployee: action.employeePage.employee,
@@ -74,29 +73,5 @@ export const setEmployeePage = (employee, projects, articles) => ({
     employeePage: {employee, projects, articles}
 })
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
-
-export const getAboutUsElements = () => async (dispatch) => {
-    const projects = await aboutUsAPI.getProjects()
-    const employees = await aboutUsAPI.getEmployees()
-    const articles = await aboutUsAPI.getArticles()
-    dispatch(setAboutUsPage(projects.data, employees.data, articles.data))
-}
-
-export const getEmployeePage = (id) => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
-    const employee = await aboutUsAPI.getEmployee(id)
-    const employeeProjects = await aboutUsAPI.getEmployeeProjects(id)
-    const employeeArticles = await aboutUsAPI.getEmployeeArticles(id)
-    dispatch(setEmployeePage(employee.data, employeeProjects.data, employeeArticles.data))
-    dispatch(toggleIsFetching(false))
-}
-
-export const getProjectPage = (id) => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
-    const project = await aboutUsAPI.getProject(id)
-    const killerFeatures = await aboutUsAPI.getKillerFeatures(id)
-    dispatch(setProjectPage(project.data, killerFeatures.data))
-    dispatch(toggleIsFetching(false))
-}
 
 export default aboutUsReducer
