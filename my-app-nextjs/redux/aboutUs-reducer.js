@@ -1,8 +1,5 @@
-import { aboutUsAPI } from '../api/api'
-
 const SET_ABOUT_US_PAGE = 'SET_ABOUT_US_PAGE'
 const SET_PROJECT_PAGE = 'SET_PROJECT_PAGE'
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 const SET_EMPLOYEE_PAGE = 'SET_EMPLOYEE_PAGE'
 
 let initialState = {
@@ -22,8 +19,7 @@ let initialState = {
     currentEmployee: null,
     currentEmployeeProjects: [],
     currentEmployeeArticles: [],
-    currentKillerFeatures: [],
-    isFetching: false
+    currentKillerFeatures: []
 }
 
 const aboutUsReducer = (state = initialState, action) => {
@@ -44,18 +40,11 @@ const aboutUsReducer = (state = initialState, action) => {
             }
         }
         case SET_EMPLOYEE_PAGE: {
-            debugger
             return {
                 ...state,
                 currentEmployee: action.employeePage.employee,
                 currentEmployeeProjects: action.employeePage.projects,
                 currentEmployeeArticles: action.employeePage.articles
-            }
-        }
-        case TOGGLE_IS_FETCHING: {
-            return {
-                ...state,
-                isFetching: action.isFetching
             }
         }
         default:
@@ -73,30 +62,5 @@ export const setEmployeePage = (employee, projects, articles) => ({
     type: SET_EMPLOYEE_PAGE,
     employeePage: {employee, projects, articles}
 })
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
-
-export const getAboutUsElements = () => async (dispatch) => {
-    const projects = await aboutUsAPI.getProjects()
-    const employees = await aboutUsAPI.getEmployees()
-    const articles = await aboutUsAPI.getArticles()
-    dispatch(setAboutUsPage(projects.data, employees.data, articles.data))
-}
-
-export const getEmployeePage = (id) => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
-    const employee = await aboutUsAPI.getEmployee(id)
-    const employeeProjects = await aboutUsAPI.getEmployeeProjects(id)
-    const employeeArticles = await aboutUsAPI.getEmployeeArticles(id)
-    dispatch(setEmployeePage(employee.data, employeeProjects.data, employeeArticles.data))
-    dispatch(toggleIsFetching(false))
-}
-
-export const getProjectPage = (id) => async (dispatch) => {
-    dispatch(toggleIsFetching(true))
-    const project = await aboutUsAPI.getProject(id)
-    const killerFeatures = await aboutUsAPI.getKillerFeatures(id)
-    dispatch(setProjectPage(project.data, killerFeatures.data))
-    dispatch(toggleIsFetching(false))
-}
 
 export default aboutUsReducer

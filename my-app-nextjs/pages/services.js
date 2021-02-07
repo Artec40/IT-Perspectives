@@ -11,3 +11,12 @@ export default function Services() {
 
     )
 }
+
+export async function getStaticProps() {
+    return {
+        props: {
+            initialReduxState: {
+            }
+        }
+    }
+}
