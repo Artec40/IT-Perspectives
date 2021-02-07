@@ -4,7 +4,10 @@ import Article from '../../common/Articles/Article'
 
 const ArticlesInfo = ({articles}) => {
 
-    let employeeArticles = articles.map((a, i) => <Article key={i} title={a.title} image={a.image} description={a.description}/>)
+    let employeeArticles = articles.map((a, i) => <Article key={i}
+                                                           title={a.title}
+                                                           image={a.image}
+                                                           description={a.description}/>)
 
     return <div className={s.articlesInfo}>
         <h3 className={s.title}>Статьи</h3>

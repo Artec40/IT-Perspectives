@@ -4,7 +4,7 @@ import {
     getProjectStaticPaths,
     getProjectStaticProps
 } from '../../api/staticProps'
-import ProjectContainer from '../../components/Project/ProjectContainer'
+import Project from '../../components/Project/Project'
 
 export default function ProjectPage({initialReduxState}) {
 
@@ -17,10 +17,8 @@ export default function ProjectPage({initialReduxState}) {
         <Head>
             <title>ИТ Перспективы</title>
         </Head>
-        <ProjectContainer projectId={router.query.id}
-                          serverSideProject={initialReduxState.serverSideProject}
-                          serverSideKillerFeatures={initialReduxState.serverSideKillerFeatures}/>
-    </>
+        <Project serverSideProject={initialReduxState.serverSideProject}
+                 serverSideKillerFeatures={initialReduxState.serverSideKillerFeatures}/></>
 }
 
 export function getStaticPaths() {

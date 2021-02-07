@@ -1,8 +1,5 @@
-import { aboutUsAPI } from '../api/api'
-
 const SET_ABOUT_US_PAGE = 'SET_ABOUT_US_PAGE'
 const SET_PROJECT_PAGE = 'SET_PROJECT_PAGE'
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 const SET_EMPLOYEE_PAGE = 'SET_EMPLOYEE_PAGE'
 
 let initialState = {
@@ -22,8 +19,7 @@ let initialState = {
     currentEmployee: null,
     currentEmployeeProjects: [],
     currentEmployeeArticles: [],
-    currentKillerFeatures: [],
-    isFetching: false
+    currentKillerFeatures: []
 }
 
 const aboutUsReducer = (state = initialState, action) => {
@@ -51,12 +47,6 @@ const aboutUsReducer = (state = initialState, action) => {
                 currentEmployeeArticles: action.employeePage.articles
             }
         }
-        case TOGGLE_IS_FETCHING: {
-            return {
-                ...state,
-                isFetching: action.isFetching
-            }
-        }
         default:
             return state
     }
@@ -72,6 +62,5 @@ export const setEmployeePage = (employee, projects, articles) => ({
     type: SET_EMPLOYEE_PAGE,
     employeePage: {employee, projects, articles}
 })
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default aboutUsReducer

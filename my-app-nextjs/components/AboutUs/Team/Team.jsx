@@ -3,10 +3,7 @@ import s from './Team.module.scss'
 import ArticlePreview from '../../common/ArticlePreview/ArticlePreview'
 import Employee from '../../common/Employee/Employee'
 
-const Team = ({
-                  employees,
-                  articles
-              }) => {
+const Team = ({employees, articles}) => {
 
     let renderEmployees = (employees) => {
         return employees.map((e) => <Employee className={s.NavLink}

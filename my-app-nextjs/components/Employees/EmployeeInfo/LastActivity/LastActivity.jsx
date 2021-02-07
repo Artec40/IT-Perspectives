@@ -4,10 +4,10 @@ import s from './LastActivity.module.scss'
 
 const LastActivity = ({projects}) => {
 
-    let employeeProjects = projects.map(p => <ProjectCard key={p.id}
-                                                          image={p.image}
-                                                          description={p.description}
-                                                          title={p.title}/>)
+    const employeeProjects = projects.map(p => <ProjectCard key={p.id}
+                                                            image={p.image}
+                                                            description={p.description}
+                                                            title={p.title}/>)
 
     return <div>
         <h4 className={s.title}>Последняя активность</h4>

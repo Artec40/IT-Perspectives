@@ -4,7 +4,7 @@ import {
     getEmployeeStaticPaths,
     getEmployeeStaticProps
 } from '../../api/staticProps'
-import EmployeePageContainer from '../../components/Employees/EmployeePageContainer'
+import EmployeeData from '../../components/Employees/EmployeeData'
 
 export default function EmployeePage({initialReduxState}) {
 
@@ -17,10 +17,10 @@ export default function EmployeePage({initialReduxState}) {
         <Head>
             <title>ИТ Перспективы</title>
         </Head>
-        <EmployeePageContainer employeeId={router.query.id}
-                               serverSideEmployee={initialReduxState.serverSideEmployee}
-                               serverSideEmployeeProjects={initialReduxState.serverSideEmployeeProjects}
-                               serverSideEmployeeArticles={initialReduxState.serverSideEmployeeArticles}/>
+        <EmployeeData employeeId={router.query.id}
+                      serverSideEmployee={initialReduxState.serverSideEmployee}
+                      serverSideEmployeeProjects={initialReduxState.serverSideEmployeeProjects}
+                      serverSideEmployeeArticles={initialReduxState.serverSideEmployeeArticles}/>
     </>
 }
 
