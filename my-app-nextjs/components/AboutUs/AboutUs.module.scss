@@ -8,30 +8,24 @@
 
 @media (max-width: 1920px) {
   .AboutUs {
-    grid-template-rows: 480px minmax(480px,auto) 1020px 760px 200px;
+    grid-template-rows: 28em minmax(30em,auto) 65em 47.5em 11.5em;
   }
 }
 
 @media (max-width: 1680px) {
   .AboutUs {
-    grid-template-rows: 420px minmax(480px,auto) 892px 630px 200px;
+    grid-template-rows: 26em minmax(30em,auto) 56em 39em 11em;
   }
 }
 
 @media (max-width: 1440px) {
   .AboutUs {
-    grid-template-rows: 360px minmax(360px,auto) 765px 520px 176px;
+    grid-template-rows: 22.5em minmax(22.5em,auto) 48em 32.5em 11em;
   }
 }
 
 @media (max-width: 1024px) {
   .AboutUs {
-    grid-template-rows: 124px minmax(244px,auto) 336px 384px 112px;
-  }
-}
-
-@media (max-width: 768px) {
-  .AboutUs {
-    grid-template-rows: 124px minmax(260px,auto) 352px 384px 112px;
+    grid-template-rows: 9em minmax(17.5em,auto) 24em 27em 8em;
   }
 }

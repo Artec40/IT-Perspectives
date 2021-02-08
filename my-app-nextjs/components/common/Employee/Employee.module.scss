@@ -1,16 +1,14 @@
 .Employee {
   text-align: center;
   img {
-    height: 220px;
-    border-radius: 105px;
+    border-radius: 6.5em;
   }
 }
 
 @media (max-width: 1920px) {
   .Employee {
     img {
-      height: 220px;
-      border-radius: 105px;
+      height: 14em;
     }
   }
 }
@@ -18,8 +16,7 @@
 @media (max-width: 1680px) {
   .Employee {
     img {
-      height: 195px;
-      border-radius: 92px;
+      height: 12em;
     }
   }
 }
@@ -27,8 +24,7 @@
 @media (max-width: 1440px) {
   .Employee {
     img {
-      height: 167px;
-      border-radius: 77px;
+      height: 10em;
     }
   }
 }
@@ -36,8 +32,7 @@
 @media (max-width: 1024px) {
   .Employee {
     img {
-      height: 82px;
-      border-radius: 77px;
+      height: 6em;
     }
   }
 }

@@ -16,30 +16,24 @@
 
 @media (max-width: 1920px) {
   .LastProjects {
-    grid-template-rows: 250px 545px 150px;
+    grid-template-rows: 16em 34em 8em;
   }
 }
 
 @media (max-width: 1680px) {
   .LastProjects {
-    grid-template-rows: 220px 500px 125px;
+    grid-template-rows: 14em 31em 8em;
   }
 }
 
 @media (max-width: 1440px) {
   .LastProjects {
-    grid-template-rows: 170px 450px 100px;
+    grid-template-rows: 11em 28em 6em;
   }
 }
 
 @media (max-width: 1024px) {
   .LastProjects {
-    grid-template-rows: 70px 190px 50px;
-  }
-}
-
-@media (max-width: 768px) {
-  .LastProjects {
-    grid-template-rows: 80px 190px 60px;
+    grid-template-rows: 5em 13.5em 3.5em;
   }
 }

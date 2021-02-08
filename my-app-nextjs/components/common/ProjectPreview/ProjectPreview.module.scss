@@ -4,14 +4,14 @@
   text-decoration: none;
   > img {
     border: 0.75rem solid $color_white;
+    border-radius: 14em;
   }
 }
 
 @media (max-width: 1920px) {
   .Project {
     img {
-      border-radius: 225px;
-      width: 345px;
+      width: 21.5em;
     }
   }
 }
@@ -19,8 +19,7 @@
 @media (max-width: 1680px) {
   .Project {
     img {
-      border-radius: 225px;
-      width: 300px;
+      width: 19em;
     }
   }
 }
@@ -28,8 +27,7 @@
 @media (max-width: 1440px) {
   .Project {
     img {
-      border-radius: 225px;
-      width: 255px;
+      width: 16em;
     }
   }
 }
@@ -37,8 +35,7 @@
 @media (max-width: 1024px) {
   .Project {
     img {
-      border-radius: 225px;
-      width: 132px;
+      width: 9.5em;
     }
   }
 }
