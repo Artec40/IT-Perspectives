@@ -1,16 +1,39 @@
 @import "../../../styles.scss";
 
 .ProjectDescription {
-    display:grid;
-    box-sizing: border-box;
-    padding-top: 40px;
-    text-align: center;
-    height: 700px;
-    @extend %div_body_white_with_shadow;
-    @extend %main_text;
-    }
-
-.ProjectDescription img{
-    width:250px;
-    padding: 0 50px;
+  display: grid;
+  box-sizing: border-box;
+  padding-top: 2.5em;
+  text-align: center;
+  @extend %div_body_white_with_shadow;
+  @extend %main_text;
+  img {
+    width: 14vw;
+    padding: 0 2vw;
+  }
 }
+
+@media (max-width: 1920px) {
+  .ProjectDescription {
+    height: 43.5em;
+  }
+}
+
+@media (max-width: 1680px) {
+  .ProjectDescription {
+    height: 40em;
+  }
+}
+
+@media (max-width: 1440px) {
+  .ProjectDescription {
+    height: 35em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ProjectDescription {
+    height: 30em;
+  }
+}
+

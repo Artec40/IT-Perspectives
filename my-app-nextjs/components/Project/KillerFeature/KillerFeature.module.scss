@@ -3,14 +3,14 @@
 .KillerFeature {
   display: grid;
   grid-template-areas: 't t' 'desc img' 'oc oc';
-  grid-template-rows: 150px 450px 150px;
   grid-template-columns: 3fr 1fr;
+  grid-template-rows: 150px 450px 150px;
   @extend %main_text;
   img {
     grid-area: img;
-    width: 500px;
-    max-height: 350px;
-    padding-right: 210px;
+    width: 27vw;
+    max-height: 40vh;
+    padding-right: 11vw;
   }
 }
 
@@ -21,11 +21,11 @@
 .OrangeCrap {
   grid-area: oc;
   background: $color_orange;
-  margin-bottom: 50px;
+  margin-bottom: 3em;
 }
 
 .Description {
   grid-area: desc;
-  padding-left: 192px;
-  padding-right: 30px;
+  padding-left: 10vw;
+  padding-right: 2em;
 }

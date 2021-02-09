@@ -1,15 +1,42 @@
 @import "../../../styles.scss";
 
 .JustTryButton {
-    @extend %div_body_white;
-    padding-top: 50px;
-    height: 250px;
+  @extend %div_body_white;
+  padding-top: 2vw;
+  height: 11vw;
 }
 
-.JustTryButton button{
-    margin-top: 15px;
-    background-color: #37B34A;
-    color: white;
-    height: 35px;
-    width: 250px;
+.JustTryButton button {
+  background-color: #37B34A;
+  color: white;
+  height: 3em;
+  width: 20em;
+  outline: none;
+  border: none;
+}
+
+button:hover {
+  background: $color_turquoise;
+}
+
+button:active {
+  background: $color_shadow;
+}
+
+@media (max-width: 1920px) {
+  .JustTryButton {
+    padding-bottom: 1vw;
+    button {
+      margin-top: 1vw;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .JustTryButton {
+    padding-bottom: 8vw;
+    button {
+      margin-top: 0;
+    }
+  }
 }

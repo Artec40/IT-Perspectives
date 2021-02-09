@@ -5,11 +5,22 @@
   grid-template-areas: 't t' 'a a';
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3fr;
-  padding: 0 13em 0 12em;
   @extend %background_dots;
 
 }
 
 .title {
   grid-area: t;
+}
+
+@media (max-width: 1920px) {
+  .articlesInfo {
+    padding: 0 13em 0 12em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .articlesInfo {
+    padding: 0 5em 0 5em;
+  }
 }
