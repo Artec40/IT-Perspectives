@@ -8,7 +8,9 @@ let initialState = {
     ]
 }
 
-const footerReducer = (state = initialState, action) => {
+type initialStateType = typeof initialState
+
+const footerReducer = (state: initialStateType = initialState, action) => {
     switch (action.type) {
         default:
             return state

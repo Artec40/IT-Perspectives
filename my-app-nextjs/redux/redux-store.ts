@@ -9,26 +9,31 @@ import thunkMiddleware from 'redux-thunk'
 
 let store
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     loginPage: loginReducer,
     header: headerReducer,
     footer: footerReducer,
     aboutUs: aboutUsReducer
 })
 
+type RootReducerType = typeof rootReducer
+export type AppStateType = ReturnType<RootReducerType>
+
 function initStore() {
     return createStore(
-        reducers,
+        rootReducer,
         composeWithDevTools(applyMiddleware(thunkMiddleware))
     )
 }
 
 export const initializeStore = (preloadedState) => {
+    // @ts-ignore
     let _store = store ?? initStore(preloadedState)
 
     // After navigating to a page with an initial Redux state, merge that state
     // with the current state in the store, and create a new store
     if (preloadedState && store) {
+        // @ts-ignore
         _store = initStore({
             ...store.getState(),
             ...preloadedState,

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { getAboutUsStaticProps } from '../api/staticProps'
-import AboutUs from '../components/AboutUs/AboutUs'
+import AboutUs from '../components/AboutUs/AboutUs.tsx'
 
 export default function Index({initialReduxState}) {
 

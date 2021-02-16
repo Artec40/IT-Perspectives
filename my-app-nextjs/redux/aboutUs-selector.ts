@@ -1,22 +1,27 @@
-import { createSelector } from 'reselect'
+import {
+    ArticleTypeSelector,
+    EmployeeTypeSelector,
+    ProjectTypeSelector
+} from '../types/types'
+import {AppStateType} from './redux-store'
 
-export const getCompanyName = (state) => {
+export const getCompanyName = (state: AppStateType): string => {
     return state.aboutUs.companyName.name
 }
 
-export const getCompanyLogo = (state) => {
+export const getCompanyLogo = (state: AppStateType): string => {
     return state.aboutUs.companyName.logo
 }
 
-export const getTitle = (state) => {
+export const getTitle = (state: AppStateType): string => {
     return state.aboutUs.description.title
 }
 
-export const getDescription = (state) => {
+export const getDescription = (state: AppStateType): string => {
     return state.aboutUs.description.text
 }
 
-export const getProjectsElements = (state) => {
+export const getProjectsElements = (state: AppStateType): Array<ProjectTypeSelector> => {
     return state.aboutUs.projects.map(p => ({
         id: p.projectId,
         photo: p.projectPhoto,
@@ -24,7 +29,7 @@ export const getProjectsElements = (state) => {
     }))
 }
 
-export const getEmployeesElements = (state) => {
+export const getEmployeesElements = (state: AppStateType): Array<EmployeeTypeSelector> => {
     return state.aboutUs.employees.map(e => ({
         id: e.teammateId,
         image: e.teammatePhoto,
@@ -32,7 +37,7 @@ export const getEmployeesElements = (state) => {
     }))
 }
 
-export const getArticlesElements = (state) => {
+export const getArticlesElements = (state: AppStateType): Array<ArticleTypeSelector> => {
     return state.aboutUs.articles.map(a => ({
         text: a.articleDescription,
         day: a.articleDate.split('T')[0],
@@ -42,7 +47,7 @@ export const getArticlesElements = (state) => {
     }))
 }
 
-export const getCurrentProject = (state) => {
+export const getCurrentProject = (state: AppStateType) => {
     if (state.aboutUs.currentProject)
         return {
             name: state.aboutUs.currentProject.projectName,
@@ -51,7 +56,7 @@ export const getCurrentProject = (state) => {
         }
 }
 
-export const getCurrentEmployee = (state) => {
+export const getCurrentEmployee = (state: AppStateType) => {
     if (state.aboutUs.currentEmployee)
         return {
             image: state.aboutUs.currentEmployee.teammatePhoto,
@@ -66,16 +71,16 @@ export const getCurrentEmployee = (state) => {
         }
 }
 
-export const getEmployeeProjects = (state) => {
+export const getEmployeeProjects = (state: AppStateType) => {
     if (state.aboutUs.currentEmployeeProjects)
         return state.aboutUs.currentEmployeeProjects.map(p => ({
             id: p.projectId,
             title: p.projectName,
             image: p.projectPhoto,
-            description: p.projectDescription.substr(0,60)+'...',
+            description: p.projectDescription.substr(0, 60) + '...',
         }))
 }
-export const getEmployeeArticles = (state) => {
+export const getEmployeeArticles = (state: AppStateType) => {
     if (state.aboutUs.currentEmployeeArticles)
         return state.aboutUs.currentEmployeeArticles.map(a => ({
             title: a.articleTitle.toUpperCase(),
@@ -84,18 +89,10 @@ export const getEmployeeArticles = (state) => {
         }))
 }
 
-export const getCurrentKillerFeatures = (state) => {
+export const getCurrentKillerFeatures = (state: AppStateType) => {
     return state.aboutUs.currentKillerFeatures.map(k => ({
         title: k.killerFeatureName,
         description: k.killerFeatureDescription,
         image: k.killerFeatureImage
     }))
 }
-
-export const getIsFetching = (state) => {
-    return state.aboutUs.isFetching
-}
-
-
-
-

@@ -1,9 +1,15 @@
 import React from 'react'
 import s from './LastProjects.module.scss'
 import ProjectPreview from '../../common/ProjectPreview/ProjectPreview'
+import {ProjectTypeSelector} from '../../../types/types'
 
-const LastProjects = ({projects}) => {
-    let projectsElements = projects.map((p) => <ProjectPreview key={p.id} id={p.id} image={p.photo} title={p.name}/>)
+type PropsType = {
+    projects: Array<ProjectTypeSelector>
+}
+
+const LastProjects: React.FC<PropsType> = ({projects}) => {
+    let projectsElements = projects.map((p) => <ProjectPreview key={p.id} id={p.id}
+                                                               image={p.photo} title={p.name}/>)
 
     return <div className={s.LastProjects}>
         <h3 className={s.title}>ПОСЛЕДНИЕ РАБОТЫ</h3>

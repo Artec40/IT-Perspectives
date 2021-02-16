@@ -5,7 +5,7 @@ import {
     getCurrentProject,
     getCurrentKillerFeatures
 } from '../../redux/aboutUs-selector'
-import { setProjectPage } from '../../redux/aboutUs-reducer'
+import { setProjectPage } from '../../redux/aboutUs-reducer.ts'
 import ProjectDescription from './ProjectDescription/ProjectDescription'
 import KillerFeature from './KillerFeature/KillerFeature'
 import JustTryButton from './JustTryButton/JustTryButton'

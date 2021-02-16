@@ -6,7 +6,7 @@ import {
     getEmployeeArticles,
     getEmployeeProjects
 } from '../../redux/aboutUs-selector'
-import { setEmployeePage } from '../../redux/aboutUs-reducer'
+import { setEmployeePage } from '../../redux/aboutUs-reducer.ts'
 import EmployeeInfo from './EmployeeInfo/EmployeeInfo'
 import ArticlesInfo from './ArticlesInfo/ArticlesInfo'
 import s from './EmployeeData.module.scss'
