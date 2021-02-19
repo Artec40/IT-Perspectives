@@ -1,7 +1,6 @@
 import {
-    ArticleType, CurrentEmployeeType, CurrentEmployeeArticleType,
-    CurrentEmployeeProjectType, CurrentProjectType,
-    CurrentProjectKillerFeatureType, EmployeeType, ProjectType
+    ArticleType, CurrentEmployeeType,
+    KillerFeatureType, EmployeeType, ProjectType
 } from "../types/types"
 
 const SET_ABOUT_US_PAGE = 'SET_ABOUT_US_PAGE'
@@ -21,11 +20,11 @@ let initialState = {
     projects: [] as Array<ProjectType>,
     employees: [] as Array<EmployeeType>,
     articles: [] as Array<ArticleType>,
-    currentProject: null as CurrentProjectType,
+    currentProject: null as ProjectType,
     currentEmployee: null as CurrentEmployeeType,
-    currentEmployeeProjects: [] as Array<CurrentEmployeeProjectType>,
-    currentEmployeeArticles: [] as Array<CurrentEmployeeArticleType>,
-    currentKillerFeatures: [] as Array<CurrentProjectKillerFeatureType>
+    currentEmployeeProjects: [] as Array<ProjectType>,
+    currentEmployeeArticles: [] as Array<ArticleType>,
+    currentKillerFeatures: [] as Array<KillerFeatureType>
 }
 
 type initialStateType = typeof initialState
@@ -78,12 +77,12 @@ export const setAboutUsPage = (projects: Array<ProjectType>,
 type SetProjectPageActionType = {
     type: typeof SET_PROJECT_PAGE,
     projectPage: {
-        project: CurrentProjectType,
-        killerFeatures: Array<CurrentProjectKillerFeatureType>
+        project: ProjectType,
+        killerFeatures: Array<KillerFeatureType>
     }
 }
-export const setProjectPage = (project: CurrentProjectType,
-                               killerFeatures: Array<CurrentProjectKillerFeatureType>)
+export const setProjectPage = (project: ProjectType,
+                               killerFeatures: Array<KillerFeatureType>)
     : SetProjectPageActionType => ({
     type: SET_PROJECT_PAGE, projectPage: {project, killerFeatures}
 })
@@ -92,13 +91,13 @@ type SetEmployeePageActionType = {
     type: typeof SET_EMPLOYEE_PAGE,
     employeePage: {
         employee: CurrentEmployeeType,
-        projects: Array<CurrentEmployeeProjectType>,
-        articles: Array<CurrentEmployeeArticleType>
+        projects: Array<ProjectType>,
+        articles: Array<ArticleType>
     }
 }
 export const setEmployeePage = (employee: CurrentEmployeeType,
-                                projects: Array<CurrentEmployeeProjectType>,
-                                articles: Array<CurrentEmployeeArticleType>)
+                                projects: Array<ProjectType>,
+                                articles: Array<ArticleType>)
     : SetEmployeePageActionType => ({
     type: SET_EMPLOYEE_PAGE, employeePage: {employee, projects, articles}
 })

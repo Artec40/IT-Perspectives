@@ -22,14 +22,7 @@ export type ArticleType = {
     authorName: string
     authorPhoto: string
 }
-export type CurrentProjectType = {
-    projectDescription: string
-    projectId: number
-    projectName: string
-    projectPhoto: string
-    projectTechnologyImage: string
-}
-export type CurrentProjectKillerFeatureType = {
+export type KillerFeatureType = {
     killerFeatureDescription: string
     killerFeatureId: number
     killerFeatureImage: string
@@ -47,22 +40,6 @@ export type CurrentEmployeeType = {
     teammateShortName: string
     teammateWebsite: string
 }
-export type CurrentEmployeeProjectType = {
-    projectDescription: string
-    projectId: number
-    projectName: string
-    projectPhoto: string
-    projectTechnologyImage: string
-}
-export type CurrentEmployeeArticleType = {
-    articleDate: string
-    articleDescription: string
-    articleId: number
-    articleImageLink: string
-    articleTitle: string
-    authorName: string
-    authorPhoto: string
-}
 
 //todo Использовать Apollo для исключения повторов типов.
 export type ProjectTypeSelector = {
@@ -70,7 +47,6 @@ export type ProjectTypeSelector = {
     photo: string
     name: string
 }
-
 export type EmployeeTypeSelector = {
     id: number
     image: string

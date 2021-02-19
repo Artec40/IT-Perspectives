@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import { getAboutUsStaticProps } from '../api/staticProps'
 import AboutUs from '../components/AboutUs/AboutUs.tsx'
