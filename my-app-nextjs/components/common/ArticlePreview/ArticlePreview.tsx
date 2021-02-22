@@ -1,8 +1,8 @@
 import React from 'react'
-import {ArticleTypeSelector} from '../../../types/types'
+import {AboutUsPageArticleTypeSelector} from '../../../types/types'
 import s from './ArticlePreview.module.scss'
 //todo Убрать тег <a> и найти способ правильно строить таблицу гридов без него.
-const ArticlePreview: React.FC<ArticleTypeSelector> = ({text, image, day, name, link}) => {
+const ArticlePreview: React.FC<AboutUsPageArticleTypeSelector> = ({text, image, day, name, link}) => {
     return <div className={s.Article}><a>
         <div className={s.text}>{text}</div>
         <img src={image}/>

@@ -1,10 +1,10 @@
 import React from 'react'
 import s from './LastProjects.module.scss'
 import ProjectPreview from '../../common/ProjectPreview/ProjectPreview'
-import {ProjectTypeSelector} from '../../../types/types'
+import {AboutUsPageProjectTypeSelector} from '../../../types/types'
 
 type PropsType = {
-    projects: Array<ProjectTypeSelector>
+    projects: Array<AboutUsPageProjectTypeSelector>
 }
 
 const LastProjects: React.FC<PropsType> = ({projects}) => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import s from './Employee.module.scss'
-import { EmployeeTypeSelector } from '../../../types/types'
+import { AboutUsPageEmployeeTypeSelector } from '../../../types/types'
 
-const Employee: React.FC<EmployeeTypeSelector> = ({id, image, name}) => {
+const Employee: React.FC<AboutUsPageEmployeeTypeSelector> = ({id, image, name}) => {
     return <Link href={'/employee/' + id}>
         <div className={s.Employee}>
             <img src={image}/>

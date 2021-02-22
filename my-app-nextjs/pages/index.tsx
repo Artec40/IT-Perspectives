@@ -1,10 +1,18 @@
 import React from 'react'
 import Head from 'next/head'
-import { getAboutUsStaticProps } from '../api/staticProps'
-import AboutUs from '../components/AboutUs/AboutUs.tsx'
+import {getAboutUsStaticProps} from '../api/staticProps'
+import AboutUs from '../components/AboutUs/AboutUs'
+import {ProjectType, ArticleType, EmployeeType} from '../types/types'
 
-export default function Index({initialReduxState}) {
+type PropsType = {
+    initialReduxState: {
+        serverSideProjects: Array<ProjectType>
+        serverSideEmployees: Array<EmployeeType>
+        serverSideArticles: Array<ArticleType>
+    }
+}
 
+export const Index: React.FC<PropsType> = ({initialReduxState}) => {
     return (
         <>
             <Head>
@@ -21,6 +29,8 @@ export default function Index({initialReduxState}) {
     )
 }
 
-export function getStaticProps() {
-    return getAboutUsStaticProps()
+export async function getStaticProps(context) {
+    return getAboutUsStaticProps(context)
 }
+
+export default Index

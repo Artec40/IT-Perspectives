@@ -1,7 +1,7 @@
-import { GetStaticProps } from 'next'
+import {GetStaticPaths, GetStaticProps} from 'next'
 import {aboutUsAPI} from './api'
 
-export const getAboutUsStaticProps: GetStaticProps = async () => {
+export const getAboutUsStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             initialReduxState: {
@@ -13,8 +13,7 @@ export const getAboutUsStaticProps: GetStaticProps = async () => {
     }
 }
 
-//todo закончить типизировать ssg.
-export async function getProjectStaticPaths() {
+export const getProjectStaticPaths: GetStaticPaths = async (context) => {
     const projects = await aboutUsAPI.getProjects()
     const paths = (projects).map((project) => ({
         params: {id: String(project.projectId)}
@@ -22,18 +21,19 @@ export async function getProjectStaticPaths() {
     return {paths, fallback: true}
 }
 
-export async function getProjectStaticProps(id) {
+export const getProjectStaticProps: GetStaticProps = async (id) => {
     return {
         props: {
             initialReduxState: {
-                serverSideProject: await aboutUsAPI.getProject(id),
-                serverSideKillerFeatures: await aboutUsAPI.getKillerFeatures(id)
+                serverSideProject: await aboutUsAPI.getProject(Number(id)),
+                serverSideKillerFeatures: await aboutUsAPI.getKillerFeatures(Number(id))
             }
         },
         revalidate: 1
     }
 }
 
+//todo закончить типизировать ssg.
 export async function getEmployeeStaticPaths() {
     const employees = await aboutUsAPI.getEmployees()
     const paths = (employees).map((employee) => ({

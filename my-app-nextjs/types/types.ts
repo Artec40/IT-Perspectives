@@ -42,20 +42,30 @@ export type CurrentEmployeeType = {
 }
 
 //todo Использовать Apollo для исключения повторов типов.
-export type ProjectTypeSelector = {
+export type AboutUsPageProjectTypeSelector = {
     id: number
     photo: string
     name: string
 }
-export type EmployeeTypeSelector = {
+export type AboutUsPageEmployeeTypeSelector = {
     id: number
     image: string
     name: string
 }
-export type ArticleTypeSelector = {
+export type AboutUsPageArticleTypeSelector = {
     day: string
     text: string
     link: string
     name: string
+    image: string
+}
+export type ProjectPageProjectTypeSelector = {
+    name: string
+    description: string
+    image: string
+}
+export type ProjectPageKillerFeatureTypeSelector = {
+    title: string
+    description: string
     image: string
 }

@@ -13,22 +13,31 @@ import {
 } from '../../redux/aboutUs-selector'
 import {setAboutUsPage} from '../../redux/aboutUs-reducer'
 import {AppStateType} from '../../redux/redux-store'
-import {ArticleTypeSelector, EmployeeTypeSelector, ProjectTypeSelector} from "../../types/types";
+import {
+    ArticleType, AboutUsPageArticleTypeSelector,
+    EmployeeType, AboutUsPageEmployeeTypeSelector,
+    ProjectType, AboutUsPageProjectTypeSelector
+} from "../../types/types";
 
 type PropsType = {
-    //todo Изучить как типизировать запросы на сервак.
+    serverSideProjects: Array<ProjectType>
+    serverSideEmployees: Array<EmployeeType>
+    serverSideArticles: Array<ArticleType>
 }
 
-const AboutUs = ({serverSideProjects, serverSideEmployees, serverSideArticles}) => {
+const AboutUs: React.FC<PropsType> = ({
+                                          serverSideProjects,
+                                          serverSideEmployees,
+                                          serverSideArticles
+                                      }) => {
 
-    const name = useSelector((state: AppStateType): string => getCompanyName(state))
-    const logo = useSelector((state: AppStateType): string => getCompanyLogo(state))
-    const title = useSelector((state: AppStateType): string => getTitle(state))
-    const description = useSelector((state: AppStateType): string => getDescription(state))
-    const projects = useSelector((state: AppStateType): Array<ProjectTypeSelector> => getProjectsElements(state))
-    const employees = useSelector((state: AppStateType): Array<EmployeeTypeSelector> => getEmployeesElements(state))
-    const articles = useSelector((state: AppStateType): Array<ArticleTypeSelector> => getArticlesElements(state))
-
+    const name: string = useSelector((state: AppStateType) => getCompanyName(state))
+    const logo: string = useSelector((state: AppStateType) => getCompanyLogo(state))
+    const title: string = useSelector((state: AppStateType) => getTitle(state))
+    const description: string = useSelector((state: AppStateType) => getDescription(state))
+    const projects: Array<AboutUsPageProjectTypeSelector> = useSelector((state: AppStateType) => getProjectsElements(state))
+    const employees: Array<AboutUsPageEmployeeTypeSelector> = useSelector((state: AppStateType) => getEmployeesElements(state))
+    const articles: Array<AboutUsPageArticleTypeSelector> = useSelector((state: AppStateType) => getArticlesElements(state))
     const dispatch = useDispatch()
 
     useEffect(() => {

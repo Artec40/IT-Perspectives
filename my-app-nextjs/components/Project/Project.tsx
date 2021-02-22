@@ -1,19 +1,30 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import {useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import {
     getCurrentProject,
     getCurrentKillerFeatures
 } from '../../redux/aboutUs-selector'
-import { setProjectPage } from '../../redux/aboutUs-reducer.ts'
+import {setProjectPage} from '../../redux/aboutUs-reducer'
 import ProjectDescription from './ProjectDescription/ProjectDescription'
 import KillerFeature from './KillerFeature/KillerFeature'
 import JustTryButton from './JustTryButton/JustTryButton'
+import {
+    ProjectType, KillerFeatureType,
+    ProjectPageProjectTypeSelector,
+    ProjectPageKillerFeatureTypeSelector
+} from "../../types/types"
+import {AppStateType} from "../../redux/redux-store";
 
-const Project = ({serverSideProject, serverSideKillerFeatures}) => {
+type PropsType = {
+    serverSideProject: ProjectType
+    serverSideKillerFeatures: Array<KillerFeatureType>
+}
 
-    const project = useSelector(state => getCurrentProject(state))
-    const killerFeatures = useSelector(state => getCurrentKillerFeatures(state))
+const Project: React.FC<PropsType> = ({serverSideProject, serverSideKillerFeatures}) => {
+
+    const project: ProjectPageProjectTypeSelector = useSelector((state: AppStateType) => getCurrentProject(state))
+    const killerFeatures: Array<ProjectPageKillerFeatureTypeSelector> = useSelector((state: AppStateType) => getCurrentKillerFeatures(state))
 
     const dispatch = useDispatch()
     useEffect(() => {
