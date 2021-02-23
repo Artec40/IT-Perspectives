@@ -5,7 +5,7 @@ import {
     getCurrentProject,
     getCurrentKillerFeatures
 } from '../../redux/aboutUs-selector'
-import {setProjectPage} from '../../redux/aboutUs-reducer'
+import {actions} from '../../redux/aboutUs-actions'
 import ProjectDescription from './ProjectDescription/ProjectDescription'
 import KillerFeature from './KillerFeature/KillerFeature'
 import JustTryButton from './JustTryButton/JustTryButton'
@@ -28,7 +28,7 @@ const Project: React.FC<PropsType> = ({serverSideProject, serverSideKillerFeatur
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(setProjectPage(serverSideProject, serverSideKillerFeatures))
+        dispatch(actions.setProjectPage(serverSideProject, serverSideKillerFeatures))
     }, [dispatch])
 
     let projectKillerFeatures = killerFeatures.map((k, i) =>

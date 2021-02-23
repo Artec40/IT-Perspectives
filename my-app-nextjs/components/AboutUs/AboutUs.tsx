@@ -11,7 +11,7 @@ import {
     getDescription, getEmployeesElements,
     getProjectsElements, getTitle
 } from '../../redux/aboutUs-selector'
-import {setAboutUsPage} from '../../redux/aboutUs-reducer'
+import {actions} from '../../redux/aboutUs-actions'
 import {AppStateType} from '../../redux/redux-store'
 import {
     ArticleType, AboutUsPageArticleTypeSelector,
@@ -41,7 +41,7 @@ const AboutUs: React.FC<PropsType> = ({
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setAboutUsPage(serverSideProjects, serverSideEmployees, serverSideArticles))
+        dispatch(actions.setAboutUsPage(serverSideProjects, serverSideEmployees, serverSideArticles))
     }, [dispatch])
 
     return <div className={s.AboutUs}>

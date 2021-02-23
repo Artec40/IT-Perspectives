@@ -2,10 +2,7 @@ import {
     ArticleType, CurrentEmployeeType,
     KillerFeatureType, EmployeeType, ProjectType
 } from "../types/types"
-
-const SET_ABOUT_US_PAGE = 'SET_ABOUT_US_PAGE'
-const SET_PROJECT_PAGE = 'SET_PROJECT_PAGE'
-const SET_EMPLOYEE_PAGE = 'SET_EMPLOYEE_PAGE'
+import {ActionsTypes} from "./aboutUs-actions";
 
 let initialState = {
     companyName: {logo: '/favicon.ico', name: 'ИТ Перспективы'},
@@ -28,11 +25,10 @@ let initialState = {
 }
 
 type initialStateType = typeof initialState
-type ActionsTypes = SetAboutUsPageActionType | SetProjectPageActionType | SetEmployeePageActionType
 
 export const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
-        case SET_ABOUT_US_PAGE: {
+        case 'SET_ABOUT_US_PAGE': {
             return {
                 ...state,
                 projects: action.aboutUsPage.projects,
@@ -40,14 +36,14 @@ export const aboutUsReducer = (state = initialState, action: ActionsTypes): init
                 articles: action.aboutUsPage.articles
             }
         }
-        case SET_PROJECT_PAGE: {
+        case 'SET_PROJECT_PAGE': {
             return {
                 ...state,
                 currentProject: action.projectPage.project,
                 currentKillerFeatures: action.projectPage.killerFeatures
             }
         }
-        case SET_EMPLOYEE_PAGE: {
+        case 'SET_EMPLOYEE_PAGE': {
             return {
                 ...state,
                 currentEmployee: action.employeePage.employee,
@@ -59,47 +55,5 @@ export const aboutUsReducer = (state = initialState, action: ActionsTypes): init
             return state
     }
 }
-type SetAboutUsPageActionType = {
-    type: typeof SET_ABOUT_US_PAGE,
-    aboutUsPage: {
-        projects: Array<ProjectType>,
-        employees: Array<EmployeeType>,
-        articles: Array<ArticleType>
-    }
-}
-export const setAboutUsPage = (projects: Array<ProjectType>,
-                               employees: Array<EmployeeType>,
-                               articles: Array<ArticleType>)
-    : SetAboutUsPageActionType => ({
-    type: SET_ABOUT_US_PAGE, aboutUsPage: {projects, employees, articles}
-})
-
-type SetProjectPageActionType = {
-    type: typeof SET_PROJECT_PAGE,
-    projectPage: {
-        project: ProjectType,
-        killerFeatures: Array<KillerFeatureType>
-    }
-}
-export const setProjectPage = (project: ProjectType,
-                               killerFeatures: Array<KillerFeatureType>)
-    : SetProjectPageActionType => ({
-    type: SET_PROJECT_PAGE, projectPage: {project, killerFeatures}
-})
-
-type SetEmployeePageActionType = {
-    type: typeof SET_EMPLOYEE_PAGE,
-    employeePage: {
-        employee: CurrentEmployeeType,
-        projects: Array<ProjectType>,
-        articles: Array<ArticleType>
-    }
-}
-export const setEmployeePage = (employee: CurrentEmployeeType,
-                                projects: Array<ProjectType>,
-                                articles: Array<ArticleType>)
-    : SetEmployeePageActionType => ({
-    type: SET_EMPLOYEE_PAGE, employeePage: {employee, projects, articles}
-})
 
 export default aboutUsReducer

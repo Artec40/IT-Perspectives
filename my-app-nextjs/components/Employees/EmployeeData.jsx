@@ -6,7 +6,7 @@ import {
     getEmployeeArticles,
     getEmployeeProjects
 } from '../../redux/aboutUs-selector'
-import { setEmployeePage } from '../../redux/aboutUs-reducer.ts'
+import { actions } from '../../redux/aboutUs-actions.ts'
 import EmployeeInfo from './EmployeeInfo/EmployeeInfo'
 import ArticlesInfo from './ArticlesInfo/ArticlesInfo'
 import s from './EmployeeData.module.scss'
@@ -21,7 +21,7 @@ const EmployeeData = ({serverSideEmployee, serverSideEmployeeProjects, serverSid
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setEmployeePage(serverSideEmployee, serverSideEmployeeProjects, serverSideEmployeeArticles))
+        dispatch(actions.setEmployeePage(serverSideEmployee, serverSideEmployeeProjects, serverSideEmployeeArticles))
     }, [dispatch])
 
     return <div>

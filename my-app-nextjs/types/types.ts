@@ -41,7 +41,7 @@ export type CurrentEmployeeType = {
     teammateWebsite: string
 }
 
-//todo Использовать Apollo для исключения повторов типов.
+//todo Использовать Apollo? для исключения повторов типов.
 export type AboutUsPageProjectTypeSelector = {
     id: number
     photo: string

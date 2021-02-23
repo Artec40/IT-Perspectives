@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
-import { applyMiddleware, combineReducers, createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import {useMemo} from 'react'
+import {applyMiddleware, combineReducers, createStore} from 'redux'
+import {composeWithDevTools} from 'redux-devtools-extension'
 import loginReducer from './login-reducer'
 import headerReducer from './header-reducer'
 import footerReducer from './footer-reducer'
@@ -19,12 +19,16 @@ let rootReducer = combineReducers({
 type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
 
+type PropertiesTypes<T> = T extends { [key: string]: infer U } ? U : never
+export type InferActionsTypes<T extends { [key: string]: (...args: any[]) => any }> = ReturnType<PropertiesTypes<T>>
+
 function initStore() {
     return createStore(
         rootReducer,
         composeWithDevTools(applyMiddleware(thunkMiddleware))
     )
 }
+
 //todo откорректировать замену стейта в соотв. с докой.
 export const initializeStore = (preloadedState) => {
 
