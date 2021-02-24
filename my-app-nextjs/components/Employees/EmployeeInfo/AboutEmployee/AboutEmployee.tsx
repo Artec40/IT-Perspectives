@@ -1,7 +1,17 @@
 import React from 'react'
 import s from './AboutEmployee.module.scss'
 
-const AboutEmployee = ({fullname, company, location, website, phone, articlesCount, personalInfo}) => {
+type PropsType = {
+    fullname: string
+    company: string
+    location: string
+    website: string
+    phone: string
+    articlesCount: number
+    personalInfo: string
+}
+
+const AboutEmployee: React.FC<PropsType> = ({fullname, company, location, website, phone, articlesCount, personalInfo}) => {
     return <div className={s.aboutEmployee}>
         <h4>О себе</h4>
         <div>Полное имя: {fullname}</div>

@@ -11,18 +11,6 @@
   align-items: center;
 }
 
-.employee {
-  grid-area: emp;
-}
-
-.aboutEmployee {
-  grid-area: aboutEmp;
-}
-
-.lastActivity {
-  grid-area: lastActivity;
-}
-
 @media (max-width: 1920px) {
   .employeeInfo {
     grid-template-columns: 2fr 3fr 4fr;

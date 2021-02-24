@@ -3,20 +3,28 @@ import s from './EmployeeInfo.module.scss'
 import AboutEmployee from './AboutEmployee/AboutEmployee'
 import LastActivity from './LastActivity/LastActivity'
 import Employee from '../../common/Employee/Employee'
+import {
+    EmployeePageCurrentEmployeeTypeSelector,
+    EmployeePageProjectTypeSelector
+} from '../../../types/types'
 
-const EmployeeInfo = ({employee, projects}) => {
+type PropsType = {
+    employee: EmployeePageCurrentEmployeeTypeSelector
+    projects: Array<EmployeePageProjectTypeSelector>
+}
+
+const EmployeeInfo: React.FC<PropsType> = ({employee, projects}) => {
 
     return <div className={s.employeeInfo}>
-        <Employee className={s.employee} image={employee.image} name={employee.name}/>
-        <AboutEmployee className={s.aboutEmployee}
-                       fullname={employee.fullname}
+        <Employee image={employee.image} name={employee.name} id={0}/>
+        <AboutEmployee fullname={employee.fullname}
                        company={employee.company}
                        location={employee.location}
                        website={employee.website}
                        phone={employee.phone}
                        articlesCount={employee.articlesCount}
                        personalInfo={employee.personalInfo}/>
-        <LastActivity className={s.lastActivity} projects={projects}/>
+        <LastActivity projects={projects}/>
     </div>
 }
 

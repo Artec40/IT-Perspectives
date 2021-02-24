@@ -33,8 +33,7 @@ export const getProjectStaticProps: GetStaticProps = async (id) => {
     }
 }
 
-//todo закончить типизировать ssg.
-export async function getEmployeeStaticPaths() {
+export const getEmployeeStaticPaths: GetStaticPaths = async (context) => {
     const employees = await aboutUsAPI.getEmployees()
     const paths = (employees).map((employee) => ({
         params: {id: String(employee.teammateId)}
@@ -42,14 +41,13 @@ export async function getEmployeeStaticPaths() {
     return {paths, fallback: true}
 }
 
-
-export async function getEmployeeStaticProps(id) {
+export const getEmployeeStaticProps: GetStaticProps = async (id) => {
     return {
         props: {
             initialReduxState: {
-                serverSideEmployee: await aboutUsAPI.getEmployee(id),
-                serverSideEmployeeProjects: await aboutUsAPI.getEmployeeProjects(id),
-                serverSideEmployeeArticles: await aboutUsAPI.getEmployeeArticles(id)
+                serverSideEmployee: await aboutUsAPI.getEmployee(Number(id)),
+                serverSideEmployeeProjects: await aboutUsAPI.getEmployeeProjects(Number(id)),
+                serverSideEmployeeArticles: await aboutUsAPI.getEmployeeArticles(Number(id))
             }
         },
         revalidate: 1

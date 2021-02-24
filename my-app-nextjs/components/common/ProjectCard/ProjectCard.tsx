@@ -1,7 +1,8 @@
 import React from 'react'
+import { EmployeePageProjectTypeSelector } from '../../../types/types'
 import s from './ProjectCard.module.scss'
 
-const ProjectCard = ({image, description, title}) => {
+const ProjectCard: React.FC<EmployeePageProjectTypeSelector> = ({image, description, title}) => {
     return <div className={s.projectCard}>
         <img src={image}/>
         <h6>{title}</h6>

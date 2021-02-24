@@ -1,8 +1,13 @@
 import React from 'react'
 import s from './ArticlesInfo.module.scss'
 import Article from '../../common/Articles/Article'
+import { EmployeePageArticleTypeSelector } from '../../../types/types'
 
-const ArticlesInfo = ({articles}) => {
+type propsType = {
+    articles: Array<EmployeePageArticleTypeSelector>
+}
+
+const ArticlesInfo: React.FC<propsType> = ({articles}) => {
 
     let employeeArticles = articles.map((a, i) => <Article key={i}
                                                            title={a.title}

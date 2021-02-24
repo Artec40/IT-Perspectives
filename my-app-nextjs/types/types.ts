@@ -69,3 +69,24 @@ export type ProjectPageKillerFeatureTypeSelector = {
     description: string
     image: string
 }
+export type EmployeePageArticleTypeSelector = {
+    title: string
+    image: string
+    description: string
+}
+export type EmployeePageProjectTypeSelector = {
+    title: string
+    image: string
+    description: string
+}
+export type EmployeePageCurrentEmployeeTypeSelector = {
+    image: string
+    name: string
+    fullname: string
+    company: string
+    location: string
+    website: string
+    phone: string
+    articlesCount: number
+    personalInfo: string
+}
