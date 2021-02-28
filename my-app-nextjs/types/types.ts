@@ -40,7 +40,14 @@ export type CurrentEmployeeType = {
     teammateShortName: string
     teammateWebsite: string
 }
-
+export type LinksType = {
+    id: string
+    name: string
+    image: string
+}
+export type FooterType = {
+    links: Array<LinksType>
+}
 //todo Использовать Apollo? для исключения повторов типов.
 export type AboutUsPageProjectTypeSelector = {
     id: number

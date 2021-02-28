@@ -8,6 +8,7 @@ import aboutUsReducer from './aboutUs-reducer'
 import thunkMiddleware from 'redux-thunk'
 
 let store
+const initialState = {}
 
 let rootReducer = combineReducers({
     loginPage: loginReducer,
@@ -19,8 +20,7 @@ let rootReducer = combineReducers({
 type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
 
-type PropertiesTypes<T> = T extends { [key: string]: infer U } ? U : never
-export type InferActionsTypes<T extends { [key: string]: (...args: any[]) => any }> = ReturnType<PropertiesTypes<T>>
+export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
 
 function initStore() {
     return createStore(
@@ -31,14 +31,12 @@ function initStore() {
 
 //todo откорректировать замену стейта в соотв. с докой.
 export const initializeStore = (preloadedState) => {
-
     // @ts-ignore
     let _store = store || initStore(preloadedState)
 
     // After navigating to a page with an initial Redux state, merge that state
     // with the current state in the store, and create a new store
     if (preloadedState && store) {
-
         // @ts-ignore
         _store = initStore({
             ...store.getState(),
@@ -52,7 +50,6 @@ export const initializeStore = (preloadedState) => {
     if (typeof window === 'undefined') return _store
     // Create the store once in the client
     if (!store) store = _store
-
     return _store
 }
 

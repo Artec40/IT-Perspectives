@@ -1,11 +1,14 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 import Link from 'next/link'
 import s from './Header.module.scss'
+import {AppStateType} from "../../../redux/redux-store";
 
-const Header = (props) => {
+const Header = () => {
+    const logo = useSelector((state: AppStateType) => state.header.companyLogo.logo)
     return (
         <nav className={s.Header}>
-            <img src={props.logo}/>
+            <img src={logo}/>
             <Link href={'/'}>
                 <a className={s.about_us && s.item}>О НАС</a>
             </Link>

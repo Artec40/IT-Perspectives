@@ -1,3 +1,5 @@
+import {FooterType} from "../types/types"
+
 let initialState = {
     links: [
         {id: '1', name: 'telegram', image: '/icon_telegram.png'},
@@ -8,7 +10,7 @@ let initialState = {
     ]
 }
 
-type initialStateType = typeof initialState
+type initialStateType = FooterType
 
 const footerReducer = (state: initialStateType = initialState, action) => {
     switch (action.type) {
