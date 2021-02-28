@@ -26,7 +26,7 @@ let initialState = {
 
 type initialStateType = typeof initialState
 
-export const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStateType => {
+const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
         case 'SET_ABOUT_US_PAGE': {
             return {

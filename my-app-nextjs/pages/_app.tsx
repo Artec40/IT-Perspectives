@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Layout } from '../components/Layout/Layout'
 import { Provider } from 'react-redux'
-import { useStore } from '../redux/redux-store'
+import store from '../redux/redux-store'
 import '../styles.scss'
 
 // Код с 9 по 25 && 30 по 39 строку нужен для корректной работы module.css при переходе через Link.
@@ -37,8 +37,6 @@ function MyApp({Component, pageProps}) {
             events.off('routeChangeComplete', handleLoadStyle);
         };
     }, [asPath]);
-
-    const store = useStore(pageProps.initialReduxState)
 
     return (
         <Provider store={store}>
