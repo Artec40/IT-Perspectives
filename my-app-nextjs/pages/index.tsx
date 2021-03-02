@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import {getAboutUsStaticProps} from '../api/staticProps'
+import {getAboutUsServerSideProps} from '../api/staticProps'
 import AboutUs from '../components/AboutUs/AboutUs'
 import {ProjectType, ArticleType, EmployeeType} from '../types/types'
 
@@ -29,8 +29,8 @@ export const Index: React.FC<PropsType> = ({initialReduxState}) => {
     )
 }
 
-export async function getStaticProps(context) {
-    return getAboutUsStaticProps(context)
+export async function getServerSideProps(context) {
+    return getAboutUsServerSideProps(context)
 }
 
 export default Index

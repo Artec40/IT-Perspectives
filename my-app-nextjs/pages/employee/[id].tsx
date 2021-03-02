@@ -1,10 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
-import {
-    getEmployeeStaticPaths,
-    getEmployeeStaticProps
-} from '../../api/staticProps'
+import {getEmployeeServerSideProps} from '../../api/staticProps'
 import EmployeeData from '../../components/Employees/EmployeeData'
 import {ArticleType, CurrentEmployeeType, ProjectType} from "../../types/types";
 
@@ -33,12 +30,8 @@ const EmployeePage: React.FC<PropsType> = ({initialReduxState}) => {
     </>
 }
 
-export async function getStaticPaths(context) {
-    return getEmployeeStaticPaths(context)
-}
-
-export async function getStaticProps({params}) {
-    return getEmployeeStaticProps(params.id)
+export async function getServerSideProps(context) {
+    return getEmployeeServerSideProps(context)
 }
 
 export default EmployeePage

@@ -1,10 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import {useRouter} from 'next/router'
-import {
-    getProjectStaticPaths,
-    getProjectStaticProps
-} from '../../api/staticProps'
+import {getProjectServerSideProps} from '../../api/staticProps'
 import Project from '../../components/Project/Project'
 import {KillerFeatureType, ProjectType} from "../../types/types"
 
@@ -30,12 +27,8 @@ const ProjectPage: React.FC<PropsType> = ({initialReduxState}) => {
                  serverSideKillerFeatures={initialReduxState.serverSideKillerFeatures}/></>
 }
 
-export async function getStaticPaths(context) {
-    return getProjectStaticPaths(context)
-}
-
-export async function getStaticProps({params}) {
-    return getProjectStaticProps(params.id)
+export async function getServerSideProps(context) {
+    return getProjectServerSideProps(context)
 }
 
 export default ProjectPage
