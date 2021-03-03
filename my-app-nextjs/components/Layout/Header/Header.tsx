@@ -8,7 +8,9 @@ const Header = () => {
     const logo = useSelector((state: AppStateType) => state.header.companyLogo.logo)
     return (
         <nav className={s.Header}>
-            <img src={logo}/>
+            <Link href={'/login'}>
+                <img src={logo}/>
+            </Link>
             <Link href={'/'}>
                 <a className={s.about_us && s.item}>О НАС</a>
             </Link>

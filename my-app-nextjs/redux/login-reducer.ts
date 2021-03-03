@@ -25,16 +25,12 @@ const loginReducer = (state = initialState, action: ActionsTypes): InitialStateT
             }
         }
         case 'CHANGE_USER_STATUS': {
-            let currentUser = [...state.users.filter(user => {
-                (user.name === action.name) && (user.password === action.password)
-            })][0]
             return {
                 ...state,
-                users: [...state.users.splice(currentUser.id, 1, {
-                    id: currentUser.id,
-                    name: currentUser.name,
-                    password: currentUser.password,
-                    status: true
+                users: [...state.users.map(user => {
+                    if ((user.name === action.name) && (user.password === action.password))
+                        user.status = true
+                    return user
                 })]
             }
         }

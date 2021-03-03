@@ -6,7 +6,7 @@ import {
     getEmployeeArticles,
     getEmployeeProjects
 } from '../../redux/aboutUs-selector'
-import {actions} from '../../redux/aboutUs-actions'
+import {aboutUsActions} from '../../redux/aboutUs-actions'
 import EmployeeInfo from './EmployeeInfo/EmployeeInfo'
 import ArticlesInfo from './ArticlesInfo/ArticlesInfo'
 import s from './EmployeeData.module.scss'
@@ -34,7 +34,7 @@ const EmployeeData: React.FC<PropsType> = ({serverSideEmployee, serverSideEmploy
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(actions.setEmployeePage(serverSideEmployee, serverSideEmployeeProjects, serverSideEmployeeArticles))
+        dispatch(aboutUsActions.setEmployeePage(serverSideEmployee, serverSideEmployeeProjects, serverSideEmployeeArticles))
     }, [dispatch])
 
     return <div>

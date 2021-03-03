@@ -4,8 +4,8 @@ import {
     KillerFeatureType, EmployeeType, ProjectType
 } from "../types/types";
 
-export type ActionsTypes = InferActionsTypes<typeof actions>
-export const actions = {
+export type ActionsTypes = InferActionsTypes<typeof aboutUsActions>
+export const aboutUsActions = {
     setAboutUsPage: (projects: Array<ProjectType>,
                      employees: Array<EmployeeType>,
                      articles: Array<ArticleType>) => ({
