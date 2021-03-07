@@ -9,24 +9,14 @@ const LoginPage = () => {
     const textPasswordValue: string = useSelector((state: AppStateType) => state.loginPage.textPassword)
     const dispatch = useDispatch()
 
-    let onChangeName = (e) => {
-        let name = e.target.value
-        dispatch(loginActions.changeName(name))
-    }
-    let onChangePassword = (e) => {
-        let password = e.target.value
-        dispatch(loginActions.changePassword(password))
-    }
-    let onClick = () => {
-        dispatch(loginActions.changeUserStatus(textNameValue, textPasswordValue))
-    }
+    let onChangeName = (e) => { dispatch(loginActions.changeName(e.target.value)) }
+    let onChangePassword = (e) => { dispatch(loginActions.changePassword(e.target.value)) }
+    let onClick = () => { dispatch(loginActions.changeCurrentUser(textNameValue, textPasswordValue)) }
 
     return <div className={s.Login}>
         <div className={s.Title}>
-            {console.log(useSelector((state:AppStateType)=>state.loginPage.users))}
             <div className={s.text}>Вход</div>
         </div>
-
         <div className={s.LoginWindow}>
             <div>Имя пользователя</div>
             <textarea onChange={onChangeName} value={textNameValue} placeholder={'Имя пользователя'}> </textarea>

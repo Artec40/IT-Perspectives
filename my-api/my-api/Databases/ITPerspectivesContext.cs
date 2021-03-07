@@ -14,7 +14,7 @@ namespace my_api.Databases
         public DbSet<Project> Projects { get; set; }
         public DbSet<Tariff> Tariffs { get; set; }
         public DbSet<Teammate> Teammates { get; set; }
-
+        public DbSet<Account> Accounts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             Article.OnModelCreating(modelBuilder);
@@ -22,6 +22,7 @@ namespace my_api.Databases
             Project.OnModelCreating(modelBuilder);
             Tariff.OnModelCreating(modelBuilder);
             Teammate.OnModelCreating(modelBuilder);
+            Account.OnModelCreating(modelBuilder);
         }
     }
 }

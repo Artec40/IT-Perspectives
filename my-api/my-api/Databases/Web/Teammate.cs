@@ -30,7 +30,7 @@ namespace my_api
         public string PersonalInfo { get; set; }
         public IEnumerable<Project> Projects { get; set; }
         public IEnumerable<Article> Articles { get; set; }
-
+        public Account Account { get; set; }
         public static void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Teammate>().HasKey(x => x.Id);

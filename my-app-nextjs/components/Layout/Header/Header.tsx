@@ -4,7 +4,7 @@ import Link from 'next/link'
 import s from './Header.module.scss'
 import {AppStateType} from "../../../redux/redux-store";
 
-const Header = () => {
+const Header = ({user}) => {
     const logo = useSelector((state: AppStateType) => state.header.companyLogo.logo)
     return (
         <nav className={s.Header}>

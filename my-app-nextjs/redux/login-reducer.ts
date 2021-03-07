@@ -1,13 +1,16 @@
-import {ActionsTypes} from "./login-actions"
+import {AccountType} from "../types/types"
+import {ActionsTypes, loginActions} from "./login-actions"
+import {aboutUsAPI} from "../api/api";
 
 let initialState = {
-    users: [
-        {id: 1, name: 'user1', password: 'user1', status: false},
-        {id: 2, name: 'user2', password: 'user2', status: false},
-        {id: 3, name: 'user3', password: 'user3', status: false}
-    ],
+    users: [] as Array<AccountType>,
     textName: '',
-    textPassword: ''
+    textPassword: '',
+    currentUser: {
+        userId: null as number,
+        userName: '',
+        isAuth: false
+    }
 }
 
 type InitialStateType = typeof initialState
@@ -24,19 +27,32 @@ const loginReducer = (state = initialState, action: ActionsTypes): InitialStateT
                 ...state, textPassword: action.password
             }
         }
-        case 'CHANGE_USER_STATUS': {
+        case 'CHANGE_CURRENT_USER': {
             return {
                 ...state,
                 users: [...state.users.map(user => {
-                    if ((user.name === action.name) && (user.password === action.password))
-                        user.status = true
+                    if ((user.accountName === action.name) && (user.accountPassword === action.password)) {
+                        state.currentUser.userId = user.accountId
+                        state.currentUser.userName = user.accountName
+                        state.currentUser.isAuth = true
+                    }
                     return user
                 })]
+            }
+        }
+        case 'SET_ACCOUNTS': {
+            return {
+                ...state, users: action.accounts
             }
         }
         default:
             return state
     }
+}
+
+export const getAccounts = () => async (dispatch) => {
+    const accounts = await aboutUsAPI.getAccounts()
+    dispatch(loginActions.setAccounts(accounts))
 }
 
 export default loginReducer

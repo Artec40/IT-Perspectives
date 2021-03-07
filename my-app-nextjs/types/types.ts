@@ -22,6 +22,11 @@ export type ArticleType = {
     authorName: string
     authorPhoto: string
 }
+export type AccountType = {
+    accountId: number
+    accountName: string
+    accountPassword: string
+}
 export type KillerFeatureType = {
     killerFeatureDescription: string
     killerFeatureId: number

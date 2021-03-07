@@ -5,8 +5,8 @@ export const getAboutUsServerSideProps: GetServerSideProps = async (context) => 
     return {
         props: {
             initialReduxState: {
-                serverSideProjects: await aboutUsAPI.getProjects(),
                 serverSideEmployees: await aboutUsAPI.getEmployees(),
+                serverSideProjects: await aboutUsAPI.getProjects(),
                 serverSideArticles: await aboutUsAPI.getArticles()
             }
         }
@@ -31,6 +31,16 @@ export const getEmployeeServerSideProps: GetServerSideProps = async (context) =>
                 serverSideEmployee: await aboutUsAPI.getEmployee(Number(context.params.id)),
                 serverSideEmployeeProjects: await aboutUsAPI.getEmployeeProjects(Number(context.params.id)),
                 serverSideEmployeeArticles: await aboutUsAPI.getEmployeeArticles(Number(context.params.id))
+            }
+        }
+    }
+}
+
+export const getLoginServerSideProps: GetServerSideProps = async (context) => {
+    return {
+        props: {
+            initialReduxState: {
+                serverSideAccounts: await aboutUsAPI.getAccounts()
             }
         }
     }

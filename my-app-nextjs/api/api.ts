@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {
-    ArticleType, KillerFeatureType,
+    ArticleType, KillerFeatureType, AccountType,
     EmployeeType, ProjectType, CurrentEmployeeType
 } from "../types/types";
 
@@ -38,5 +38,8 @@ export const aboutUsAPI = {
     },
     async getKillerFeatures(projectId: number) {
         return (await instance.get<Array<KillerFeatureType>>(`projectkillerfeatures/${projectId}`)).data
+    },
+    async getAccounts() {
+        return (await instance.get<Array<AccountType>>('accounts/')).data
     }
 }
