@@ -27,6 +27,11 @@ export type AccountType = {
     accountName: string
     accountPassword: string
 }
+export type UserType = {
+    userId: null | number,
+    userName: string,
+    isAuth: boolean
+}
 export type KillerFeatureType = {
     killerFeatureDescription: string
     killerFeatureId: number

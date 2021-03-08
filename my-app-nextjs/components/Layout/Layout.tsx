@@ -5,9 +5,10 @@ import Footer from './Footer/Footer'
 import s from './Layout.module.scss'
 import {AppStateType} from "../../redux/redux-store";
 import { getAccounts } from '../../redux/login-reducer'
+import { UserType } from '../../types/types'
 
 const Layout = ({children}) => {
-    const user = useSelector((state: AppStateType) => state.loginPage.currentUser)
+    const user: UserType = useSelector((state: AppStateType) => state.loginPage.currentUser)
     const dispatch = useDispatch()
 
     useEffect(() => {

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {AppStateType} from '../../redux/redux-store'
 import s from './LoginPage.module.scss'
 import {loginActions} from "../../redux/login-actions";
+import {getAccounts} from "../../redux/login-reducer";
 
 const LoginPage = () => {
     const textNameValue: string = useSelector((state: AppStateType) => state.loginPage.textName)

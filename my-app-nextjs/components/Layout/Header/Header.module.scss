@@ -4,7 +4,7 @@
   grid-area: h;
   background-color: $color_turquoise;
   display: grid;
-  grid-template-areas: "im au sp c";
+  grid-template-areas: "im u au sp c";
   align-items: center;
   grid-template-rows: 1fr;
   img {
@@ -24,11 +24,14 @@
   .contacts {
     grid-area: c;
   }
+  .user {
+    grid-area: u;
+  }
 }
 
 @media (max-width: 1920px) {
   .Header {
-    grid-template-columns: 1fr 8vw 18vw 8vw;
+    grid-template-columns: 4vw 1fr 8vw 18vw 8vw;
     img {
       width: 50px;
     }
@@ -40,7 +43,7 @@
 
 @media (max-width: 1680px) {
   .Header {
-    grid-template-columns: 1fr 10vw 20vw 10vw;
+    grid-template-columns: 5vw 1fr 10vw 20vw 10vw;
     img {
       width: 50px;
     }
@@ -52,7 +55,7 @@
 
 @media (max-width: 1440px) {
   .Header {
-    grid-template-columns: 1fr 10vw 21vw 16vw;
+    grid-template-columns: 5vw 1fr 10vw 21vw 16vw;
     img {
       width: 50px;
     }
@@ -64,7 +67,7 @@
 
 @media (max-width: 1024px) {
   .Header {
-    grid-template-columns: 1fr 16vw 30vw 24vw;
+    grid-template-columns: 8vw 1fr 16vw 30vw 24vw;
     img {
       width: 50px;
     }
@@ -73,9 +76,10 @@
     font-size: 14px;
   }
 }
+
 @media (max-width: 768px) {
   .Header {
-    grid-template-columns: 1fr 18vw 40vw 22vw;
+    grid-template-columns: 9vw 1fr 18vw 40vw 22vw;
     img {
       width: 50px;
     }
