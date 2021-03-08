@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using my_api.Controllers.Requests;
 using my_api.Databases;
 
 namespace my_api.Controllers
@@ -61,6 +63,18 @@ namespace my_api.Controllers
             if (response == null)
                 return NotFound();
             return Ok(response);
+        }
+        [HttpPut("{id}")]
+        public ActionResult Put([FromRoute][Required] int id, [FromBody][Required] TeammatePutRequestBody request)//class TeammatePutRequestBody
+        {
+            var teammateById = from teammate in Context.Teammates
+                               where teammate.Id == id
+                               select teammate;
+            var curTeammate = teammateById.SingleOrDefault();
+            if (curTeammate == null) return NotFound();
+            curTeammate.ShortName = request.shortName;
+            Context.SaveChanges();
+            return Ok();
         }
     }
 }
