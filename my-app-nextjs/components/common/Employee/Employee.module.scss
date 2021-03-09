@@ -1,9 +1,28 @@
+@import '../../../styles';
+
 .Employee {
   text-align: center;
   img {
     border-radius: 6.5em;
   }
+  button {
+    background-color: #37B34A;
+    color: white;
+    height: 2em;
+    width: 15em;
+    outline: none;
+    border: none;
+  }
+
+  button:hover {
+    background: $color_turquoise;
+  }
+
+  button:active {
+    background: $color_shadow;
+  }
 }
+
 
 @media (max-width: 1920px) {
   .Employee {

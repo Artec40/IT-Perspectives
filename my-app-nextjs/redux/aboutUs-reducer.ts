@@ -3,6 +3,10 @@ import {
     KillerFeatureType, EmployeeType, ProjectType
 } from "../types/types"
 import {ActionsTypes} from "./aboutUs-actions";
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "./redux-store";
+import {aboutUsAPI} from "../api/api";
+import {aboutUsActions} from "./aboutUs-actions";
 
 let initialState = {
     companyName: {logo: '/favicon.ico', name: 'ИТ Перспективы'},
@@ -36,6 +40,11 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
                 articles: action.aboutUsPage.articles
             }
         }
+        case 'SET_EMPLOYEES': {
+            return {
+                ...state, employees: action.employees
+            }
+        }
         case 'SET_PROJECT_PAGE': {
             return {
                 ...state,
@@ -54,6 +63,12 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
         default:
             return state
     }
+}
+
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+export const getEmployees = (): ThunkType => async (dispatch) => {
+    const employees = await aboutUsAPI.getEmployees()
+    dispatch(aboutUsActions.setEmployees(employees))
 }
 
 export default aboutUsReducer

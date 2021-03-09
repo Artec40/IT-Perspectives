@@ -100,3 +100,12 @@ export const getCurrentKillerFeatures = (state: AppStateType): Array<ProjectPage
         image: k.killerFeatureImage
     }))
 }
+
+export const getShortNameByAccountId = (state: AppStateType, accountId: number | null): string | null => {
+    if (accountId === null)
+        return null
+    else {
+        let employeeByAccountId = state.aboutUs.employees.filter(e => e.teammateId === accountId)
+        return employeeByAccountId[0].teammateShortName
+    }
+}

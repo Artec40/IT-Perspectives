@@ -40,7 +40,6 @@ const EmployeeData: React.FC<PropsType> = ({serverSideEmployee, serverSideEmploy
     return <div>
         {(!employee || !projects || !articles) &&
         <div>Loading...</div>}
-
         {employee && projects && articles &&
         <div className={s.employeeData}>
             <h1 className={s.title}>О специалисте</h1>

@@ -1,18 +1,23 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {AppStateType} from '../../redux/redux-store'
 import s from './LoginPage.module.scss'
 import {loginActions} from "../../redux/login-actions";
-import {getAccounts} from "../../redux/login-reducer";
 
 const LoginPage = () => {
     const textNameValue: string = useSelector((state: AppStateType) => state.loginPage.textName)
     const textPasswordValue: string = useSelector((state: AppStateType) => state.loginPage.textPassword)
     const dispatch = useDispatch()
 
-    let onChangeName = (e) => { dispatch(loginActions.changeName(e.target.value)) }
-    let onChangePassword = (e) => { dispatch(loginActions.changePassword(e.target.value)) }
-    let onClick = () => { dispatch(loginActions.changeCurrentUser(textNameValue, textPasswordValue)) }
+    let onChangeName = (e) => {
+        dispatch(loginActions.changeName(e.target.value))
+    }
+    let onChangePassword = (e) => {
+        dispatch(loginActions.changePassword(e.target.value))
+    }
+    let onClick = () => {
+        dispatch(loginActions.changeCurrentUser(textNameValue, textPasswordValue))
+    }
 
     return <div className={s.Login}>
         <div className={s.Title}>

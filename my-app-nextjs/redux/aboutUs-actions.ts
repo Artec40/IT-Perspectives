@@ -12,6 +12,10 @@ export const aboutUsActions = {
         type: 'SET_ABOUT_US_PAGE', aboutUsPage: {projects, employees, articles}
     } as const),
 
+    setEmployees: (employees: Array<EmployeeType>) => ({
+        type: 'SET_EMPLOYEES', employees: employees
+    } as const),
+
     setProjectPage: (project: ProjectType,
                      killerFeatures: Array<KillerFeatureType>) => ({
         type: 'SET_PROJECT_PAGE', projectPage: {project, killerFeatures}
