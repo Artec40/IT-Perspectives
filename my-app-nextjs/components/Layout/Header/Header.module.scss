@@ -10,6 +10,21 @@
   img {
     grid-area: im;
   }
+  button {
+    margin-left: 1em;
+    background-color: rgba(0, 0, 0, 0);
+    color: $color_white;
+    outline: none;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  button:hover {
+    background: $color_shadow;
+  }
+
+  button:active {
+    background: $color_dark;
+  }
 }
 
 .item {

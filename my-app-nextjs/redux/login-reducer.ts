@@ -47,6 +47,14 @@ const loginReducer = (state = initialState, action: ActionsTypes): InitialStateT
                 ...state, users: action.accounts
             }
         }
+        case 'SET_USER_STATUS_FALSE': {
+            return {
+                ...state,
+                textName: '',
+                textPassword: '',
+                currentUser: {userId: null, userName: '', isAuth: false}
+            }
+        }
         default:
             return state
     }
