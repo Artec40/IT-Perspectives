@@ -40,7 +40,7 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
                 articles: action.aboutUsPage.articles
             }
         }
-        case 'SET_EMPLOYEES': {
+        case 'SET_EMPLOYEE': {
             return {
                 ...state, employees: action.employees
             }
@@ -66,9 +66,9 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
 }
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
-export const getEmployees = (): ThunkType => async (dispatch) => {
-    const employees = await aboutUsAPI.getEmployees()
-    dispatch(aboutUsActions.setEmployees(employees))
+export const saveEmployeeName = (id: number, name: { shortName: string }): ThunkType => async (dispatch) => {
+    await employeeAPI.changeEmployeeName(id, name)
+    const employee = await aboutUsAPI.getEmployee(id)
+    await dispatch(aboutUsActions.setEmployee(employee))
 }
-
 export default aboutUsReducer
