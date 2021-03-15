@@ -5,7 +5,7 @@ import {
 import {ActionsTypes} from "./aboutUs-actions";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType} from "./redux-store";
-import {aboutUsAPI} from "../api/api";
+import {aboutUsAPI, employeeAPI} from "../api/api";
 import {aboutUsActions} from "./aboutUs-actions";
 
 let initialState = {
@@ -42,7 +42,8 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
         }
         case 'SET_EMPLOYEE': {
             return {
-                ...state, employees: action.employees
+                ...state,
+                currentEmployee: action.employee
             }
         }
         case 'SET_PROJECT_PAGE': {

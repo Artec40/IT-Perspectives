@@ -14,9 +14,11 @@ type PropsType = {
 }
 
 const EmployeeInfo: React.FC<PropsType> = ({employee, projects}) => {
-
     return <div className={s.employeeInfo}>
-        <Employee image={employee.image} name={employee.name} id={0}/>
+        <Employee image={employee.image}
+                  name={employee.name}
+                  currentEmployeeId={employee.currentEmployeeId}
+                  isComponentLinked={employee.isComponentLinked}/>
         <AboutEmployee fullname={employee.fullname}
                        company={employee.company}
                        location={employee.location}

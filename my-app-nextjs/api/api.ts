@@ -38,8 +38,17 @@ export const aboutUsAPI = {
     },
     async getKillerFeatures(projectId: number) {
         return (await instance.get<Array<KillerFeatureType>>(`projectkillerfeatures/${projectId}`)).data
-    },
+    }
+}
+
+export const loginAPI = {
     async getAccounts() {
         return (await instance.get<Array<AccountType>>('accounts/')).data
+    }
+}
+
+export const employeeAPI = {
+    changeEmployeeName(id: number, name: { shortName: string }) {
+        return instance.put(`teammates/${id}`, name)
     }
 }

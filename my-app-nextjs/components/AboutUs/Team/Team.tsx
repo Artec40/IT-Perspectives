@@ -11,8 +11,9 @@ type PropsType = {
 const Team: React.FC<PropsType> = ({employees, articles}) => {
 
     let renderEmployees = (employees: Array<AboutUsPageEmployeeTypeSelector>) => {
-        return employees.map((e) => <Employee key={e.id} id={e.id}
-                                              image={e.image} name={e.name}/>)
+        return employees.map((e) => <Employee key={e.linkComponentId} linkComponentId={e.linkComponentId}
+                                              image={e.image} name={e.name}
+                                              isComponentLinked={e.isComponentLinked}/>)
     }
     let renderArticles = (articles: Array<AboutUsPageArticleTypeSelector>) => {
         return articles.map((e, i) => <ArticlePreview key={i} text={e.text} day={e.day}

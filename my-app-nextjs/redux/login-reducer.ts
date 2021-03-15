@@ -1,6 +1,6 @@
 import {AccountType} from "../types/types"
 import {ActionsTypes, loginActions} from "./login-actions"
-import {aboutUsAPI} from "../api/api";
+import {loginAPI} from "../api/api";
 import {AppStateType} from "./redux-store";
 import {ThunkAction} from "redux-thunk";
 
@@ -54,7 +54,7 @@ const loginReducer = (state = initialState, action: ActionsTypes): InitialStateT
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 export const getAccounts = (): ThunkType => async (dispatch) => {
-    const accounts = await aboutUsAPI.getAccounts()
+    const accounts = await loginAPI.getAccounts()
     dispatch(loginActions.setAccounts(accounts))
 }
 

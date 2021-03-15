@@ -4,17 +4,20 @@ import Link from 'next/link'
 import s from './Employee.module.scss'
 import {AboutUsPageEmployeeTypeSelector} from '../../../types/types'
 import {AppStateType} from "../../../redux/redux-store";
-import {getShortNameByAccountId} from '../../../redux/aboutUs-selector'
-import {getEmployees} from "../../../redux/aboutUs-reducer";
+import {saveEmployeeName} from "../../../redux/aboutUs-reducer";
+import EmployeeNameDataForm from './EmployeeNameDataForm'
 
-const Employee: React.FC<AboutUsPageEmployeeTypeSelector> = ({id, image, name}) => {
+const Employee: React.FC<AboutUsPageEmployeeTypeSelector> = ({
+                                                                 linkComponentId,
+                                                                 currentEmployeeId,
+                                                                 image,
+                                                                 name,
+                                                                 isComponentLinked
+                                                             }) => {
 //todo типизировать useState
     const [editMode, setEditMode] = useState(false)
 
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(getEmployees())
-    }, [])
 
     let isUserAuthorised: boolean = useSelector((state: AppStateType) => state.loginPage.currentUser.isAuth)
     let userId: number = useSelector((state: AppStateType) => state.loginPage.currentUser.userId)
@@ -33,12 +36,17 @@ const Employee: React.FC<AboutUsPageEmployeeTypeSelector> = ({id, image, name}) 
             </div>
         </Link>
     else
-        return <Link href={'/employee/' + id}>
-            <div className={s.Employee}>
-                <img src={image}/>
-                <h4>{name}</h4>
-            </div>
-        </Link>
+        return <div className={s.Employee}>
+            {editMode
+                ? <EmployeeNameDataForm name={name} image={image} onSubmit={changeNameSubmit}/>
+                : <div>
+                    <img src={image}/>
+                    <h4>{name}</h4>
+                    {isUserAuthorised && (userId === currentEmployeeId) &&
+                    <button onClick={() => setEditMode(true)}>Редактировать</button>}
+                </div>}
+        </div>
+
 }
 
 export default Employee

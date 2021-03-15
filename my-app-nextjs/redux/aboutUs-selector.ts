@@ -36,9 +36,10 @@ export const getProjectsElements = (state: AppStateType): Array<AboutUsPageProje
 
 export const getEmployeesElements = (state: AppStateType): Array<AboutUsPageEmployeeTypeSelector> => {
     return state.aboutUs.employees.map(e => ({
-        id: e.teammateId,
+        linkComponentId: e.teammateId,
         image: e.teammatePhoto,
-        name: e.teammateShortName
+        name: e.teammateShortName,
+        isComponentLinked: true
     }))
 }
 
@@ -64,6 +65,7 @@ export const getCurrentProject = (state: AppStateType): ProjectPageProjectTypeSe
 export const getCurrentEmployee = (state: AppStateType): EmployeePageCurrentEmployeeTypeSelector => {
     if (state.aboutUs.currentEmployee)
         return {
+            currentEmployeeId: state.aboutUs.currentEmployee.teammateId,
             image: state.aboutUs.currentEmployee.teammatePhoto,
             name: state.aboutUs.currentEmployee.teammateShortName,
             fullname: state.aboutUs.currentEmployee.teammateFullName,
@@ -72,7 +74,8 @@ export const getCurrentEmployee = (state: AppStateType): EmployeePageCurrentEmpl
             website: state.aboutUs.currentEmployee.teammateWebsite,
             phone: state.aboutUs.currentEmployee.teammatePhone,
             articlesCount: state.aboutUs.currentEmployee.teammateArticlesCount,
-            personalInfo: state.aboutUs.currentEmployee.teammatePersonalInfo
+            personalInfo: state.aboutUs.currentEmployee.teammatePersonalInfo,
+            isComponentLinked: false
         }
 }
 
