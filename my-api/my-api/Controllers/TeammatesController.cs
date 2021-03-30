@@ -59,7 +59,7 @@ namespace my_api.Controllers
                                     teammateArticlesCount = teammate.ArticlesCount,
                                     teammatePersonalInfo = teammate.PersonalInfo,
                                 };
-            var response = teammateQuery.SingleOrDefault();
+            var response = teammateQuery.SingleOrDefault(); 
             if (response == null)
                 return NotFound();
             return Ok(response);
