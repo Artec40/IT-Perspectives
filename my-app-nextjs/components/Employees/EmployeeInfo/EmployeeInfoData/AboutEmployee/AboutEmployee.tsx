@@ -11,7 +11,12 @@ type PropsType = {
     personalInfo: string
 }
 
-const AboutEmployee: React.FC<PropsType> = ({fullname, company, location, website, phone, articlesCount, personalInfo}) => {
+const AboutEmployee: React.FC<PropsType> = ({
+                                                fullname, company,
+                                                location, website,
+                                                phone, articlesCount,
+                                                personalInfo
+                                            }) => {
     return <div className={s.aboutEmployee}>
         <h4>О себе</h4>
         <div>Полное имя: {fullname}</div>
