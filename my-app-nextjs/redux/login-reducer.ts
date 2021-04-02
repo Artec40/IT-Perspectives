@@ -1,6 +1,6 @@
 import {AccountType} from "../types/types"
 import {ActionsTypes, loginActions} from "./login-actions"
-import {aboutUsAPI} from "../api/api";
+import {loginAPI} from "../api/api";
 import {AppStateType} from "./redux-store";
 import {ThunkAction} from "redux-thunk";
 
@@ -47,6 +47,14 @@ const loginReducer = (state = initialState, action: ActionsTypes): InitialStateT
                 ...state, users: action.accounts
             }
         }
+        case 'SET_USER_STATUS_FALSE': {
+            return {
+                ...state,
+                textName: '',
+                textPassword: '',
+                currentUser: {userId: null, userName: '', isAuth: false}
+            }
+        }
         default:
             return state
     }
@@ -54,7 +62,7 @@ const loginReducer = (state = initialState, action: ActionsTypes): InitialStateT
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 export const getAccounts = (): ThunkType => async (dispatch) => {
-    const accounts = await aboutUsAPI.getAccounts()
+    const accounts = await loginAPI.getAccounts()
     dispatch(loginActions.setAccounts(accounts))
 }
 

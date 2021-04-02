@@ -1,6 +1,6 @@
 import React from 'react'
-import {EmployeePageProjectTypeSelector} from '../../../../types/types'
-import ProjectCard from '../../../common/ProjectCard/ProjectCard'
+import {EmployeePageProjectTypeSelector} from '../../../../../types/types'
+import ProjectCard from '../../../../common/ProjectCard/ProjectCard'
 import s from './LastActivity.module.scss'
 
 type PropsType = {

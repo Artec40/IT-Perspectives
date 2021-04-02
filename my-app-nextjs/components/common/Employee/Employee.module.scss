@@ -5,24 +5,10 @@
   img {
     border-radius: 6.5em;
   }
-  button {
-    background-color: #37B34A;
-    color: white;
-    height: 2em;
-    width: 15em;
-    outline: none;
-    border: none;
-  }
-
-  button:hover {
-    background: $color_turquoise;
-  }
-
-  button:active {
-    background: $color_shadow;
+  input {
+    margin: 2em 0;
   }
 }
-
 
 @media (max-width: 1920px) {
   .Employee {

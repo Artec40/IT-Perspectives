@@ -1,4 +1,4 @@
-@import '../../../../styles';
+@import '../../../../../styles';
 
 .aboutEmployee{
   grid-area: aboutEmp;
@@ -6,6 +6,9 @@
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-bottom: 3em;
+  input{
+    width: auto;
+  }
 }
 .padding_top{
   padding-top:1.5em;

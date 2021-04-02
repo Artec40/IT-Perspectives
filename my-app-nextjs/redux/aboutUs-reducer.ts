@@ -5,7 +5,7 @@ import {
 import {ActionsTypes} from "./aboutUs-actions";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType} from "./redux-store";
-import {aboutUsAPI} from "../api/api";
+import {aboutUsAPI, employeeAPI, employeeDataType} from "../api/api";
 import {aboutUsActions} from "./aboutUs-actions";
 
 let initialState = {
@@ -40,9 +40,10 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
                 articles: action.aboutUsPage.articles
             }
         }
-        case 'SET_EMPLOYEES': {
+        case 'SET_EMPLOYEE': {
             return {
-                ...state, employees: action.employees
+                ...state,
+                currentEmployee: action.employee
             }
         }
         case 'SET_PROJECT_PAGE': {
@@ -66,9 +67,9 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
 }
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
-export const getEmployees = (): ThunkType => async (dispatch) => {
-    const employees = await aboutUsAPI.getEmployees()
-    dispatch(aboutUsActions.setEmployees(employees))
+export const saveEmployeeData = (id: number, employeeData: employeeDataType): ThunkType => async (dispatch) => {
+    await employeeAPI.changeEmployeeData(id, employeeData)
+    const employee = await aboutUsAPI.getEmployee(id)
+    await dispatch(aboutUsActions.setEmployee(employee))
 }
-
 export default aboutUsReducer

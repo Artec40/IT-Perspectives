@@ -1,12 +1,13 @@
-import React from 'react'
-import s from './EmployeeInfo.module.scss'
-import AboutEmployee from './AboutEmployee/AboutEmployee'
-import LastActivity from './LastActivity/LastActivity'
-import Employee from '../../common/Employee/Employee'
+import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
 import {
     EmployeePageCurrentEmployeeTypeSelector,
     EmployeePageProjectTypeSelector
 } from '../../../types/types'
+import EmployeeInfoData from './EmployeeInfoData/EmployeeInfoData'
+import EmployeeInfoDataForm from "./EmployeeInfoDataForm/EmployeeInfoDataForm";
+import {saveEmployeeData} from "../../../redux/aboutUs-reducer";
+import {employeeDataType} from "../../../api/api";
 
 type PropsType = {
     employee: EmployeePageCurrentEmployeeTypeSelector
@@ -15,17 +16,25 @@ type PropsType = {
 
 const EmployeeInfo: React.FC<PropsType> = ({employee, projects}) => {
 
-    return <div className={s.employeeInfo}>
-        <Employee image={employee.image} name={employee.name} id={0}/>
-        <AboutEmployee fullname={employee.fullname}
-                       company={employee.company}
-                       location={employee.location}
-                       website={employee.website}
-                       phone={employee.phone}
-                       articlesCount={employee.articlesCount}
-                       personalInfo={employee.personalInfo}/>
-        <LastActivity projects={projects}/>
-    </div>
+    const [editMode, setEditMode] = useState(false)
+
+    const dispatch = useDispatch()
+
+    const changeNameSubmit = async (formData: employeeDataType) => {
+        dispatch(saveEmployeeData(employee.currentEmployeeId, {
+            ...formData,
+            ArticlesCount: Number(formData.ArticlesCount)
+        }))
+            .then(() => {setEditMode(false)})
+    }
+
+    return editMode
+        ? <EmployeeInfoDataForm employee={employee}
+                                projects={projects}
+                                changeNameSubmit={changeNameSubmit}/>
+        : <EmployeeInfoData employee={employee}
+                            projects={projects}
+                            setEditModeTrue={() => setEditMode(true)}/>
 }
 
 export default EmployeeInfo

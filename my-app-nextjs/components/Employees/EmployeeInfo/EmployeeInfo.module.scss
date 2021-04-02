@@ -5,10 +5,29 @@
   position: relative;
   @extend %div_body_white_with_shadow;
   display: grid;
-  grid-template-areas: 'emp aboutEmp lastActivity';
-  grid-template-rows: 1fr;
+  grid-template-areas: 'emp aboutEmp lastActivity' 'button aboutEmp lastActivity';
+  grid-template-rows: 3fr 1fr;
   text-align: left;
   align-items: center;
+  button {
+    grid-area: button;
+    text-align: center;
+    margin: 0 auto 5em auto;
+    background-color: $color_success;
+    color: $color_white;
+    height: 2em;
+    width: 15em;
+    outline: none;
+    border: none;
+  }
+
+  button:hover {
+    background: $color_turquoise;
+  }
+
+  button:active {
+    background: $color_shadow;
+  }
 }
 
 @media (max-width: 1920px) {

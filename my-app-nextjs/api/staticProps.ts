@@ -1,5 +1,5 @@
 import {GetServerSideProps} from 'next'
-import {aboutUsAPI} from './api'
+import {aboutUsAPI, loginAPI} from './api'
 
 export const getAboutUsServerSideProps: GetServerSideProps = async (context) => {
     return {
@@ -40,7 +40,7 @@ export const getLoginServerSideProps: GetServerSideProps = async (context) => {
     return {
         props: {
             initialReduxState: {
-                serverSideAccounts: await aboutUsAPI.getAccounts()
+                serverSideAccounts: await loginAPI.getAccounts()
             }
         }
     }

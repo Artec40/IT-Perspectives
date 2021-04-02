@@ -65,9 +65,11 @@ export type AboutUsPageProjectTypeSelector = {
     name: string
 }
 export type AboutUsPageEmployeeTypeSelector = {
-    id: number
+    linkComponentId?: number
+    currentEmployeeId?: number
     image: string
     name: string
+    isComponentLinked: boolean
 }
 export type AboutUsPageArticleTypeSelector = {
     day: string
@@ -97,6 +99,7 @@ export type EmployeePageProjectTypeSelector = {
     description: string
 }
 export type EmployeePageCurrentEmployeeTypeSelector = {
+    currentEmployeeId: number
     image: string
     name: string
     fullname: string
@@ -106,4 +109,5 @@ export type EmployeePageCurrentEmployeeTypeSelector = {
     phone: string
     articlesCount: number
     personalInfo: string
+    isComponentLinked: boolean
 }
