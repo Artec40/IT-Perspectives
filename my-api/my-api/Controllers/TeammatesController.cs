@@ -65,14 +65,21 @@ namespace my_api.Controllers
             return Ok(response);
         }
         [HttpPut("{id}")]
-        public ActionResult Put([FromRoute][Required] int id, [FromBody][Required] TeammatePutRequestBody request)//class TeammatePutRequestBody
+        public ActionResult Put([FromRoute][Required] int id, [FromBody][Required] TeammatePutRequestBody request)
         {
             var teammateById = from teammate in Context.Teammates
                                where teammate.Id == id
                                select teammate;
             var curTeammate = teammateById.SingleOrDefault();
             if (curTeammate == null) return NotFound();
-            curTeammate.ShortName = request.shortName;
+            curTeammate.ShortName = request.ShortName;
+            curTeammate.FullName = request.FullName;
+            curTeammate.Company = request.Company;
+            curTeammate.Location = request.Location;
+            curTeammate.Website = request.Website;
+            curTeammate.Phone = request.Phone;
+            curTeammate.ArticlesCount = request.ArticlesCount;
+            curTeammate.PersonalInfo = request.PersonalInfo;
             Context.SaveChanges();
             return Ok();
         }

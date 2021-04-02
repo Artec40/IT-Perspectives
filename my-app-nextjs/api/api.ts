@@ -46,9 +46,18 @@ export const loginAPI = {
         return (await instance.get<Array<AccountType>>('accounts/')).data
     }
 }
-
+export type employeeDataType = {
+    ShortName: string,
+    FullName: string,
+    Company: string,
+    Location: string,
+    Website: string,
+    Phone: string,
+    ArticlesCount: number,
+    PersonalInfo: string
+}
 export const employeeAPI = {
-    changeEmployeeName(id: number, name: { shortName: string }) {
-        return instance.put(`teammates/${id}`, name)
+    changeEmployeeData(id: number, employeeData: employeeDataType) {
+        return instance.put(`teammates/${id}`, employeeData)
     }
 }

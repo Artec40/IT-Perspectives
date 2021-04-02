@@ -5,7 +5,7 @@ import {
 import {ActionsTypes} from "./aboutUs-actions";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType} from "./redux-store";
-import {aboutUsAPI, employeeAPI} from "../api/api";
+import {aboutUsAPI, employeeAPI, employeeDataType} from "../api/api";
 import {aboutUsActions} from "./aboutUs-actions";
 
 let initialState = {
@@ -67,8 +67,8 @@ const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStat
 }
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
-export const saveEmployeeName = (id: number, name: { shortName: string }): ThunkType => async (dispatch) => {
-    await employeeAPI.changeEmployeeName(id, name)
+export const saveEmployeeData = (id: number, employeeData: employeeDataType): ThunkType => async (dispatch) => {
+    await employeeAPI.changeEmployeeData(id, employeeData)
     const employee = await aboutUsAPI.getEmployee(id)
     await dispatch(aboutUsActions.setEmployee(employee))
 }

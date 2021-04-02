@@ -6,7 +6,8 @@ import {
 } from '../../../types/types'
 import EmployeeInfoData from './EmployeeInfoData/EmployeeInfoData'
 import EmployeeInfoDataForm from "./EmployeeInfoDataForm/EmployeeInfoDataForm";
-import {saveEmployeeName} from "../../../redux/aboutUs-reducer";
+import {saveEmployeeData} from "../../../redux/aboutUs-reducer";
+import {employeeDataType} from "../../../api/api";
 
 type PropsType = {
     employee: EmployeePageCurrentEmployeeTypeSelector
@@ -19,11 +20,12 @@ const EmployeeInfo: React.FC<PropsType> = ({employee, projects}) => {
 
     const dispatch = useDispatch()
 
-    //todo Написать автотипизацию для formData, типизировать useState.
-    const changeNameSubmit = async (formData: any) => {
-        dispatch(saveEmployeeName(employee.currentEmployeeId, {shortName: formData.name})).then(() => {
-            setEditMode(false)
-        })
+    const changeNameSubmit = async (formData: employeeDataType) => {
+        dispatch(saveEmployeeData(employee.currentEmployeeId, {
+            ...formData,
+            ArticlesCount: Number(formData.ArticlesCount)
+        }))
+            .then(() => {setEditMode(false)})
     }
 
     return editMode

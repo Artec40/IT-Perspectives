@@ -1,12 +1,17 @@
-import {Field} from "react-final-form";
 import React from "react";
+import {Field} from "react-final-form";
 import s from "./Employee.module.scss";
 
-const EmployeeNameDataForm = ({name, image}) => {
+type PropsType = {
+    ShortName: string
+    image: string
+}
+
+const EmployeeNameDataForm: React.FC<PropsType> = ({ShortName, image}) => {
     return (
         <div className={s.Employee}>
             <img src={image}/>
-            <Field name='name' component='input' type='text' defaultValue={name}/>
+            <Field name='ShortName' component='input' type='text' defaultValue={ShortName}/>
         </div>
 
     )
