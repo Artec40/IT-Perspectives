@@ -57,7 +57,7 @@ export type employeeDataType = {
     PersonalInfo: string
 }
 export const employeeAPI = {
-    changeEmployeeData(id: number, employeeData: employeeDataType) {
-        return instance.put(`teammates/${id}`, employeeData)
+    async changeEmployeeData(id: number, employeeData: employeeDataType) {
+        return (await instance.put<employeeDataType>(`teammates/${id}`, employeeData)).data
     }
 }

@@ -28,7 +28,7 @@ let initialState = {
     currentKillerFeatures: [] as Array<KillerFeatureType>
 }
 
-type initialStateType = typeof initialState
+export type initialStateType = typeof initialState
 
 const aboutUsReducer = (state = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
@@ -70,6 +70,6 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 export const saveEmployeeData = (id: number, employeeData: employeeDataType): ThunkType => async (dispatch) => {
     await employeeAPI.changeEmployeeData(id, employeeData)
     const employee = await aboutUsAPI.getEmployee(id)
-    await dispatch(aboutUsActions.setEmployee(employee))
+    dispatch(aboutUsActions.setEmployee(employee))
 }
 export default aboutUsReducer
