@@ -20,7 +20,7 @@ const employeeApiMock = employeeAPI as jest.Mocked<typeof employeeAPI>
 let employeeData: employeeDataType = {
     ShortName: 'Лео',
     ArticlesCount: 2,
-    Company: 'Канализейшен',
+    Company: 'Черепашки ниндзя',
     FullName: 'Леонардо Да Винчи',
     Location: 'AMERICA!!!',
     PersonalInfo: 'I AM NINJA, FOR FREEDOM, FOR AMERICA!',
