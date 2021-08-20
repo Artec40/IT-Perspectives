@@ -7,17 +7,12 @@ namespace my_api
     [Table("killer_feature")]
     public class KillerFeature
     {
-        [Column("id_killer_feature")]
-        public int Id { get; set; }
-        [Column("name")]
-        public string Name { get; set; }
-        [Column("description")]
-        public string Description { get; set; }
-        [Column("image_link")]
-        public string ImageLink { get; set; }
+        [Column("id_killer_feature")] public int Id { get; set; }
+        [Column("name")] public string Name { get; set; }
+        [Column("description")] public string Description { get; set; }
+        [Column("image_link")] public string ImageLink { get; set; }
+        [Column("id_project")] public int ProjectId { get; set; }
         public Project Project { get; set; }
-        [Column("id_project")]
-        public int ProjectId { get; set; }
 
         public static void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,9 +25,7 @@ namespace my_api
             modelBuilder.Entity<KillerFeature>().HasIndex(x => x.Name).IsUnique();
 
             modelBuilder.Entity<KillerFeature>().HasOne(x => x.Project).WithMany(b => b.KillerFeatures)
-                        .HasForeignKey(p => p.ProjectId);
+                .HasForeignKey(p => p.ProjectId);
         }
-
-
     }
 }
